@@ -1,0 +1,4 @@
+*.csv
+liste_csv/
+variables_de_connexion.env
+

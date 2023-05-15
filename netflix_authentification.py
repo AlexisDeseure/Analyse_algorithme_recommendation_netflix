@@ -98,7 +98,6 @@ if __name__ == "__main__":
     driver = webdriver.Chrome()
     wait = WebDriverWait(driver, 10)
     main()
-    wait.quit()
     driver.quit()
     
 
