@@ -12,6 +12,7 @@ import os
 
 
 def authentification_netflix():
+    """fonction permettant de s'authentifier sur netflix"""
     driver.get("https://www.netflix.com/fr-en/login")  # accès à netflix
 
     # A changer selon le compte utilisé
@@ -30,7 +31,6 @@ def authentification_netflix():
     password_input.submit()
     element = wait.until(EC.visibility_of_element_located(
         (By.XPATH, f"//a[@href='/SwitchProfile?tkn={os.getenv('TOKEN')}']")))
-    # element = driver.find_element(By.XPATH, "//a[@href='/SwitchProfile?tkn=ZC5VAV2RCFEEBESIO2SWJWDUN4']")
     element.click()
 
     
@@ -62,6 +62,7 @@ def recuperer_liste_ligne():
     df.to_csv('data.csv', index=False)
 
 def recuperer_titres_catégorie(ligne,directory_name):
+    """récupérer les titres de la catégorie située sur la ligne donnée en paramètre"""
     driver.get(ligne[1])
     wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'ltr-1pq5s1g')))
     time.sleep(5)
@@ -80,20 +81,43 @@ def recuperer_titres_catégorie(ligne,directory_name):
     df.to_csv(f'./{directory_name}/{ligne[2]}.csv', index=False)
     
 def recuperer_tous_titres():
+    '''récupérer les titres de toutes les catégories'''
     directory_name = "listes_csv"
     if not os.path.exists(directory_name):
         # si le répertoire n'existe pas, créez-le
         os.mkdir(directory_name)
     df = pd.read_csv('data.csv')
+    i = 0
+    longueur = len(df)
     for lignes in df.itertuples():
-        print(lignes[2]+" en cours de récupération")
+        i+=1
+        print(f"{i}/{longueur} : {lignes[2]} en cours de récupération...", end='', flush=True)
         recuperer_titres_catégorie(lignes,directory_name)
-        print(lignes[2]+" récupéré")
+        print(f"\r{i}/{longueur} : {lignes[2]} récupéré"+" "*50)
+
+def parcourt_csv(file):
+    df = pd.read_csv(file)
+    for lignes in df.itertuples():
+        string = lignes.liens
+        string = string.replace("watch","title", 1)
+        driver.get(string)
+        time.sleep(10)
+
+
+def parcourt_titres_informations():
+    """parcourt les fichiers csv contenant les titres et récupère les informations de chaque titre"""
+    directory = "listes_csv"
+    for file in os.listdir(directory):
+        file_path = os.path.join(directory, file)
+        # Vérifier si le chemin correspond à un fichier csv et ne pas inclure les sous-dossiers
+        if os.path.isfile(file_path) and file.endswith('.csv'):
+            df = parcourt_csv(file_path)
 
 def main():
     authentification_netflix()
     recuperer_liste_ligne()
     recuperer_tous_titres()
+    parcourt_titres_informations()
     time.sleep(10)
 
 
