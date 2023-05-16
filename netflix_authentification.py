@@ -4,11 +4,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options #permet de ne pas ouvrir le navigateur
 from bs4 import BeautifulSoup
 import pandas as pd
 from dotenv import load_dotenv #permet de définir des variables d'environnement pour cacher les identifiants
 import os
-import urllib.parse
 
 
 
@@ -232,8 +232,13 @@ def main():
 
 
 if __name__ == "__main__":
-    # Configuration du navigateur
-    driver = webdriver.Chrome()
+
+    # Configuration de Chrome
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")  # Exécuter Chrome en mode headless
+
+    # Création de l'instance de Chrome avec les options
+    driver = webdriver.Chrome(options=chrome_options)
     wait = WebDriverWait(driver, 10)
     main()
     driver.quit()
