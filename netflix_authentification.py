@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options #permet de ne pas ouvrir le navigateur
+from selenium.common.exceptions import TimeoutException
 from bs4 import BeautifulSoup
 import pandas as pd
 from dotenv import load_dotenv #permet de définir des variables d'environnement pour cacher les identifiants
@@ -103,16 +104,19 @@ def parcourt_csv(file,nom_categorie):
     for lignes in df.itertuples():
         driver.get(f"https://www.netflix.com/title/{lignes.ID}")
         time.sleep(1) #important pour l'affichage
-        wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]')))
-        html = driver.find_element(By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]').get_attribute('innerHTML')
-        soup = BeautifulSoup(html, 'html.parser')
-        div_year = soup.find('div', {'class': 'year'})
-        span_duration = soup.find('span', {'class': 'duration'})
-        span_score = soup.find('span', {'class': 'match-score'})
-        span_maturity = soup.find('span', {'class': 'maturity-number'})
-        div_description = soup.find('div', {'class': 'ptrack-content'})
-        span_prevent = soup.find('span', {'class': 'ltr-1q4vxyr'})
-        div_mise_en_avant_supp = soup.find('div', {'class': 'supplemental-message'})
+        try:
+            wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]')))
+            html = driver.find_element(By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]').get_attribute('innerHTML')
+            soup = BeautifulSoup(html, 'html.parser')
+            div_year = soup.find('div', {'class': 'year'})
+            span_duration = soup.find('span', {'class': 'duration'})
+            span_score = soup.find('span', {'class': 'match-score'})
+            span_maturity = soup.find('span', {'class': 'maturity-number'})
+            div_description = soup.find('div', {'class': 'ptrack-content'})
+            span_prevent = soup.find('span', {'class': 'ltr-1q4vxyr'})
+            div_mise_en_avant_supp = soup.find('div', {'class': 'supplemental-message'})
+        except TimeoutException:
+            print("La présence de l'élément n'a pas pu être vérifiée dans le délai imparti.")
         if div_mise_en_avant_supp is not None:
             div_mise_en_avant_supp = True
         else:
@@ -230,10 +234,7 @@ def main():
     print("Informations récupérées\n")
     time.sleep(10)
 
-
-if __name__ == "__main__":
-
-    
+def run_chrome_driver():
     # ''' à commenter pour afficher la fenêtre chrome 
     # Configuration de Chrome
     chrome_options = Options()
@@ -248,5 +249,38 @@ if __name__ == "__main__":
     wait = WebDriverWait(driver, 10)
     main()
     driver.quit()
+
+if __name__ == "__main__":
+
+    # ''' à commenter pour afficher la fenêtre chrome 
+    # Configuration de Chrome
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")  # Exécuter Chrome en mode headless
+    chrome_options.add_argument("--silent") # Exécuter Chrome en mode silencieux
+    chrome_options.add_argument("--disable-logging")  # Désactiver les messages de la console
+    chrome_options.add_argument("--log-level=3")  # Définir le niveau de journalisation de la console
+    # '''
+
+    # Création de l'instance de Chrome avec les options
+    driver = webdriver.Chrome(options=chrome_options)
+    wait = WebDriverWait(driver, 10)
+    main()
+    driver.quit()
+
+    '''# Nombre d'instances de ChromeDriver à lancer
+num_instances = 5
+
+# Liste pour stocker les processus
+processes = []
+
+# Lancement des instances de ChromeDriver en parallèle
+for _ in range(num_instances):
+    process = Process(target=run_chrome_driver)
+    process.start()
+    processes.append(process)
+
+# Attente de la fin de tous les processus
+for process in processes:
+    process.join()'''
     
 
