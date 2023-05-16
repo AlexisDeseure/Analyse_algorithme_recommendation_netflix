@@ -29,7 +29,7 @@ def authentification_netflix():
     password_input.send_keys(password)
     password_input.submit()
     element = wait.until(EC.visibility_of_element_located(
-        (By.XPATH, "//a[@href='/SwitchProfile?tkn=ZC5VAV2RCFEEBESIO2SWJWDUN4']")))
+        (By.XPATH, f"//a[@href='/SwitchProfile?tkn={os.getenv('TOKEN')}']")))
     # element = driver.find_element(By.XPATH, "//a[@href='/SwitchProfile?tkn=ZC5VAV2RCFEEBESIO2SWJWDUN4']")
     element.click()
 
