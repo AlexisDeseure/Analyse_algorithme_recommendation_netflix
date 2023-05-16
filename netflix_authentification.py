@@ -102,6 +102,7 @@ def parcourt_csv(file,nom_categorie):
     time.sleep(1) #important pour que la requete fonctionne
     for lignes in df.itertuples():
         driver.get(f"https://www.netflix.com/title/{lignes.ID}")
+        time.sleep(1) #important pour l'affichage
         wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]')))
         html = driver.find_element(By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]').get_attribute('innerHTML')
         soup = BeautifulSoup(html, 'html.parser')
@@ -111,9 +112,11 @@ def parcourt_csv(file,nom_categorie):
         span_maturity = soup.find('span', {'class': 'maturity-number'})
         div_description = soup.find('div', {'class': 'ptrack-content'})
         span_prevent = soup.find('span', {'class': 'ltr-1q4vxyr'})
-        div_mise_en_avant_supp = soup.find('div', {'class': 'ltr-s5xdrg'})
+        div_mise_en_avant_supp = soup.find('div', {'class': 'supplemental-message'})
         if div_mise_en_avant_supp is not None:
             div_mise_en_avant_supp = True
+        else:
+            div_mise_en_avant_supp = False
         wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'about-wrapper')))
         html = driver.find_element(By.CLASS_NAME, 'about-wrapper').get_attribute('innerHTML')
         soup = BeautifulSoup(html, 'html.parser')
@@ -136,17 +139,21 @@ def parcourt_csv(file,nom_categorie):
                             tab_a_propos[dic_a_propos[key]] = valeur.text.strip().replace(',', '')
                         else:
                             tab_a_propos[dic_a_propos[key]] += f",{valeur.text.strip().replace(',', '')}"
-        wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'moreLikeThis--container')))
-        html = driver.find_element(By.CLASS_NAME, 'moreLikeThis--container').get_attribute('innerHTML')
-        soup = BeautifulSoup(html, 'html.parser')
-        div_container = soup.find_all('div', {'class': 'ptrack-content'})
-        recommendations = ""
-        for div in div_container:
-            start_index = div.find('"video_id":') + len('"video_id":') #on cherche l'index du début de l'ID
-            end_index = div.find(',', start_index) #on cherche l'index de la fin de l'ID
-            recommendations += div.get("data-ui-tracking-context")[start_index:end_index]+"," #on récupère l'ID
-        recommendations = recommendations[:-1] #on enlève la dernière virgule
-        print(recommendations)
+        try:
+            wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'moreLikeThis--container')))
+            html = driver.find_element(By.CLASS_NAME, 'moreLikeThis--container')
+            html = html.get_attribute('innerHTML')
+            soup = BeautifulSoup(html, 'html.parser')
+            div_container = soup.find_all('div', {'class': 'titleCard-imageWrapper'})
+            recommendations = ""
+            for div in div_container:
+                div = div.find('div', {'class': 'ptrack-content'}).get("data-ui-tracking-context")
+                start_index = div.find('%22video_id%22:') + len('%22video_id%22:') #on cherche l'index du début de l'ID
+                end_index = div.find(',', start_index) #on cherche l'index de la fin de l'ID
+                recommendations += div[start_index:end_index]+"," #on récupère l'ID
+            recommendations = recommendations[:-1] #on enlève la dernière virgule
+        except:
+            recommendations = None
         data.append([nom_categorie,
                      lignes.titres,
                      lignes.ID,
@@ -162,8 +169,8 @@ def parcourt_csv(file,nom_categorie):
                      tab_a_propos[1],
                      tab_a_propos[2],
                      tab_a_propos[3],
-                     tab_a_propos[4]],
-                     recommendations)
+                     tab_a_propos[4],
+                     recommendations])
     df = pd.DataFrame(data, columns=['categorie',
                                      'titres', 
                                      'ID', 
@@ -187,19 +194,25 @@ def parcourt_csv(file,nom_categorie):
 def parcourt_titres_informations():
     """parcourt les fichiers csv contenant les titres et récupère les informations de chaque titre"""
     directory = "listes_csv"
-    df = pd.DataFrame()
     longueur = len(os.listdir(directory))
     i=0
+    first = True
     for file in os.listdir(directory):
         i+=1
         print(f"{i}/{longueur} : {file} en cours de traitement...", end='', flush=True)
         file_path = os.path.join(directory, file)
         # Vérifier si le chemin correspond à un fichier csv et ne pas inclure les sous-dossiers
         if os.path.isfile(file_path) and file.endswith('.csv'):
-            df = pd.concat([df, parcourt_csv(file_path,file[:-4])],axis=0)
-        print(df)
+            if first:
+                df = parcourt_csv(file_path,file[:-4])
+                df.to_csv('bdd_series.csv', index=False)
+                first = False
+            else:
+                df = pd.read_csv('bdd_series.csv')
+                df = pd.concat([df, parcourt_csv(file_path,file[:-4])],axis=0)
+                df.to_csv('bdd_series.csv', index=False)
         print(f"\r{i}/{longueur} : {file}  traité"+" "*50)
-    df.to_csv('bdd_series.csv', index=False)
+    
 
 
 def main():
