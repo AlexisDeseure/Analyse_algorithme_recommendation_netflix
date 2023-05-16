@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 import pandas as pd
 from dotenv import load_dotenv #permet de définir des variables d'environnement pour cacher les identifiants
@@ -37,7 +38,10 @@ def authentification_netflix():
 def recuperer_liste_ligne():
     '''récupérer la liste des noms et liens des séries/films situés sur la ligne donnée en paramètre'''
     wait.until(EC.presence_of_element_located((By.ID, 'main-view')))
-    time.sleep(10)
+    # Appuyer sur la touche bas dans la fenêtre active
+    for _ in range(100):
+        driver.find_element(By.TAG_NAME, "body").send_keys(Keys.PAGE_DOWN)
+    
     #récupération du code html
     html = driver.find_element(By.ID,'main-view').get_attribute('innerHTML')
     #création d'un objet BeautifulSoup pour pouvoir parser le code html
