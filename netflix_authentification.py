@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from dotenv import load_dotenv #permet de définir des variables d'environnement pour cacher les identifiants
 import os
+import urllib.parse
 
 
 
@@ -39,7 +40,7 @@ def recuperer_liste_ligne():
     '''récupérer la liste des noms et liens des séries/films situés sur la ligne donnée en paramètre'''
     wait.until(EC.presence_of_element_located((By.ID, 'main-view')))
     # Appuyer sur la touche bas dans la fenêtre active
-    for _ in range(100):
+    for _ in range(150):
         driver.find_element(By.TAG_NAME, "body").send_keys(Keys.PAGE_DOWN)
     
     #récupération du code html
@@ -59,7 +60,7 @@ def recuperer_liste_ligne():
         data.append([f"https://www.netflix.com{href}", t])
     df = pd.DataFrame(data, columns=['liens', 'titres_catégories'])
     # Stockage du DataFrame dans un fichier CSV
-    df.to_csv('data.csv', index=False)
+    df.to_csv('categories.csv', index=False)
 
 def recuperer_titres_catégorie(ligne,directory_name):
     """récupérer les titres de la catégorie située sur la ligne donnée en paramètre"""
@@ -76,8 +77,8 @@ def recuperer_titres_catégorie(ligne,directory_name):
     for a,img,t in zip(a_tags,img_tags,textes):
         href = a.get('href')
         src = img.get('src')
-        data.append([t,f"https://www.netflix.com{href}",src])
-    df = pd.DataFrame(data, columns=['titres', 'liens', 'liens_images'])
+        data.append([t,href.split('?')[0][7:],src]) #href.split('?')[0][7:] permet de récupérer l'ID du film/série à partir du href de la balise <a>
+    df = pd.DataFrame(data, columns=['titres', 'ID', 'liens_images'])
     df.to_csv(f'./{directory_name}/{ligne[2]}.csv', index=False)
     
 def recuperer_tous_titres():
@@ -86,7 +87,7 @@ def recuperer_tous_titres():
     if not os.path.exists(directory_name):
         # si le répertoire n'existe pas, créez-le
         os.mkdir(directory_name)
-    df = pd.read_csv('data.csv')
+    df = pd.read_csv('categories.csv')
     i = 0
     longueur = len(df)
     for lignes in df.itertuples():
@@ -95,29 +96,125 @@ def recuperer_tous_titres():
         recuperer_titres_catégorie(lignes,directory_name)
         print(f"\r{i}/{longueur} : {lignes[2]} récupéré"+" "*50)
 
-def parcourt_csv(file):
+def parcourt_csv(file,nom_categorie):
     df = pd.read_csv(file)
+    data = []
+    time.sleep(1) #important pour que la requete fonctionne
     for lignes in df.itertuples():
-        string = lignes.liens
-        string = string.replace("watch","title", 1)
-        driver.get(string)
-        time.sleep(10)
+        driver.get(f"https://www.netflix.com/title/{lignes.ID}")
+        wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]')))
+        html = driver.find_element(By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]').get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
+        div_year = soup.find('div', {'class': 'year'})
+        span_duration = soup.find('span', {'class': 'duration'})
+        span_score = soup.find('span', {'class': 'match-score'})
+        span_maturity = soup.find('span', {'class': 'maturity-number'})
+        div_description = soup.find('div', {'class': 'ptrack-content'})
+        span_prevent = soup.find('span', {'class': 'ltr-1q4vxyr'})
+        div_mise_en_avant_supp = soup.find('div', {'class': 'ltr-s5xdrg'})
+        if div_mise_en_avant_supp is not None:
+            div_mise_en_avant_supp = True
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'about-wrapper')))
+        html = driver.find_element(By.CLASS_NAME, 'about-wrapper').get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
+        div_tags = soup.find_all('div', {'class': 'previewModal--tags'})
+        tab_a_propos=[None,None,None,None,None]
+        dic_a_propos = {"Réalisation": 0,
+                        "Distribution": 1,
+                        "Scénariste": 2,
+                        "Genres": 3, 
+                        "Ce film est": 4,
+                        "Ce programme est": 4
+                        }
+        for tags in div_tags:
+            categ=tags.find('span', {'class': 'previewModal--tags-label'})
+            for key in dic_a_propos.keys():
+                if key in categ.text:
+                    valeurs = tags.find_all('a', {'historystate': '[object Object]'})
+                    for valeur in valeurs:
+                        if tab_a_propos[dic_a_propos[key]] is None:
+                            tab_a_propos[dic_a_propos[key]] = valeur.text.strip().replace(',', '')
+                        else:
+                            tab_a_propos[dic_a_propos[key]] += f",{valeur.text.strip().replace(',', '')}"
+        wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'moreLikeThis--container')))
+        html = driver.find_element(By.CLASS_NAME, 'moreLikeThis--container').get_attribute('innerHTML')
+        soup = BeautifulSoup(html, 'html.parser')
+        div_container = soup.find_all('div', {'class': 'ptrack-content'})
+        recommendations = ""
+        for div in div_container:
+            start_index = div.find('"video_id":') + len('"video_id":') #on cherche l'index du début de l'ID
+            end_index = div.find(',', start_index) #on cherche l'index de la fin de l'ID
+            recommendations += div.get("data-ui-tracking-context")[start_index:end_index]+"," #on récupère l'ID
+        recommendations = recommendations[:-1] #on enlève la dernière virgule
+        print(recommendations)
+        data.append([nom_categorie,
+                     lignes.titres,
+                     lignes.ID,
+                     lignes.liens_images,
+                     div_year.text if div_year is not None else None,
+                     span_duration.text if span_duration is not None else None,
+                     span_score.text if span_score is not None else None,
+                     span_maturity.text if span_maturity is not None else None,
+                     div_description.text if div_description is not None else None,
+                     span_prevent.text if span_prevent.text is not None else None,
+                     div_mise_en_avant_supp,
+                     tab_a_propos[0],
+                     tab_a_propos[1],
+                     tab_a_propos[2],
+                     tab_a_propos[3],
+                     tab_a_propos[4]],
+                     recommendations)
+    df = pd.DataFrame(data, columns=['categorie',
+                                     'titres', 
+                                     'ID', 
+                                     'liens_images', 
+                                     'année', 
+                                     'durée', 
+                                     'score_recommendation', 
+                                     'age_conseillé', 
+                                     'description', 
+                                     'prévention', 
+                                     'mise_en_avant_supplémentaire', 
+                                     'réalisation', 
+                                     'distribution', 
+                                     'scénariste', 
+                                     'genres', 
+                                     'avertissement_programme',
+                                     'recommendations'])
+    return df
 
 
 def parcourt_titres_informations():
     """parcourt les fichiers csv contenant les titres et récupère les informations de chaque titre"""
     directory = "listes_csv"
+    df = pd.DataFrame()
+    longueur = len(os.listdir(directory))
+    i=0
     for file in os.listdir(directory):
+        i+=1
+        print(f"{i}/{longueur} : {file} en cours de traitement...", end='', flush=True)
         file_path = os.path.join(directory, file)
         # Vérifier si le chemin correspond à un fichier csv et ne pas inclure les sous-dossiers
         if os.path.isfile(file_path) and file.endswith('.csv'):
-            df = parcourt_csv(file_path)
+            df = pd.concat([df, parcourt_csv(file_path,file[:-4])],axis=0)
+        print(df)
+        print(f"\r{i}/{longueur} : {file}  traité"+" "*50)
+    df.to_csv('bdd_series.csv', index=False)
+
 
 def main():
+    print("Authentification en cours...")
     authentification_netflix()
-    recuperer_liste_ligne()
-    recuperer_tous_titres()
+    print("Authentification réussie\n")
+    print("Récupération des catégories en cours...")
+    # recuperer_liste_ligne()
+    print("Catégories récupérées\n")
+    print("Récupération des titres en cours...")
+    # recuperer_tous_titres()
+    print("Titres récupérés\n")
+    print("Récupération des informations en cours...")
     parcourt_titres_informations()
+    print("Informations récupérées\n")
     time.sleep(10)
 
 
