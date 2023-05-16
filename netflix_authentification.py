@@ -233,9 +233,15 @@ def main():
 
 if __name__ == "__main__":
 
+    
+    # ''' à commenter pour afficher la fenêtre chrome 
     # Configuration de Chrome
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Exécuter Chrome en mode headless
+    chrome_options.add_argument("--silent") # Exécuter Chrome en mode silencieux
+    chrome_options.add_argument("--disable-logging")  # Désactiver les messages de la console
+    chrome_options.add_argument("--log-level=3")  # Définir le niveau de journalisation de la console
+    # '''
 
     # Création de l'instance de Chrome avec les options
     driver = webdriver.Chrome(options=chrome_options)
