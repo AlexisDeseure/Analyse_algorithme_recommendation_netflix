@@ -52,13 +52,13 @@ def recuperer_liste_ligne():
     # print(textes)
     for a,t in zip(a_tags, textes):
         href = a.get('href')
-        data.append([href, t])
+        data.append([f"https://www.netflix.com{href}", t])
     df = pd.DataFrame(data, columns=['liens', 'titres_catégories'])
     # Stockage du DataFrame dans un fichier CSV
     df.to_csv('data.csv', index=False)
 
 def recuperer_titres_catégorie(ligne,directory_name):
-    driver.get(f"https://www.netflix.com{ligne[1]}")
+    driver.get(ligne[1])
     wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'ltr-1pq5s1g')))
     time.sleep(5)
     html = driver.find_element(By.CLASS_NAME,'ltr-1pq5s1g').get_attribute('innerHTML')
@@ -71,7 +71,7 @@ def recuperer_titres_catégorie(ligne,directory_name):
     for a,img,t in zip(a_tags,img_tags,textes):
         href = a.get('href')
         src = img.get('src')
-        data.append([t,href,src])
+        data.append([t,f"https://www.netflix.com{href}",src])
     df = pd.DataFrame(data, columns=['titres', 'liens', 'liens_images'])
     df.to_csv(f'./{directory_name}/{ligne[2]}.csv', index=False)
     
