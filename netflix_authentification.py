@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from dotenv import load_dotenv #permet de définir des variables d'environnement pour cacher les identifiants
 import os
+from selenium.webdriver import ActionChains
 
 
 
@@ -97,7 +98,7 @@ def recuperer_tous_titres():
         recuperer_titres_catégorie(lignes,directory_name)
         print(f"\r{i}/{longueur} : {lignes[2]} récupéré"+" "*50)
 
-def parcourt_csv(file,nom_categorie):
+def parcourt_csv(file,nom_categorie, like=None):
     global driver, wait
     '''parcourt le fichier csv donné en paramètre et récupère les informations de chaque film/série'''
     df = pd.read_csv(file)
@@ -106,6 +107,33 @@ def parcourt_csv(file,nom_categorie):
     for lignes in df.itertuples():
         driver.get(f"https://www.netflix.com/title/{lignes.ID}")
         time.sleep(1) #important pour l'affichage
+        if like in ["like", "dislike", "love"]:
+            try:
+                wait.until(EC.presence_of_element_located((By.XPATH, '//button[@class="color-supplementary hasIcon round ltr-1ihscfb"]')))
+                driver.find_element(By.XPATH, '//button[@class="color-supplementary hasIcon round ltr-1ihscfb"]').click()
+                # ActionChains(driver).move_to_element(menu_boutons).perform()
+                # time.sleep(1000)
+                if like == "like":
+                    try: 
+                        wait.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer un Pouce levé"]')))
+                        driver.find_element(By.XPATH, '//button[@aria-label="Attribuer un Pouce levé"]').click()
+                    except:
+                        pass #si le bouton like est déjà activé
+                elif like == "dislike":
+                    try:
+                        wait.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer un Pouce baissé"]')))
+                        driver.find_element(By.XPATH, '//button[@aria-label="Attribuer un Pouce baissé"]').click()
+                    except:
+                        pass #si le bouton dislike est déjà activé
+                else :
+                    try:
+                        wait.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer deux pouces levés"]')))
+                        driver.find_element(By.XPATH, '//button[@aria-label="Attribuer deux pouces levés"]').click()
+                    except:
+                        pass  #si le bouton love est déjà activé
+            except Exception as e:
+                print(f"Une erreur s'est produite : {str(e)}")
+    
         try:
             wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]')))
             html = driver.find_element(By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]').get_attribute('innerHTML')
@@ -228,35 +256,38 @@ def parcourt_titres_informations():
         file_path = os.path.join(directory, file)
         # Vérifier si le chemin correspond à un fichier csv et ne pas inclure les sous-dossiers
         if os.path.isfile(file_path) and file.endswith('.csv'):
+            action = None #à modifier pour que le bot fasse une action de like/dislike sur chaque titre
             if first:
-                df = parcourt_csv(file_path,file[:-4])
+                df = parcourt_csv(file_path,file[:-4], like=action)
                 df.to_csv('bdd_series.csv', index=False)
                 first = False
             else:
                 df = pd.read_csv('bdd_series.csv')
-                df = pd.concat([df, parcourt_csv(file_path,file[:-4])],axis=0)
+                df = pd.concat([df, parcourt_csv(file_path,file[:-4])],axis=0, like=action)
                 df.to_csv('bdd_series.csv', index=False)
         print(f"\r{i}/{longueur} : {file}  traité"+" "*50)
     
 def get_first_non_null(values):
     for value in values:
-        if pd.notnull(value):
+        if value != 'nan':
             return value
-    return "" 
+    return None
 
-def process_multiple_values(values, aggregation_type='join'):
-    if aggregation_type == 'join':
-        print(values)
-        return ','.join(values) 
-    elif aggregation_type == 'unique':
-        unique_values = set()
-        for value in values:
-            if pd.notnull(value):
-                unique_values.update(value.split(','))
-        return ','.join(str(v) for v in unique_values) if unique_values!=set() else ""
-    else:
-        raise ValueError('Invalid aggregation type')
-    
+def process_multiple_values(values, aggregation_type=False):
+    '''Fonction qui permet de traiter les valeurs multiples d'une colonne :
+    - si aggregation_type est False, la fonction retourne une liste de valeurs uniques séparées par des points-virgules
+    - si aggregation_type est True, la fonction retourne une liste de valeurs uniques séparées par des virgules'''
+    unique_values = set()
+    for value in values:
+        if value != 'nan':
+            unique_values.update(value.split(',') if aggregation_type else [value])
+    return (',' if aggregation_type else ';').join(str(v) for v in unique_values) if unique_values!=set() else None
+
+def nombre_mise_en_avant(values):
+    if all(value == 'nan' for value in values):
+        return None
+    return sum(values == "True")
+
 def gestion_doublons(file_path):
     """supprime les doublons dans un fichier csv"""
     # Charger le fichier CSV dans un DataFrame pandas
@@ -271,16 +302,17 @@ def gestion_doublons(file_path):
         'durée': lambda x: get_first_non_null(x),
         'score_recommendation': lambda x: process_multiple_values(x),
         'age_conseillé': lambda x: get_first_non_null(x),
-        'description': lambda x:','.join(x),
+        'description': lambda x: process_multiple_values(x),
         'prévention': lambda x: get_first_non_null(x),
-        'mise_en_avant_supplémentaire': lambda x: process_multiple_values(x,'unique'),
+        'mise_en_avant_supplémentaire': lambda x: nombre_mise_en_avant(x),
         'réalisation': lambda x: get_first_non_null(x),
         'distribution': lambda x: get_first_non_null(x),
         'scénariste': lambda x: get_first_non_null(x),
         'genres': lambda x: get_first_non_null(x),
         'avertissement_programme': lambda x: get_first_non_null(x),
-        'recommendations': lambda x: process_multiple_values(x,'unique')
+        'recommendations': lambda x: process_multiple_values(x,True)
     }).reset_index()
+    grouped_df['nombre_occurrence'] = df.groupby('ID').size().reset_index(name='count')['count']
     grouped_df.to_csv(file_path[:-4] + '_modifie.csv', index=False)
 
 
@@ -290,34 +322,33 @@ def main():
     authentification_netflix()
     print("Authentification réussie\n")
     print("Récupération des catégories en cours...")
-    # recuperer_liste_ligne()
+    recuperer_liste_ligne()
     print("Catégories récupérées\n")
     print("Récupération des titres en cours...")
-    # recuperer_tous_titres()
+    recuperer_tous_titres()
     print("Titres récupérés\n")
     print("Récupération des informations en cours...")
-    parcourt_titres_informations()
+    parcourt_titres_informations() 
     print("Informations récupérées\n")
-    # print("Suppression des doublons en cours...")
-    # gestion_doublons('bdd_series.csv')
-    # print("Doublons supprimés\n")
-    # time.sleep(10)
-    # print("Fermeture du navigateur...")
+    print("Gestion des doublons en cours...")
+    gestion_doublons('bdd_series.csv')
+    print("Doublons gérés\n")
+    print("Fermeture du navigateur...")
 
 if __name__ == "__main__":
 
-    ''' à commenter pour afficher la fenêtre chrome 
     # Configuration de Chrome
     chrome_options = Options()
+    #''' à commenter pour ne plus afficher la fenêtre chrome 
     chrome_options.add_argument("--headless")  # Exécuter Chrome en mode headless
+    # '''
     chrome_options.add_argument("--silent") # Exécuter Chrome en mode silencieux
     chrome_options.add_argument("--disable-logging")  # Désactiver les messages de la console
     chrome_options.add_argument("--log-level=3")  # Définir le niveau de journalisation de la console
-    # '''
+    
 
     # Création de l'instance de Chrome avec les options
-    # driver = webdriver.Chrome(options=chrome_options)
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options=chrome_options)
     wait = WebDriverWait(driver, 10)
     main()
     driver.quit()
