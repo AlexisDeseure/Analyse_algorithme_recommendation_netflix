@@ -98,6 +98,7 @@ def recuperer_tous_titres():
         print(f"\r{i}/{longueur} : {lignes[2]} récupéré"+" "*50)
 
 def parcourt_csv(file,nom_categorie):
+    global driver, wait
     '''parcourt le fichier csv donné en paramètre et récupère les informations de chaque film/série'''
     df = pd.read_csv(file)
     data = []
@@ -118,6 +119,10 @@ def parcourt_csv(file,nom_categorie):
             div_mise_en_avant_supp = soup.find('div', {'class': 'supplemental-message'})
         except TimeoutException:
             print("\nLa présence de l'élément n'a pas pu être vérifiée dans le délai imparti.")
+            driver = webdriver.Chrome()
+            wait = WebDriverWait(driver, 10)
+            #création d'un nouveau driver et d'un nouveau wait pour contourner le ban de Netflix
+            authentification_netflix()
             time.sleep(3)
         if div_mise_en_avant_supp is not None:
             div_mise_en_avant_supp = True
@@ -148,6 +153,10 @@ def parcourt_csv(file,nom_categorie):
                                 tab_a_propos[dic_a_propos[key]] += f",{valeur.text.strip().replace(',', '')}"
         except TimeoutException:
             print("\nLa présence de l'élément n'a pas pu être vérifiée dans le délai imparti.")
+            driver = webdriver.Chrome()
+            wait = WebDriverWait(driver, 10)
+            #création d'un nouveau driver et d'un nouveau wait pour contourner le ban de Netflix
+            authentification_netflix()
             time.sleep(3)
         try:
             wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'moreLikeThis--container')))
@@ -164,6 +173,11 @@ def parcourt_csv(file,nom_categorie):
             recommendations = recommendations[:-1] #on enlève la dernière virgule
         except:
             recommendations = None
+            driver.quit()
+            driver = webdriver.Chrome()
+            wait = WebDriverWait(driver, 10)
+            #création d'un nouveau driver et d'un nouveau wait pour contourner le ban de Netflix
+            authentification_netflix()
             time.sleep(3)
         data.append([nom_categorie,
                      lignes.titres,
