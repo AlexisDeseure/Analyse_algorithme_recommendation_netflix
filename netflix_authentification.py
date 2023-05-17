@@ -41,7 +41,7 @@ def recuperer_liste_ligne():
     '''récupérer la liste des noms et liens des séries/films situés sur la ligne donnée en paramètre'''
     wait.until(EC.presence_of_element_located((By.ID, 'main-view')))
     # Appuyer sur la touche bas dans la fenêtre active
-    for _ in range(150):
+    for _ in range(300):
         driver.find_element(By.TAG_NAME, "body").send_keys(Keys.PAGE_DOWN)
     
     #récupération du code html
@@ -98,6 +98,7 @@ def recuperer_tous_titres():
         print(f"\r{i}/{longueur} : {lignes[2]} récupéré"+" "*50)
 
 def parcourt_csv(file,nom_categorie):
+    '''parcourt le fichier csv donné en paramètre et récupère les informations de chaque film/série'''
     df = pd.read_csv(file)
     data = []
     time.sleep(1) #important pour que la requete fonctionne
@@ -116,33 +117,38 @@ def parcourt_csv(file,nom_categorie):
             span_prevent = soup.find('span', {'class': 'ltr-1q4vxyr'})
             div_mise_en_avant_supp = soup.find('div', {'class': 'supplemental-message'})
         except TimeoutException:
-            print("La présence de l'élément n'a pas pu être vérifiée dans le délai imparti.")
+            print("\nLa présence de l'élément n'a pas pu être vérifiée dans le délai imparti.")
+            time.sleep(3)
         if div_mise_en_avant_supp is not None:
             div_mise_en_avant_supp = True
         else:
             div_mise_en_avant_supp = False
-        wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'about-wrapper')))
-        html = driver.find_element(By.CLASS_NAME, 'about-wrapper').get_attribute('innerHTML')
-        soup = BeautifulSoup(html, 'html.parser')
-        div_tags = soup.find_all('div', {'class': 'previewModal--tags'})
-        tab_a_propos=[None,None,None,None,None]
-        dic_a_propos = {"Réalisation": 0,
-                        "Distribution": 1,
-                        "Scénariste": 2,
-                        "Genres": 3, 
-                        "Ce film est": 4,
-                        "Ce programme est": 4
-                        }
-        for tags in div_tags:
-            categ=tags.find('span', {'class': 'previewModal--tags-label'})
-            for key in dic_a_propos.keys():
-                if key in categ.text:
-                    valeurs = tags.find_all('a', {'historystate': '[object Object]'})
-                    for valeur in valeurs:
-                        if tab_a_propos[dic_a_propos[key]] is None:
-                            tab_a_propos[dic_a_propos[key]] = valeur.text.strip().replace(',', '')
-                        else:
-                            tab_a_propos[dic_a_propos[key]] += f",{valeur.text.strip().replace(',', '')}"
+        try:
+            wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'about-wrapper')))
+            html = driver.find_element(By.CLASS_NAME, 'about-wrapper').get_attribute('innerHTML')
+            soup = BeautifulSoup(html, 'html.parser')
+            div_tags = soup.find_all('div', {'class': 'previewModal--tags'})
+            tab_a_propos=[None,None,None,None,None]
+            dic_a_propos = {"Réalisation": 0,
+                            "Distribution": 1,
+                            "Scénariste": 2,
+                            "Genres": 3, 
+                            "Ce film est": 4,
+                            "Ce programme est": 4
+                            }
+            for tags in div_tags:
+                categ=tags.find('span', {'class': 'previewModal--tags-label'})
+                for key in dic_a_propos.keys():
+                    if key in categ.text:
+                        valeurs = tags.find_all('a', {'historystate': '[object Object]'})
+                        for valeur in valeurs:
+                            if tab_a_propos[dic_a_propos[key]] is None:
+                                tab_a_propos[dic_a_propos[key]] = valeur.text.strip().replace(',', '')
+                            else:
+                                tab_a_propos[dic_a_propos[key]] += f",{valeur.text.strip().replace(',', '')}"
+        except TimeoutException:
+            print("\nLa présence de l'élément n'a pas pu être vérifiée dans le délai imparti.")
+            time.sleep(3)
         try:
             wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'moreLikeThis--container')))
             html = driver.find_element(By.CLASS_NAME, 'moreLikeThis--container')
@@ -158,6 +164,7 @@ def parcourt_csv(file,nom_categorie):
             recommendations = recommendations[:-1] #on enlève la dernière virgule
         except:
             recommendations = None
+            time.sleep(3)
         data.append([nom_categorie,
                      lignes.titres,
                      lignes.ID,
@@ -217,42 +224,75 @@ def parcourt_titres_informations():
                 df.to_csv('bdd_series.csv', index=False)
         print(f"\r{i}/{longueur} : {file}  traité"+" "*50)
     
+def get_first_non_null(values):
+    for value in values:
+        if pd.notnull(value):
+            return value
+    return "" 
+
+def process_multiple_values(values, aggregation_type='join'):
+    if aggregation_type == 'join':
+        print(values)
+        return ','.join(values) 
+    elif aggregation_type == 'unique':
+        unique_values = set()
+        for value in values:
+            if pd.notnull(value):
+                unique_values.update(value.split(','))
+        return ','.join(str(v) for v in unique_values) if unique_values!=set() else ""
+    else:
+        raise ValueError('Invalid aggregation type')
+    
+def gestion_doublons(file_path):
+    """supprime les doublons dans un fichier csv"""
+    # Charger le fichier CSV dans un DataFrame pandas
+    df = pd.read_csv(file_path)
+    df = df.astype(str)
+    # Regrouper les données par l'ID et appliquer les opérations d'agrégation sur les colonnes pertinentes
+    grouped_df = df.groupby('ID').agg({
+        'categorie': lambda x: process_multiple_values(x),
+        'titres': lambda x: get_first_non_null(x),
+        'liens_images': lambda x: process_multiple_values(x),
+        'année': lambda x: get_first_non_null(x),
+        'durée': lambda x: get_first_non_null(x),
+        'score_recommendation': lambda x: process_multiple_values(x),
+        'age_conseillé': lambda x: get_first_non_null(x),
+        'description': lambda x:','.join(x),
+        'prévention': lambda x: get_first_non_null(x),
+        'mise_en_avant_supplémentaire': lambda x: process_multiple_values(x,'unique'),
+        'réalisation': lambda x: get_first_non_null(x),
+        'distribution': lambda x: get_first_non_null(x),
+        'scénariste': lambda x: get_first_non_null(x),
+        'genres': lambda x: get_first_non_null(x),
+        'avertissement_programme': lambda x: get_first_non_null(x),
+        'recommendations': lambda x: process_multiple_values(x,'unique')
+    }).reset_index()
+    grouped_df.to_csv(file_path[:-4] + '_modifie.csv', index=False)
 
 
 def main():
+    """fonction principale"""
     print("Authentification en cours...")
     authentification_netflix()
     print("Authentification réussie\n")
     print("Récupération des catégories en cours...")
-    recuperer_liste_ligne()
+    # recuperer_liste_ligne()
     print("Catégories récupérées\n")
     print("Récupération des titres en cours...")
-    recuperer_tous_titres()
+    # recuperer_tous_titres()
     print("Titres récupérés\n")
     print("Récupération des informations en cours...")
     parcourt_titres_informations()
     print("Informations récupérées\n")
-    time.sleep(10)
-
-def run_chrome_driver():
-    # ''' à commenter pour afficher la fenêtre chrome 
-    # Configuration de Chrome
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")  # Exécuter Chrome en mode headless
-    chrome_options.add_argument("--silent") # Exécuter Chrome en mode silencieux
-    chrome_options.add_argument("--disable-logging")  # Désactiver les messages de la console
-    chrome_options.add_argument("--log-level=3")  # Définir le niveau de journalisation de la console
-    # '''
-
-    # Création de l'instance de Chrome avec les options
-    driver = webdriver.Chrome(options=chrome_options)
-    wait = WebDriverWait(driver, 10)
-    main()
-    driver.quit()
+    # print("Suppression des doublons en cours...")
+    # gestion_doublons('bdd_series.csv')
+    # print("Doublons supprimés\n")
+    # time.sleep(10)
+    # print("Fermeture du navigateur...")
 
 if __name__ == "__main__":
 
-    # ''' à commenter pour afficher la fenêtre chrome 
+    ''' à commenter pour afficher la fenêtre chrome 
     # Configuration de Chrome
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Exécuter Chrome en mode headless
@@ -262,25 +302,10 @@ if __name__ == "__main__":
     # '''
 
     # Création de l'instance de Chrome avec les options
-    driver = webdriver.Chrome(options=chrome_options)
+    # driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome()
     wait = WebDriverWait(driver, 10)
     main()
     driver.quit()
-
-    '''# Nombre d'instances de ChromeDriver à lancer
-num_instances = 5
-
-# Liste pour stocker les processus
-processes = []
-
-# Lancement des instances de ChromeDriver en parallèle
-for _ in range(num_instances):
-    process = Process(target=run_chrome_driver)
-    process.start()
-    processes.append(process)
-
-# Attente de la fin de tous les processus
-for process in processes:
-    process.join()'''
     
 
