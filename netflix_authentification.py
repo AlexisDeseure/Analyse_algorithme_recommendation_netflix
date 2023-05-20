@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from dotenv import load_dotenv #permet de définir des variables d'environnement pour cacher les identifiants
 import os
-from selenium.webdriver import ActionChains
+
 
 
 
@@ -263,7 +263,7 @@ def parcourt_titres_informations():
                 first = False
             else:
                 df = pd.read_csv('bdd_series.csv')
-                df = pd.concat([df, parcourt_csv(file_path,file[:-4])],axis=0, like=action)
+                df = pd.concat([df, parcourt_csv(file_path,file[:-4], like=action)],axis=0)
                 df.to_csv('bdd_series.csv', index=False)
         print(f"\r{i}/{longueur} : {file}  traité"+" "*50)
     
@@ -339,9 +339,9 @@ if __name__ == "__main__":
 
     # Configuration de Chrome
     chrome_options = Options()
-    #''' à commenter pour ne plus afficher la fenêtre chrome 
+    # ''' à commenter pour ne plus afficher la fenêtre chrome 
     chrome_options.add_argument("--headless")  # Exécuter Chrome en mode headless
-    # '''
+    #  '''
     chrome_options.add_argument("--silent") # Exécuter Chrome en mode silencieux
     chrome_options.add_argument("--disable-logging")  # Désactiver les messages de la console
     chrome_options.add_argument("--log-level=3")  # Définir le niveau de journalisation de la console
