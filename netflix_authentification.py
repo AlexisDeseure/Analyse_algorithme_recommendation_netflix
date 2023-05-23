@@ -315,6 +315,17 @@ def gestion_doublons(file_path):
     grouped_df['nombre_occurrence'] = df.groupby('ID').size().reset_index(name='count')['count']
     grouped_df.to_csv(file_path[:-4] + '_modifie.csv', index=False)
 
+def archiver_csv():
+    """archive les fichiers csv contenant les titres dans un dossier"""
+    directory_name = "listes_archivees"
+    if not os.path.exists(directory_name):
+        # si le répertoire n'existe pas, créez-le
+        os.mkdir(directory_name)
+    for file in os.listdir("listes_csv"):
+        file_path = os.path.join("listes_csv", file)
+        # Vérifier si le chemin correspond à un fichier csv et ne pas inclure les sous-dossiers
+        if os.path.isfile(file_path) and file.endswith('.csv'):
+            os.rename(file_path, os.path.join(directory_name, file))
 
 def main():
     """fonction principale"""
@@ -330,6 +341,9 @@ def main():
     print("Récupération des informations en cours...")
     parcourt_titres_informations() 
     print("Informations récupérées\n")
+    print("Archivage en cours...")
+    archiver_csv()
+    print("Archivage terminé\n")
     print("Gestion des doublons en cours...")
     gestion_doublons('bdd_series.csv')
     print("Doublons gérés\n")
