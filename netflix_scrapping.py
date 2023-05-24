@@ -289,15 +289,23 @@ def get_first_non_null(values):
             return value
     return None
 
+def enlever_prefixe_http(lien):
+    if lien.startswith("http://"):
+        lien = lien[len("http://"):]
+    elif lien.startswith("https://"):
+        lien = lien[len("https://"):]
+    return lien
+
 def process_multiple_values(values, aggregation_type=False):
     '''Fonction qui permet de traiter les valeurs multiples d'une colonne :
-    - si aggregation_type est False, la fonction retourne une liste de valeurs uniques séparées par des points-virgules
-    - si aggregation_type est True, la fonction retourne une liste de valeurs uniques séparées par des virgules'''
+    - si aggregation_type est None, la fonction retourne une liste de valeurs uniques séparées par des points-virgules
+    - si aggregation_type est recommand, la fonction retourne une liste de valeurs uniques séparées par des virgules
+    - si aggregation_type est lien, la fonction retourne une liste de valeurs uniques séparées par des points-virgules et sans le préfixe http:// ou https://'''
     unique_values = set()
     for value in values:
         if value != 'nan':
-            unique_values.update(value.split(',') if aggregation_type else [value])
-    return (',' if aggregation_type else '|').join(str(v) for v in unique_values) if unique_values!=set() else None
+            unique_values.update(value.split(',') if aggregation_type == "recommand" else ([enlever_prefixe_http(value)] if aggregation_type == "lien" else [value]))
+    return (',' if aggregation_type == "recommand" else '|').join(str(v) for v in unique_values) if unique_values!=set() else None
 
 def nombre_mise_en_avant(values):
     if all(value == 'nan' for value in values):
@@ -313,7 +321,7 @@ def gestion_doublons(file_path):
     grouped_df = df.groupby('ID').agg({
         'categorie': lambda x: process_multiple_values(x),
         'titres': lambda x: get_first_non_null(x),
-        'liens_images': lambda x: process_multiple_values(x),
+        'liens_images': lambda x: process_multiple_values(x, "lien"),
         'année': lambda x: get_first_non_null(x),
         'durée': lambda x: get_first_non_null(x),
         'score_recommendation': lambda x: process_multiple_values(x),
@@ -326,7 +334,7 @@ def gestion_doublons(file_path):
         'scénariste': lambda x: get_first_non_null(x),
         'genres': lambda x: get_first_non_null(x),
         'avertissement_programme': lambda x: get_first_non_null(x),
-        'recommendations': lambda x: process_multiple_values(x,True)
+        'recommendations': lambda x: process_multiple_values(x,"recommand")
     }).reset_index()
     grouped_df['nombre_occurrence'] = df.groupby('ID').size().reset_index(name='count')['count']
     grouped_df.to_csv(file_path[:-4] + '_modifie.csv', index=False, sep=';')
