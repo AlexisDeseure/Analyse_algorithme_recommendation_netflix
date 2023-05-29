@@ -10,6 +10,9 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from dotenv import load_dotenv #permet de définir des variables d'environnement pour cacher les identifiants
 import os
+import cv2
+import numpy as np
+import requests
 
 
 
@@ -312,6 +315,37 @@ def nombre_mise_en_avant(values):
         return None
     return sum(values == "True")
 
+def detecter_motif(image_principale_path, motif_path="test.jpg"):
+    '''Fonction qui détecte la présence d'un motif dans une image principale et retourne un booléen'''
+    # Charger les images
+    response = requests.get(image_principale_path)
+    img_principale = cv2.imdecode(np.frombuffer(response.content, np.uint8), cv2.IMREAD_COLOR)
+
+    motif = cv2.imread(motif_path)
+
+    # Définir les coordonnées de la région d'intérêt
+    x_min = 11  # Coordonnée x minimale du coin supérieur gauche
+    y_min = 11  # Coordonnée y minimale du coin supérieur gauche
+    x_max = 27  # Coordonnée x maximale du coin inférieur droit
+    y_max = 40  # Coordonnée y maximale du coin inférieur droit
+
+    # Recadrer l'image principale pour la région d'intérêt
+    img_principale = img_principale[0:y_max+20, 0:x_max+20]
+    motif = motif[y_min:y_max, x_min:x_max]
+
+    # Utiliser la méthode de correspondance de motifs
+    result = cv2.matchTemplate(img_principale, motif, cv2.TM_CCOEFF_NORMED)
+
+    # Définir un seuil pour déterminer la présence du motif
+    seuil = 0.4
+    loc = np.where(result >= seuil)
+
+    # Tester si loc est vide
+    if loc[0].size == 0:
+        return False
+    else:
+        return True
+    
 def gestion_doublons(file_path):
     """supprime les doublons dans un fichier csv"""
     # Charger le fichier CSV dans un DataFrame pandas
@@ -337,6 +371,8 @@ def gestion_doublons(file_path):
         'recommendations': lambda x: process_multiple_values(x,"recommand")
     }).reset_index()
     grouped_df['nombre_occurrence'] = df.groupby('ID').size().reset_index(name='count')['count']
+    # création d'une autre colonne netflix_original qui contient la valeur True si le titre est un original netflix et False sinon à partir du lien de l'image
+    grouped_df['netflix_original'] = grouped_df['liens_images'].apply(lambda x: detecter_motif("https://"+x))
     grouped_df.to_csv(file_path[:-4] + '_modifie.csv', index=False, sep=';')
 
 def archiver_csv():
@@ -370,22 +406,22 @@ def archiver_csv():
 def main():
     """fonction principale"""
     print("Authentification en cours...")
-    driver = authentification_netflix()
+    # driver = authentification_netflix(False)
     print("Authentification réussie\n")
     print("Récupération des catégories en cours...")
-    recuperer_liste_ligne(driver)
+    # recuperer_liste_ligne(driver)
     print("Catégories récupérées\n")
     print("Récupération des titres en cours...")
-    recuperer_tous_titres(driver)
+    # recuperer_tous_titres(driver)
     print("Titres récupérés\n")
     print("Récupération des informations en cours...")
-    driver = parcourt_titres_informations(driver, like=None) 
+    # driver = parcourt_titres_informations(driver, like=None) 
     print("Informations récupérées\n")
     print("Fermeture du navigateur...")
-    driver.quit()
+    # driver.quit()
     print("Navigateur fermé\n")
     print("Archivage en cours...")
-    archiver_csv()
+    # archiver_csv()
     print("Archivage terminé\n")
     print("Gestion des doublons en cours...")
     gestion_doublons('bdd_series.csv')
