@@ -17,7 +17,7 @@ import requests
 
 
 
-def authentification_netflix(headless=True):
+def authentification_netflix(headless=False):
     """fonction permettant de s'authentifier sur netflix"""
     # Configuration de Chrome
     chrome_options = Options()
@@ -136,7 +136,11 @@ def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,like=None
     for lignes in df.itertuples():
         i+=1
         print(f"\r{index_total}/{longueur_totale} : \"{nom_categorie}\" en cours de traitement... {i}/{longueur}"+" "*50, end='', flush=True)
-        driver.get(f"https://www.netflix.com/title/{lignes.ID}")
+        try :
+            driver.get(f"https://www.netflix.com/title/{lignes.ID}")
+        except:
+            print(f"\nErreur lors de l'accès à la page du film/série \"{lignes.titres}\"")
+            continue
         time.sleep(1) #important pour l'affichage
         if like in ["like", "dislike", "love"]:
             try:
@@ -144,21 +148,22 @@ def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,like=None
                 driver.find_element(By.XPATH, '//button[@class="color-supplementary hasIcon round ltr-1ihscfb"]').click()
                 # ActionChains(driver).move_to_element(menu_boutons).perform()
                 # time.sleep(1000)
+                wait2 = WebDriverWait(driver, 2)
                 if like == "like":
                     try: 
-                        wait.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer un Pouce levé"]')))
+                        wait2.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer un Pouce levé"]')))
                         driver.find_element(By.XPATH, '//button[@aria-label="Attribuer un Pouce levé"]').click()
                     except:
                         pass #si le bouton like est déjà activé
                 elif like == "dislike":
                     try:
-                        wait.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer un Pouce baissé"]')))
+                        wait2.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer un Pouce baissé"]')))
                         driver.find_element(By.XPATH, '//button[@aria-label="Attribuer un Pouce baissé"]').click()
                     except:
                         pass #si le bouton dislike est déjà activé
                 else :
                     try:
-                        wait.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer deux pouces levés"]')))
+                        wait2.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer deux pouces levés"]')))
                         driver.find_element(By.XPATH, '//button[@aria-label="Attribuer deux pouces levés"]').click()
                     except:
                         pass  #si le bouton love est déjà activé
@@ -176,7 +181,7 @@ def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,like=None
             div_description = soup.find('div', {'class': 'ptrack-content'})
             span_prevent = soup.find('span', {'class': 'ltr-1q4vxyr'})
             div_mise_en_avant_supp = soup.find('div', {'class': 'supplemental-message'})
-        except TimeoutException:
+        except :
             driver = relancer_driver(driver)
             wait = WebDriverWait(driver, 10)
         if div_mise_en_avant_supp is not None:
@@ -206,7 +211,7 @@ def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,like=None
                                 tab_a_propos[dic_a_propos[key]] = valeur.text.strip().replace(',', '')
                             else:
                                 tab_a_propos[dic_a_propos[key]] += f",{valeur.text.strip().replace(',', '')}"
-        except TimeoutException:
+        except :
             driver = relancer_driver(driver)
             wait = WebDriverWait(driver, 10)
         try:
@@ -315,36 +320,51 @@ def nombre_mise_en_avant(values):
         return None
     return sum(values == "True")
 
-def detecter_motif(image_principale_path, motif_path="test.jpg"):
+def detecter_motif(image_principale_path, motif_path="https://occ-0-2773-2774.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABT5ulk1chgOOO1lbfKYJw6BgSBRf0WD7sJkl0bCHON-VDc2jTxUoVR6h61JB6yLeDzII5ZWTxdHRyDSS3DatzSXF5JwzlzwwtFm1bFYGQcC7x9uYMdii4EiHv645D4ndEV9O.jpg?r=957"):
     '''Fonction qui détecte la présence d'un motif dans une image principale et retourne un booléen'''
-    # Charger les images
-    response = requests.get(image_principale_path)
+    # # Charger les images
+    # image_principale_path = image_principale_path.split('|')
+    # try :
+    #     response = requests.get("https://"+ image_principale_path[0])
+    # except:
+    #     return None
+    # img_principale = cv2.imdecode(np.frombuffer(response.content, np.uint8), cv2.IMREAD_COLOR)
+
+    # motif = cv2.imread(motif_path)
+
+    # # Définir les coordonnées de la région d'intérêt
+    # x_min = 11  # Coordonnée x minimale du coin supérieur gauche
+    # y_min = 11  # Coordonnée y minimale du coin supérieur gauche
+    # x_max = 27  # Coordonnée x maximale du coin inférieur droit
+    # y_max = 40  # Coordonnée y maximale du coin inférieur droit
+
+    # # Recadrer l'image principale pour la région d'intérêt
+    # img_principale = img_principale[0:y_max+20, 0:x_max+20]
+    # motif = motif[y_min:y_max, x_min:x_max]
+
+    # # Utiliser la méthode de correspondance de motifs
+    # result = cv2.matchTemplate(img_principale, motif, cv2.TM_CCOEFF_NORMED)
+
+    # # Définir un seuil pour déterminer la présence du motif
+    # seuil = 0.4
+    # loc = np.where(result >= seuil)
+
+    # # Tester si loc est vide
+    # if loc[0].size == 0:
+    #     return False
+    # else:
+    #     return True
+    response = requests.get("https://"+image_principale_path)
     img_principale = cv2.imdecode(np.frombuffer(response.content, np.uint8), cv2.IMREAD_COLOR)
 
-    motif = cv2.imread(motif_path)
-
-    # Définir les coordonnées de la région d'intérêt
-    x_min = 11  # Coordonnée x minimale du coin supérieur gauche
-    y_min = 11  # Coordonnée y minimale du coin supérieur gauche
-    x_max = 27  # Coordonnée x maximale du coin inférieur droit
-    y_max = 40  # Coordonnée y maximale du coin inférieur droit
-
-    # Recadrer l'image principale pour la région d'intérêt
-    img_principale = img_principale[0:y_max+20, 0:x_max+20]
-    motif = motif[y_min:y_max, x_min:x_max]
-
-    # Utiliser la méthode de correspondance de motifs
-    result = cv2.matchTemplate(img_principale, motif, cv2.TM_CCOEFF_NORMED)
-
-    # Définir un seuil pour déterminer la présence du motif
-    seuil = 0.4
-    loc = np.where(result >= seuil)
-
-    # Tester si loc est vide
-    if loc[0].size == 0:
-        return False
-    else:
+    response = requests.get(motif_path)
+    motif = cv2.imdecode(np.frombuffer(response.content, np.uint8), cv2.IMREAD_COLOR)
+    #afficher la médianne sur la plage de donnée du motif pour chacune des couleurs
+    mediane = np.mean(motif[23:28,16:21], axis=(0,1))
+    mediane2 = np.mean(img_principale[23:28,16:21], axis=(0,1))
+    if((abs(mediane-mediane2)<4).all()):
         return True
+    return False
     
 def gestion_doublons(file_path):
     """supprime les doublons dans un fichier csv"""
@@ -372,7 +392,7 @@ def gestion_doublons(file_path):
     }).reset_index()
     grouped_df['nombre_occurrence'] = df.groupby('ID').size().reset_index(name='count')['count']
     # création d'une autre colonne netflix_original qui contient la valeur True si le titre est un original netflix et False sinon à partir du lien de l'image
-    grouped_df['netflix_original'] = grouped_df['liens_images'].apply(lambda x: detecter_motif("https://"+x))
+    grouped_df['netflix_original'] = grouped_df['liens_images'].apply(lambda x: detecter_motif(x))
     grouped_df.to_csv(file_path[:-4] + '_modifie.csv', index=False, sep=';')
 
 def archiver_csv():
@@ -406,22 +426,22 @@ def archiver_csv():
 def main():
     """fonction principale"""
     print("Authentification en cours...")
-    # driver = authentification_netflix(False)
+    driver = authentification_netflix()
     print("Authentification réussie\n")
     print("Récupération des catégories en cours...")
-    # recuperer_liste_ligne(driver)
+    recuperer_liste_ligne(driver)
     print("Catégories récupérées\n")
     print("Récupération des titres en cours...")
-    # recuperer_tous_titres(driver)
+    recuperer_tous_titres(driver)
     print("Titres récupérés\n")
     print("Récupération des informations en cours...")
-    # driver = parcourt_titres_informations(driver, like=None) 
+    driver = parcourt_titres_informations(driver, like='like') 
     print("Informations récupérées\n")
     print("Fermeture du navigateur...")
-    # driver.quit()
+    driver.quit()
     print("Navigateur fermé\n")
     print("Archivage en cours...")
-    # archiver_csv()
+    archiver_csv()
     print("Archivage terminé\n")
     print("Gestion des doublons en cours...")
     gestion_doublons('bdd_series.csv')
