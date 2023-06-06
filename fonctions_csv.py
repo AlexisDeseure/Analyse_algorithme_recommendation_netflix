@@ -1,11 +1,13 @@
 import csv
+import pandas as pd
+import os
 
 # Chemin du fichier CSV
 csv_file_path = 'bdd_series_modifie.csv'
 
-def modifier_csv(csv_file_path):
+def trier(csv_file_path):
     # Chemin du nouveau fichier CSV
-    new_csv_file_path = 'nouveau_fichier.csv'
+    new_csv_file_path = 'nouveau_fichier12.csv'
     
     # Colonnes à conserver
     columns_to_keep = ['ID', 'recommendations']
@@ -48,4 +50,39 @@ def modifier_csv(csv_file_path):
     print("Le fichier de sortie est prêt :", new_csv_file_path)
     print("Les colonnes du fichier de sortie :", extended_fieldnames)
 
-modifier_csv(csv_file_path)
+trier(csv_file_path)
+
+def modifier_csv(new_csv_file_path):
+    # Charger le fichier CSV en utilisant pandas
+    df = pd.read_csv(new_csv_file_path, delimiter=';')
+    
+    # Créer une liste vide pour stocker les nouvelles lignes
+    new_rows = []
+    
+    # Parcourir chaque ligne du DataFrame
+    for _, row in df.iterrows():
+        recommendations = str(row['recommendations']).split(',')  # Convertir en str et séparer les recommandations
+        
+        # Créer une nouvelle ligne pour chaque recommandation
+        for recommendation in recommendations:
+            new_row = {
+                'ID': row['ID'],
+                'recommendation': recommendation.strip()  # Supprimer les espaces en début et fin de chaque recommandation
+            }
+            new_rows.append(new_row)
+    
+    # Créer un nouveau DataFrame à partir des nouvelles lignes
+    new_df = pd.DataFrame(new_rows)
+    
+    # Enregistrer le DataFrame modifié dans un nouveau fichier CSV
+    new_csv_file_path1 = 'nouveau_fichier.csv'
+    new_df.to_csv(new_csv_file_path1, index=False, sep=';')
+    
+    print("Le fichier a été modifié avec succès. Le fichier de sortie est prêt :", new_csv_file_path1)
+
+
+modifier_csv('nouveau_fichier12.csv')
+
+
+# Supprimer le fichier "nouveau_fichier.csv"
+os.remove('nouveau_fichier12.csv')
