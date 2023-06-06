@@ -31,6 +31,7 @@ def authentification_netflix(headless=False):
     # Création de l'instance de Chrome avec les options
     driver = webdriver.Chrome(options=chrome_options)
     wait = WebDriverWait(driver, 10)
+    
     driver.get("https://www.netflix.com/fr-en/login")  # accès à netflix
 
     # A changer selon le compte utilisé
@@ -247,7 +248,8 @@ def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,like=None
                      tab_a_propos[2],
                      tab_a_propos[3],
                      tab_a_propos[4],
-                     recommendations])
+                     recommendations,
+                     detecter_motif(lignes.liens_images)])
     df = pd.DataFrame(data, columns=['categorie',
                                      'titres', 
                                      'ID', 
@@ -264,16 +266,16 @@ def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,like=None
                                      'scénariste', 
                                      'genres', 
                                      'avertissement_programme',
-                                     'recommendations'])
+                                     'recommendations',
+                                     'netflix_original'])
     print(f"\r{index_total}/{longueur_totale} : \"{nom_categorie}\"  traité"+" "*50)
     return df, driver
 
 
-def parcourt_titres_informations(driver, like=None):
+def parcourt_titres_informations(driver, like=None,first = True):
     """parcourt les fichiers csv contenant les titres et récupère les informations de chaque titre"""
     directory = "listes_csv"
     longueur = len(os.listdir(directory))
-    first = True
     i=0
     for file in os.listdir(directory):
         i+=1
@@ -322,39 +324,7 @@ def nombre_mise_en_avant(values):
 
 def detecter_motif(image_principale_path, motif_path="https://occ-0-2773-2774.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABT5ulk1chgOOO1lbfKYJw6BgSBRf0WD7sJkl0bCHON-VDc2jTxUoVR6h61JB6yLeDzII5ZWTxdHRyDSS3DatzSXF5JwzlzwwtFm1bFYGQcC7x9uYMdii4EiHv645D4ndEV9O.jpg?r=957"):
     '''Fonction qui détecte la présence d'un motif dans une image principale et retourne un booléen'''
-    # # Charger les images
-    # image_principale_path = image_principale_path.split('|')
-    # try :
-    #     response = requests.get("https://"+ image_principale_path[0])
-    # except:
-    #     return None
-    # img_principale = cv2.imdecode(np.frombuffer(response.content, np.uint8), cv2.IMREAD_COLOR)
-
-    # motif = cv2.imread(motif_path)
-
-    # # Définir les coordonnées de la région d'intérêt
-    # x_min = 11  # Coordonnée x minimale du coin supérieur gauche
-    # y_min = 11  # Coordonnée y minimale du coin supérieur gauche
-    # x_max = 27  # Coordonnée x maximale du coin inférieur droit
-    # y_max = 40  # Coordonnée y maximale du coin inférieur droit
-
-    # # Recadrer l'image principale pour la région d'intérêt
-    # img_principale = img_principale[0:y_max+20, 0:x_max+20]
-    # motif = motif[y_min:y_max, x_min:x_max]
-
-    # # Utiliser la méthode de correspondance de motifs
-    # result = cv2.matchTemplate(img_principale, motif, cv2.TM_CCOEFF_NORMED)
-
-    # # Définir un seuil pour déterminer la présence du motif
-    # seuil = 0.4
-    # loc = np.where(result >= seuil)
-
-    # # Tester si loc est vide
-    # if loc[0].size == 0:
-    #     return False
-    # else:
-    #     return True
-    response = requests.get("https://"+image_principale_path)
+    response = requests.get(image_principale_path)
     img_principale = cv2.imdecode(np.frombuffer(response.content, np.uint8), cv2.IMREAD_COLOR)
 
     response = requests.get(motif_path)
@@ -388,11 +358,12 @@ def gestion_doublons(file_path):
         'scénariste': lambda x: get_first_non_null(x),
         'genres': lambda x: get_first_non_null(x),
         'avertissement_programme': lambda x: get_first_non_null(x),
-        'recommendations': lambda x: process_multiple_values(x,"recommand")
+        'recommendations': lambda x: process_multiple_values(x,"recommand"),
+        'netflix_original': lambda x: get_first_non_null(x),
     }).reset_index()
     grouped_df['nombre_occurrence'] = df.groupby('ID').size().reset_index(name='count')['count']
     # création d'une autre colonne netflix_original qui contient la valeur True si le titre est un original netflix et False sinon à partir du lien de l'image
-    grouped_df['netflix_original'] = grouped_df['liens_images'].apply(lambda x: detecter_motif(x))
+    # grouped_df['netflix_original'] = grouped_df['liens_images'].apply(lambda x: detecter_motif(x))
     grouped_df.to_csv(file_path[:-4] + '_modifie.csv', index=False, sep=';')
 
 def archiver_csv():
@@ -425,28 +396,33 @@ def archiver_csv():
 
 def main():
     """fonction principale"""
-    print("Authentification en cours...")
-    driver = authentification_netflix()
-    print("Authentification réussie\n")
-    print("Récupération des catégories en cours...")
-    recuperer_liste_ligne(driver)
-    print("Catégories récupérées\n")
-    print("Récupération des titres en cours...")
-    recuperer_tous_titres(driver)
-    print("Titres récupérés\n")
-    print("Récupération des informations en cours...")
-    driver = parcourt_titres_informations(driver, like='like') 
-    print("Informations récupérées\n")
-    print("Fermeture du navigateur...")
-    driver.quit()
-    print("Navigateur fermé\n")
-    print("Archivage en cours...")
-    archiver_csv()
-    print("Archivage terminé\n")
-    print("Gestion des doublons en cours...")
-    gestion_doublons('bdd_series.csv')
-    print("Doublons gérés\n")
-    print("Fin du programme")
+    first = True
+    while True:
+        print("Authentification en cours...")
+        driver = authentification_netflix()
+        print("Authentification réussie\n")
+        print("Récupération des catégories en cours...")
+        recuperer_liste_ligne(driver)
+        print("Catégories récupérées\n")
+        print("Récupération des titres en cours...")
+        recuperer_tous_titres(driver)
+        print("Titres récupérés\n")
+        print("Récupération des informations en cours...")
+        driver = parcourt_titres_informations(driver, like='like', first=first)
+        first = False
+        print("Informations récupérées\n")
+        print("Fermeture du navigateur...")
+        driver.quit()
+        print("Navigateur fermé\n")
+        print("Archivage en cours...")
+        archiver_csv()
+        print("Archivage terminé\n")
+        if input("Voulez-vous continuer la recherche le programme ? (Y/n) ") == 'n':
+            print("Gestion des doublons en cours...")
+            gestion_doublons('bdd_series.csv')
+            print("Doublons gérés\n")
+            print("Fin du programme")
+            break
     
 
 if __name__ == "__main__":
