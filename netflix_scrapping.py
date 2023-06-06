@@ -423,7 +423,12 @@ def main():
             print("Doublons gérés\n")
             print("Fin du programme")
             break
-    
+        # melt tous les id pour chacunes des recommendations séparées par des virgules
+        df = pd.read_csv('bdd_series_modifie.csv',sep=';')
+        df = df.astype(str)
+        df['recommendations'] = df['recommendations'].apply(lambda x: x.replace('[','').replace(']','').replace("'",'').replace(' ','').replace(',,',','))
+        df.to_csv('bdd_series_modifie.csv', index=False, sep=';')
+    # melt = pd.melt(df, id_vars=['ID'], value_vars=['categorie', 'titres', 'liens_images', 'année', 'durée', 'score_recommendation', 'age_conseillé', 'description', 'prévention', 'mise_en_avant_supplémentaire', 'réalisation', 'distribution', 'scénariste', 'genres', 'avertissement_programme', 'recommendations', 'netflix_original'])
 
 if __name__ == "__main__":
     main()
