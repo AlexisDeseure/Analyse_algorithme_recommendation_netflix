@@ -7,7 +7,7 @@ csv_file_path = 'bdd_series_modifie.csv'
 
 def trier(csv_file_path):
     # Chemin du nouveau fichier CSV
-    new_csv_file_path = 'nouveau_fichier12.csv'
+    new_csv_file_path = 'temporaire.csv'
     
     # Colonnes à conserver
     columns_to_keep = ['ID', 'recommendations']
@@ -75,14 +75,14 @@ def modifier_csv(new_csv_file_path):
     new_df = pd.DataFrame(new_rows)
     
     # Enregistrer le DataFrame modifié dans un nouveau fichier CSV
-    new_csv_file_path1 = 'nouveau_fichier.csv'
+    new_csv_file_path1 = 'fichier_liens.csv'
     new_df.to_csv(new_csv_file_path1, index=False, sep=';')
     
     print("Le fichier a été modifié avec succès. Le fichier de sortie est prêt :", new_csv_file_path1)
 
 
-modifier_csv('nouveau_fichier12.csv')
+modifier_csv('temporaire.csv')
 
 
 # Supprimer le fichier "nouveau_fichier.csv"
-os.remove('nouveau_fichier12.csv')
+os.remove('temporaire.csv')
