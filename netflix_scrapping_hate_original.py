@@ -326,7 +326,7 @@ def detecter_motif(image_principale_path, motif_path="https://occ-0-2773-2774.1.
     #afficher la médianne sur la plage de donnée du motif pour chacune des couleurs
     mediane = np.mean(motif[23:28,16:21], axis=(0,1))
     mediane2 = np.mean(img_principale[23:28,16:21], axis=(0,1))
-    if((abs(mediane-mediane2)<4).all()):
+    if((abs(mediane-mediane2)<6).all()):
         return True
     return False
     
@@ -395,10 +395,10 @@ def main():
         driver = authentification_netflix()
         print("Authentification réussie\n")
         print("Récupération des catégories en cours...")
-        #recuperer_liste_ligne(driver)
+        recuperer_liste_ligne(driver)
         print("Catégories récupérées\n")
         print("Récupération des titres en cours...")
-        #recuperer_tous_titres(driver)
+        recuperer_tous_titres(driver)
         print("Titres récupérés\n")
         print("Récupération des informations en cours...")
         driver = parcourt_titres_informations(driver)
