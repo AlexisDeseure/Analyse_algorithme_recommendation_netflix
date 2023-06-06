@@ -358,7 +358,7 @@ def gestion_doublons(file_path, index):
     grouped_df['nombre_occurrence'] = df.groupby('ID').size().reset_index(name='count')['count']
     # création d'une autre colonne netflix_original qui contient la valeur True si le titre est un original netflix et False sinon à partir du lien de l'image
     # grouped_df['netflix_original'] = grouped_df['liens_images'].apply(lambda x: detecter_motif(x))
-    grouped_df.to_csv(file_path[:-4] + '_modifie'+index+'.csv', index=False, sep=';')
+    grouped_df.to_csv(f"{file_path[:-4]}_modifie{index}.csv", index=False, sep=';')
 
 def archiver_csv():
     """Archive les fichiers CSV contenant les titres dans des dossiers"""
