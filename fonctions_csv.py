@@ -54,7 +54,7 @@ def menu():
     print("Que souhaitez-vous faire ?")
     print("1. Fichier de liens")
     print("2. Fichier de noeuds")
-    choix = input("Votre choix (1, 2 ) : ")
+    choix = input("Votre choix (1, 2) : ")
 
     if choix == "1":
         csv_file_path = 'bdd_series_modifie.csv'
@@ -73,7 +73,7 @@ def menu():
         print("Le fichier a été modifié avec succès. Le fichier de sortie est prêt :", new_csv_file_path)
         print("Les colonnes du fichier de sortie :", columns_to_keep)
     else:
-        print("Choix invalide. Veuillez sélectionner 1, 2 ou 3.")
+        print("Choix invalide. Veuillez sélectionner 1, 2")
         menu()
 
 menu()
