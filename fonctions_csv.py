@@ -39,8 +39,8 @@ def modifier_csv(new_csv_file_path):
         recommendations = str(row['recommendations']).split(',')  
         for recommendation in recommendations:
             new_row = {
-                'ID': row['ID'],
-                'recommendation': recommendation.strip()  
+                'source': row['ID'],  # Modification de la colonne 'ID' en 'source'
+                'target': recommendation.strip()  # Modification de la colonne 'recommendations' en 'target'
             }
             new_rows.append(new_row)
             
@@ -73,7 +73,7 @@ def menu():
         print("Le fichier a été modifié avec succès. Le fichier de sortie est prêt :", new_csv_file_path)
         print("Les colonnes du fichier de sortie :", columns_to_keep)
     else:
-        print("Choix invalide. Veuillez sélectionner 1, 2")
+        print("Choix invalide. Veuillez sélectionner 1 ou 2.")
         menu()
 
 menu()
