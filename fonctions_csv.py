@@ -39,8 +39,8 @@ def modifier_csv(new_csv_file_path):
         recommendations = str(row['recommendations']).split(',')  
         for recommendation in recommendations:
             new_row = {
-                'source': row['ID'],  # Modification de la colonne 'ID' en 'source'
-                'target': recommendation.strip()  # Modification de la colonne 'recommendations' en 'target'
+                'Source': row['ID'],  # Modification de la colonne 'ID' en 'source'
+                'Target': recommendation.strip()  # Modification de la colonne 'recommendations' en 'target'
             }
             new_rows.append(new_row)
             
@@ -62,13 +62,18 @@ def menu():
         modifier_csv('temporaire.csv')
         os.remove('temporaire.csv')
         menu()
+        
     elif choix == "2":
         csv_file_path = 'bdd_series_modifie.csv'
         df = pd.read_csv(csv_file_path, delimiter=';')       
-        df = df.rename(columns={'titres': 'label'})
-        columns_to_keep = ['ID', 'label', 'netflix_original', 'nombre_occurrence']
+        df = df.rename(columns={'titres': 'Label'})
+        df = df.rename(columns={'ID': 'Id'})
+        df = df.rename(columns={'genres': 'Genres'})
+        df = df.rename(columns={'netflix_original': 'Netflix_original'})
+        df = df.rename(columns={'nombre_occurrence': 'Nombre_occurrence'})
+        columns_to_keep = ['Id', 'Label', 'Genres', 'Netflix_original', 'Nombre_occurrence']
         df = df[columns_to_keep]
-        new_csv_file_path = 'fichier_noeuds.csv'
+        new_csv_file_path = 'fichier_noeuds2.csv'
         df.to_csv(new_csv_file_path, index=False, sep=';')
         print("Le fichier a été modifié avec succès. Le fichier de sortie est prêt :", new_csv_file_path)
         print("Les colonnes du fichier de sortie :", columns_to_keep)
