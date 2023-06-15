@@ -17,7 +17,8 @@ import requests
 
 
 
-def authentification_netflix(headless=False):
+def authentification_netflix(headless=False): # headless permet de ne pas ouvrir le navigateur changer la valeur 
+    #par défaut pour que le programme s'effectue toujours en headless
     """fonction permettant de s'authentifier sur netflix"""
     # Configuration de Chrome
     chrome_options = Options()
@@ -38,19 +39,22 @@ def authentification_netflix(headless=False):
     load_dotenv('variables_de_connexion.env')
     username = os.getenv('IDENTIFIANT')
     password = os.getenv('MOT_DE_PASSE')
-
+    try:
     # authentification
-    username_input = wait.until(EC.visibility_of_element_located((By.ID,
-                                                                  "id_userLoginId")))  # le "email" faut aller le chercher dans le coee HTML de la page et c'est ce qu'il y a derrière name=
-    username_input.send_keys(username)
+        username_input = wait.until(EC.visibility_of_element_located((By.ID,
+                                                                    "id_userLoginId")))  # le "email" faut aller le chercher dans le coee HTML de la page et c'est ce qu'il y a derrière name=
+        username_input.send_keys(username)
 
-    password_input = wait.until(EC.visibility_of_element_located(
-        (By.ID, "id_password")))  # pareil pour le password mais j'ai pas encore eu le temps de fairen
-    password_input.send_keys(password)
-    password_input.submit()
-    element = wait.until(EC.visibility_of_element_located(
-        (By.XPATH, f"//a[@href='/SwitchProfile?tkn={os.getenv('TOKEN')}']")))
-    element.click()
+        password_input = wait.until(EC.visibility_of_element_located(
+            (By.ID, "id_password")))  # pareil pour le password mais j'ai pas encore eu le temps de fairen
+        password_input.send_keys(password)
+        password_input.submit()
+        element = wait.until(EC.visibility_of_element_located(
+            (By.XPATH, f"//a[@href='/SwitchProfile?tkn={os.getenv('TOKEN')}']")))
+        element.click()
+    except TimeoutException:
+        driver.quit()
+        driver = authentification_netflix()
     return driver
 
     
@@ -58,7 +62,14 @@ def authentification_netflix(headless=False):
 def recuperer_liste_ligne(driver):
     '''récupérer la liste des noms et liens des séries/films situés sur la ligne donnée en paramètre'''
     wait = WebDriverWait(driver, 10)
-    wait.until(EC.presence_of_element_located((By.ID, 'main-view')))
+    
+    while True:
+        try:
+            wait.until(EC.presence_of_element_located((By.ID, 'main-view')))
+            break
+        except TimeoutException:
+            driver = relancer_driver(driver)
+            wait = WebDriverWait(driver, 10)
     # Appuyer sur la touche bas dans la fenêtre active
     for _ in range(300):
         driver.find_element(By.TAG_NAME, "body").send_keys(Keys.PAGE_DOWN)
@@ -69,12 +80,9 @@ def recuperer_liste_ligne(driver):
     soup = BeautifulSoup(html, 'html.parser')
     #récupération des balises <a> qui contiennent les liens et les noms des séries/films (class="rowTitle ltr-0")
     a_tags = soup.find_all('a', {'class': 'rowTitle ltr-0'})
-    # divs = soup.find_all('div', {'class': 'row-header-title'})
     divs = soup.select('a > div.row-header-title')
     textes = [div.text for div in divs]
     data = []
-    # print(f"\n\n\n\n{a_tags}")
-    # print(textes)
     for a,t in zip(a_tags, textes):
         href = a.get('href')
         data.append([f"https://www.netflix.com{href}", t])
@@ -123,11 +131,14 @@ def relancer_driver(driver):
     print("\nLa présence de l'élément n'a pas pu être vérifiée dans le délai imparti.")
     #création d'un nouveau driver pour contourner le ban de Netflix
     driver = authentification_netflix()
-    time.sleep(3)
+    time.sleep(15)
     return driver
 
-def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,like=None):
-    '''parcourt le fichier csv donné en paramètre et récupère les informations de chaque film/série'''
+def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,objectif = None,):
+    '''parcourt le fichier csv donné en paramètre et récupère les informations de chaque film/série
+    si objectif vaut like, on like chaque programme netflix original, si objectif vaut dislike, on 
+    dislike chaque programme netflix original, sinon on n'effectue pas d'action mais on récupère les
+    informations de chaque programme'''
     wait = WebDriverWait(driver, 10)
     df = pd.read_csv(file, sep=';')
     data = []
@@ -137,119 +148,118 @@ def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,like=None
     for lignes in df.itertuples():
         i+=1
         print(f"\r{index_total}/{longueur_totale} : \"{nom_categorie}\" en cours de traitement... {i}/{longueur}"+" "*50, end='', flush=True)
-        try :
-            driver.get(f"https://www.netflix.com/title/{lignes.ID}")
-        except:
-            print(f"\nErreur lors de l'accès à la page du film/série \"{lignes.titres}\"")
-            continue
-        time.sleep(1) #important pour l'affichage
-        if like in ["like", "dislike", "love"]:
+        while True: #si il y a un problème de connexion, on réitère sur le même film/série pour ne pas perdre de données
+            try :
+                driver.get(f"https://www.netflix.com/title/{lignes.ID}")
+            except:
+                print(f"\nErreur lors de l'accès à la page du film/série \"{lignes.titres}\"")
+                break
+            time.sleep(1) #important pour l'affichage
             try:
-                wait.until(EC.presence_of_element_located((By.XPATH, '//button[@class="color-supplementary hasIcon round ltr-1ihscfb"]')))
-                driver.find_element(By.XPATH, '//button[@class="color-supplementary hasIcon round ltr-1ihscfb"]').click()
-                # ActionChains(driver).move_to_element(menu_boutons).perform()
-                # time.sleep(1000)
-                wait2 = WebDriverWait(driver, 2)
-                if like == "like":
-                    try: 
-                        wait2.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer un Pouce levé"]')))
-                        driver.find_element(By.XPATH, '//button[@aria-label="Attribuer un Pouce levé"]').click()
-                    except:
-                        pass #si le bouton like est déjà activé
-                elif like == "dislike":
-                    try:
-                        wait2.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer un Pouce baissé"]')))
-                        driver.find_element(By.XPATH, '//button[@aria-label="Attribuer un Pouce baissé"]').click()
-                    except:
-                        pass #si le bouton dislike est déjà activé
-                else :
-                    try:
-                        wait2.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer deux pouces levés"]')))
-                        driver.find_element(By.XPATH, '//button[@aria-label="Attribuer deux pouces levés"]').click()
-                    except:
-                        pass  #si le bouton love est déjà activé
+                wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]')))
+                html = driver.find_element(By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]').get_attribute('innerHTML')
+                soup = BeautifulSoup(html, 'html.parser')
+                div_year = soup.find('div', {'class': 'year'})
+                span_duration = soup.find('span', {'class': 'duration'})
+                span_score = soup.find('span', {'class': 'match-score'})
+                span_maturity = soup.find('span', {'class': 'maturity-number'})
+                div_description = soup.find('div', {'class': 'ptrack-content'})
+                span_prevent = soup.find('span', {'class': 'ltr-1q4vxyr'})
+                div_mise_en_avant_supp = soup.find('div', {'class': 'supplemental-message'})
+            except :
+                driver = relancer_driver(driver)
+                wait = WebDriverWait(driver, 10)
+                continue
+            if div_mise_en_avant_supp is not None:
+                div_mise_en_avant_supp = True
+            else:
+                div_mise_en_avant_supp = False
+            try:
+                wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'about-wrapper')))
+                html = driver.find_element(By.CLASS_NAME, 'about-wrapper').get_attribute('innerHTML')
+                soup = BeautifulSoup(html, 'html.parser')
+                div_tags = soup.find_all('div', {'class': 'previewModal--tags'})
+                tab_a_propos=[None,None,None,None,None]
+                dic_a_propos = {"Réalisation": 0,
+                                "Distribution": 1,
+                                "Scénariste": 2,
+                                "Genres": 3, 
+                                "Ce film est": 4,
+                                "Ce programme est": 4
+                                }
+                for tags in div_tags:
+                    categ=tags.find('span', {'class': 'previewModal--tags-label'})
+                    for key in dic_a_propos.keys():
+                        if key in categ.text:
+                            valeurs = tags.find_all('a', {'historystate': '[object Object]'})
+                            for valeur in valeurs:
+                                if tab_a_propos[dic_a_propos[key]] is None:
+                                    tab_a_propos[dic_a_propos[key]] = valeur.text.strip().replace(',', '')
+                                else:
+                                    tab_a_propos[dic_a_propos[key]] += f",{valeur.text.strip().replace(',', '')}"
+                
+            except :
+                driver = relancer_driver(driver)
+                wait = WebDriverWait(driver, 10)
+                continue
+            try:
+                wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'moreLikeThis--container')))
+                html = driver.find_element(By.CLASS_NAME, 'moreLikeThis--container')
+                html = html.get_attribute('innerHTML')
+                soup = BeautifulSoup(html, 'html.parser')
+                div_container = soup.find_all('div', {'class': 'titleCard-imageWrapper'})
+                recommendations = ""
+                for div in div_container:
+                    div = div.find('div', {'class': 'ptrack-content'}).get("data-ui-tracking-context")
+                    start_index = div.find('%22video_id%22:') + len('%22video_id%22:') #on cherche l'index du début de l'ID
+                    end_index = div.find(',', start_index) #on cherche l'index de la fin de l'ID
+                    recommendations += div[start_index:end_index]+"," #on récupère l'ID
+                recommendations = recommendations[:-1] #on enlève la dernière virgule
+                
+            except:
+                recommendations = None
+                driver = relancer_driver(driver)
+                wait = WebDriverWait(driver, 10)
+                continue
+            try:
+                detecter = detecter_motif(lignes.liens_images)
+                if objectif != None:
+                    wait.until(EC.presence_of_element_located((By.XPATH, '//button[@class="color-supplementary hasIcon round ltr-1ihscfb"]')))
+                    driver.find_element(By.XPATH, '//button[@class="color-supplementary hasIcon round ltr-1ihscfb"]').click()
+                    wait2 = WebDriverWait(driver, 2)
+                    if (detecter if objectif == "dislike" else not(detecter)):
+                        try:
+                            wait2.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer un Pouce baissé"]')))
+                            driver.find_element(By.XPATH, '//button[@aria-label="Attribuer un Pouce baissé"]').click()
+                        except:
+                            pass #si le bouton dislike est déjà activé
+                    else :
+                        try:
+                            wait2.until(EC.presence_of_element_located((By.XPATH, '//button[@aria-label="Attribuer deux pouces levés"]')))
+                            driver.find_element(By.XPATH, '//button[@aria-label="Attribuer deux pouces levés"]').click()
+                        except:
+                            pass  #si le bouton love est déjà activé
             except Exception as e:
                 print(f"Une erreur s'est produite : {str(e)}")
-    
-        try:
-            wait.until(EC.presence_of_element_located((By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]')))
-            html = driver.find_element(By.XPATH, '//div[@class="previewModal--detailsMetadata detail-modal has-smaller-buttons"]').get_attribute('innerHTML')
-            soup = BeautifulSoup(html, 'html.parser')
-            div_year = soup.find('div', {'class': 'year'})
-            span_duration = soup.find('span', {'class': 'duration'})
-            span_score = soup.find('span', {'class': 'match-score'})
-            span_maturity = soup.find('span', {'class': 'maturity-number'})
-            div_description = soup.find('div', {'class': 'ptrack-content'})
-            span_prevent = soup.find('span', {'class': 'ltr-1q4vxyr'})
-            div_mise_en_avant_supp = soup.find('div', {'class': 'supplemental-message'})
-        except :
-            driver = relancer_driver(driver)
-            wait = WebDriverWait(driver, 10)
-        if div_mise_en_avant_supp is not None:
-            div_mise_en_avant_supp = True
-        else:
-            div_mise_en_avant_supp = False
-        try:
-            wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'about-wrapper')))
-            html = driver.find_element(By.CLASS_NAME, 'about-wrapper').get_attribute('innerHTML')
-            soup = BeautifulSoup(html, 'html.parser')
-            div_tags = soup.find_all('div', {'class': 'previewModal--tags'})
-            tab_a_propos=[None,None,None,None,None]
-            dic_a_propos = {"Réalisation": 0,
-                            "Distribution": 1,
-                            "Scénariste": 2,
-                            "Genres": 3, 
-                            "Ce film est": 4,
-                            "Ce programme est": 4
-                            }
-            for tags in div_tags:
-                categ=tags.find('span', {'class': 'previewModal--tags-label'})
-                for key in dic_a_propos.keys():
-                    if key in categ.text:
-                        valeurs = tags.find_all('a', {'historystate': '[object Object]'})
-                        for valeur in valeurs:
-                            if tab_a_propos[dic_a_propos[key]] is None:
-                                tab_a_propos[dic_a_propos[key]] = valeur.text.strip().replace(',', '')
-                            else:
-                                tab_a_propos[dic_a_propos[key]] += f",{valeur.text.strip().replace(',', '')}"
-        except :
-            driver = relancer_driver(driver)
-            wait = WebDriverWait(driver, 10)
-        try:
-            wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'moreLikeThis--container')))
-            html = driver.find_element(By.CLASS_NAME, 'moreLikeThis--container')
-            html = html.get_attribute('innerHTML')
-            soup = BeautifulSoup(html, 'html.parser')
-            div_container = soup.find_all('div', {'class': 'titleCard-imageWrapper'})
-            recommendations = ""
-            for div in div_container:
-                div = div.find('div', {'class': 'ptrack-content'}).get("data-ui-tracking-context")
-                start_index = div.find('%22video_id%22:') + len('%22video_id%22:') #on cherche l'index du début de l'ID
-                end_index = div.find(',', start_index) #on cherche l'index de la fin de l'ID
-                recommendations += div[start_index:end_index]+"," #on récupère l'ID
-            recommendations = recommendations[:-1] #on enlève la dernière virgule
-        except:
-            recommendations = None
-            driver = relancer_driver(driver)
-            wait = WebDriverWait(driver, 10)
-        data.append([nom_categorie,
-                     lignes.titres,
-                     lignes.ID,
-                     lignes.liens_images,
-                     div_year.text if div_year is not None else None,
-                     span_duration.text if span_duration is not None else None,
-                     span_score.text if span_score is not None else None,
-                     span_maturity.text if span_maturity is not None else None,
-                     div_description.text if div_description is not None else None,
-                     span_prevent.text if span_prevent.text is not None else None,
-                     div_mise_en_avant_supp,
-                     tab_a_propos[0],
-                     tab_a_propos[1],
-                     tab_a_propos[2],
-                     tab_a_propos[3],
-                     tab_a_propos[4],
-                     recommendations,
-                     detecter_motif(lignes.liens_images)])
+            data.append([nom_categorie,
+                        lignes.titres,
+                        lignes.ID,
+                        lignes.liens_images,
+                        div_year.text if div_year is not None else None,
+                        span_duration.text if span_duration is not None else None,
+                        span_score.text if span_score is not None else None,
+                        span_maturity.text if span_maturity is not None else None,
+                        div_description.text if div_description is not None else None,
+                        span_prevent.text if span_prevent.text is not None else None,
+                        div_mise_en_avant_supp,
+                        tab_a_propos[0],
+                        tab_a_propos[1],
+                        tab_a_propos[2],
+                        tab_a_propos[3],
+                        tab_a_propos[4],
+                        recommendations,
+                        detecter])
+            break
     df = pd.DataFrame(data, columns=['categorie',
                                      'titres', 
                                      'ID', 
@@ -272,7 +282,7 @@ def parcourt_csv(driver,file,nom_categorie,longueur_totale,index_total,like=None
     return df, driver
 
 
-def parcourt_titres_informations(driver, like=None,first = True):
+def parcourt_titres_informations(driver,objectif = None,first = True):
     """parcourt les fichiers csv contenant les titres et récupère les informations de chaque titre"""
     directory = "listes_csv"
     longueur = len(os.listdir(directory))
@@ -283,12 +293,12 @@ def parcourt_titres_informations(driver, like=None,first = True):
         # Vérifier si le chemin correspond à un fichier csv et ne pas inclure les sous-dossiers
         if os.path.isfile(file_path) and file.endswith('.csv'):
             if first:
-                df,driver = parcourt_csv(driver, file_path,file[:-4],longueur,i,like)
+                df,driver = parcourt_csv(driver, file_path,file[:-4],longueur,i,objectif = objectif)
                 df.to_csv('bdd_series.csv', index=False, sep=';')
                 first = False
             else:
                 df = pd.read_csv('bdd_series.csv',sep=';')
-                df_inter, driver = parcourt_csv(driver, file_path,file[:-4],longueur,i,like)
+                df_inter, driver = parcourt_csv(driver, file_path,file[:-4],longueur,i,objectif = objectif)
                 df = pd.concat([df, df_inter],axis=0)
                 df.to_csv('bdd_series.csv', index=False, sep=';')
     return driver
@@ -332,11 +342,11 @@ def detecter_motif(image_principale_path, motif_path="https://occ-0-2773-2774.1.
     #afficher la médianne sur la plage de donnée du motif pour chacune des couleurs
     mediane = np.mean(motif[23:28,16:21], axis=(0,1))
     mediane2 = np.mean(img_principale[23:28,16:21], axis=(0,1))
-    if((abs(mediane-mediane2)<4).all()):
+    if((abs(mediane-mediane2)<7).all()):
         return True
     return False
     
-def gestion_doublons(file_path):
+def gestion_doublons(file_path, index):
     """supprime les doublons dans un fichier csv"""
     # Charger le fichier CSV dans un DataFrame pandas
     df = pd.read_csv(file_path,sep=';')
@@ -364,7 +374,7 @@ def gestion_doublons(file_path):
     grouped_df['nombre_occurrence'] = df.groupby('ID').size().reset_index(name='count')['count']
     # création d'une autre colonne netflix_original qui contient la valeur True si le titre est un original netflix et False sinon à partir du lien de l'image
     # grouped_df['netflix_original'] = grouped_df['liens_images'].apply(lambda x: detecter_motif(x))
-    grouped_df.to_csv(file_path[:-4] + '_modifie.csv', index=False, sep=';')
+    grouped_df.to_csv(f"{file_path[:-4]}_modifie{index}.csv", index=False, sep=';')
 
 def archiver_csv():
     """Archive les fichiers CSV contenant les titres dans des dossiers"""
@@ -396,20 +406,18 @@ def archiver_csv():
 
 def main():
     """fonction principale"""
-    first = True
-    while True:
+    for i in range(2):
         print("Authentification en cours...")
         driver = authentification_netflix()
         print("Authentification réussie\n")
         print("Récupération des catégories en cours...")
-        recuperer_liste_ligne(driver)
+        # recuperer_liste_ligne(driver)
         print("Catégories récupérées\n")
         print("Récupération des titres en cours...")
-        recuperer_tous_titres(driver)
+        # recuperer_tous_titres(driver)
         print("Titres récupérés\n")
         print("Récupération des informations en cours...")
-        driver = parcourt_titres_informations(driver, like='like', first=first)
-        first = False
+        driver = parcourt_titres_informations(driver, objectif = None) # None pour témoin sinon changer par "like" ou "dislike"
         print("Informations récupérées\n")
         print("Fermeture du navigateur...")
         driver.quit()
@@ -417,18 +425,13 @@ def main():
         print("Archivage en cours...")
         archiver_csv()
         print("Archivage terminé\n")
-        if input("Voulez-vous continuer la recherche le programme ? (Y/n) ") == 'n':
-            print("Gestion des doublons en cours...")
-            gestion_doublons('bdd_series.csv')
-            print("Doublons gérés\n")
+        print("Gestion des doublons en cours...")
+        gestion_doublons('bdd_series.csv',i)
+        print("Doublons gérés\n")
+        if  i==2:
             print("Fin du programme")
             break
-        # melt tous les id pour chacunes des recommendations séparées par des virgules
-        df = pd.read_csv('bdd_series_modifie.csv',sep=';')
-        df = df.astype(str)
-        df['recommendations'] = df['recommendations'].apply(lambda x: x.replace('[','').replace(']','').replace("'",'').replace(' ','').replace(',,',','))
-        df.to_csv('bdd_series_modifie.csv', index=False, sep=';')
-    # melt = pd.melt(df, id_vars=['ID'], value_vars=['categorie', 'titres', 'liens_images', 'année', 'durée', 'score_recommendation', 'age_conseillé', 'description', 'prévention', 'mise_en_avant_supplémentaire', 'réalisation', 'distribution', 'scénariste', 'genres', 'avertissement_programme', 'recommendations', 'netflix_original'])
+    
 
 if __name__ == "__main__":
     main()
