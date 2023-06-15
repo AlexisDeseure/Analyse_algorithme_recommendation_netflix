@@ -2,9 +2,6 @@ import csv
 import pandas as pd
 import os
 
-# Remplacer par le chemin du fichier csv
-csv_file_path = 'bdd_series_modifie.csv'
-
 def trier(csv_file_path):
     new_csv_file_path = 'temporaire.csv'
     columns_to_keep = ['ID', 'recommendations']
@@ -50,21 +47,25 @@ def modifier_csv(new_csv_file_path):
     print("Le fichier a été modifié avec succès. Le fichier de sortie est prêt :", new_csv_file_path1)
 
 
-def menu():
+def menu(csv_file_path=None):
+    if csv_file_path is None:
+        csv_file_path = input("Entrez le chemin du fichier csv à traiter (partiel ou absolu): ")
+    if not(os.path.exists(csv_file_path)):
+        print("Le fichier n'existe pas. Veuillez réessayer.")
+        menu()
+        return
     print("Que souhaitez-vous faire ?")
     print("1. Fichier de liens")
     print("2. Fichier de noeuds")
     choix = input("Votre choix (1, 2) : ")
 
     if choix == "1":
-        csv_file_path = 'bdd_series_modifie.csv'
         trier(csv_file_path)
         modifier_csv('temporaire.csv')
         os.remove('temporaire.csv')
-        menu()
+        menu(csv_file_path)
         
     elif choix == "2":
-        csv_file_path = 'bdd_series_modifie.csv'
         df = pd.read_csv(csv_file_path, delimiter=';')       
         df = df.rename(columns={'titres': 'Label'})
         df = df.rename(columns={'ID': 'Id'})
@@ -73,12 +74,13 @@ def menu():
         df = df.rename(columns={'nombre_occurrence': 'Nombre_occurrence'})
         columns_to_keep = ['Id', 'Label', 'Genres', 'Netflix_original', 'Nombre_occurrence']
         df = df[columns_to_keep]
-        new_csv_file_path = 'fichier_noeuds2.csv'
+        new_csv_file_path = 'fichier_noeuds.csv'
         df.to_csv(new_csv_file_path, index=False, sep=';')
         print("Le fichier a été modifié avec succès. Le fichier de sortie est prêt :", new_csv_file_path)
         print("Les colonnes du fichier de sortie :", columns_to_keep)
     else:
         print("Choix invalide. Veuillez sélectionner 1 ou 2.")
-        menu()
+        menu(csv_file_path)
 
-menu()
+if __name__ == "__main__":
+    menu()
