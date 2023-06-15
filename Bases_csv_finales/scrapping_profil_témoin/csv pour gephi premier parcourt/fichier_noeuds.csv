@@ -1,0 +1,865 @@
+Id;Label;Genres;Netflix_original;Nombre_occurrence
+1179053;Sept ans au Tibet;Drames,Films inspirés de faits réels;False;1
+18962448;Aussi profond que l'océan;Drames,Films inspirés de livres;False;1
+20559714;La Momie;Films d'action;False;2
+28631029;Stuart Little;Films pour la famille,Films jeunesse et famille,Comédies,Films inspirés de livres;False;1
+445386;Dirty Dancing;Drames,Films romantiques,Drames primés;False;2
+505789;Lancelot, le premier chevalier;Drames,Films romantiques,Films d'époque;False;1
+60000417;La Ligne verte;Drames,Films inspirés de livres,Drames primés;False;3
+60001650;Men in Black;Films SF,Films comiques,Films d'action;False;2
+60002360;Jurassic Park;Films SF,Films inspirés de livres,Films d'action;False;3
+60003388;Snatch;Britannique,Comédies;False;1
+60004481;Spider-Man;Films SF,Films d'action;False;2
+60010110;Retour vers le futur;Films pour la famille,Films SF,Aventures en famille,Comédies;False;2
+60011152;Le Parrain;Drames,Films inspirés de livres,Drames primés;False;1
+60011511;Under Solen;Suédois,Drames,Films romantiques,Films inspirés de livres;False;1
+60011663;Le Parrain 2;Drames,Films inspirés de livres,Drames primés;False;1
+60020686;Shrek;Films pour la famille,Films jeunesse et famille,Aventures en famille,Satires,Comédies;False;2
+60023597;MIIB;Films SF,Comédies,Films d'action;False;1
+60023642;Le Voyage de Chihiro;Films pour la famille,Films jeunesse et famille,Japonais,Aventures en famille,Films d'animation;False;3
+60024059;Retour vers le futur 3;Films pour la famille,Films jeunesse et famille,Films SF,Aventures en famille,Comédies;False;1
+60024918;Fusion;Films SF,Films d'action;False;1
+60024922;8 Mile;Musique,Drames,Culture Hip-hop,Drames sociaux;False;1
+60024942;Arrête-moi si tu peux;Films policiers,Drames,Films inspirés de livres,Films inspirés de faits réels,Drames primés;False;3
+60026139;Les larmes du soleil;Films sur l'armée,Films d'action;False;1
+60027106;Kiki la petite sorcière;Films pour la famille,Films jeunesse et famille,Japonais,Animation japonaise inspirée de livres,Aventures en famille;False;1
+60027393;Le Château dans le ciel;Films pour la famille,Films jeunesse et famille,Japonais,Aventures en famille,Films d'animation;False;1
+60028308;Robin des Bois, prince des voleurs;Films romantiques,Films d'époque,Films d'action;False;1
+60031264;Le Chat chapeauté;Films pour la famille,Films jeunesse et famille,Comédies,Films inspirés de livres;False;2
+60034572;Shrek 2;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies,Films inspirés de livres;False;1
+60036752;Laisse parler ton cœur;Indien,Films en hindi,Films de Bollywood,Comédies romantiques,Drames;False;1
+684660;Last Action Hero;Films SF,Comédies,Films d'action;False;1
+70002007;Gang de Requins;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies,Films d'animation;False;1
+70019058;Le Royaume des chats;Films pour la famille,Films jeunesse et famille,Japonais,Aventures en famille,Films d'animation;False;1
+70020509;Heat;Films policiers,Policiers d'action,Films d'action;False;1
+70028883;Le Château ambulant;Films pour la famille,Films jeunesse et famille,Japonais,Animation japonaise inspirée de livres,Aventures en famille;False;2
+70033005;Matilda;Films pour la famille,Films jeunesse et famille,Comédies,Films inspirés de livres;False;1
+70044605;À la recherche du bonheur;Drames,Films inspirés de faits réels,Drames sociaux,Drames primés;False;2
+70047101;Spider-Man 3;Films SF,Films d'action;False;1
+70056430;Shooter, tireur d'élite;Intrigues,Films inspirés de livres,Films d'action;False;2
+70056440;300;Films sur l'armée,Films d'action;False;1
+70060015;Je suis une légende;Films SF,Films inspirés de livres,Films d'action;False;2
+70079583;The Dark Knight : le chevalier noir;Films d'action;False;1
+70100725;Fyra Fruar och En Man;Suédois,Films documentaires,Docus société et culture;False;1
+70106454;Ponyo sur la falaise;Films pour la famille,Films jeunesse et famille,Japonais,Aventures en famille,Films d'animation;False;1
+70113002;Very Bad Trip;Films comiques;False;3
+70113938;The Queen and I;Suédois,Films documentaires,Documentaires biographiques;False;1
+70114497;Des mains en or;Drames,Films inspirés de faits réels,Drames sociaux,Drames primés;False;2
+70119811;The Blind Side;Drames,Films inspirés de livres,Films inspirés de faits réels,Drames primés;False;3
+70123711;Paul;Films SF,Britannique,Comédies;False;1
+70125931;Karaté Kid;Films pour la famille,Films jeunesse et famille,Drames pour la famille,Films sur les arts martiaux;False;4
+70132721;The Social Network;Drames,Films inspirés de livres,Films inspirés de faits réels,Drames primés;False;1
+70135893;Le Discours d’un roi;Britannique,Drames,Films inspirés de faits réels,Drames primés;False;2
+70136120;The Office (US);Sitcoms,Séries comiques,Séries US;False;4
+70136140;Star Trek;Séries pour la famille à voir ensemble,Séries d'action et d'aventure,Séries US;False;3
+70140358;Arrested Development;Sitcoms,Séries comiques,Séries US;True;1
+70140907;Faster;Films d'action;False;1
+70141824;Regretters;Suédois,Films documentaires,Films LGBTQ+,Docus société et culture;False;1
+70142382;Laguna Beach: The Real Orange County;Séries pour ados,Téléréalité,Séries US;False;1
+70142405;Avatar : Le dernier maître de l’air;Pour enfants,Séries pour la famille à voir ensemble,Dessins animés,Séries fantastiques;False;8
+70143830;The Big Bang Theory;Sitcoms,Séries comiques,Séries US;False;5
+70143836;Breaking Bad;Séries US,Thrillers TV;False;6
+70144327;Les Petits Mouchoirs;Français,Drames,Films comiques;False;2
+70153373;Seinfeld;Sitcoms,Séries comiques,Séries US;False;2
+70153385;Trailer Park Boys;Sitcoms,Canadien,Séries comiques;True;3
+70153404;Friends;Sitcoms,Séries comiques,Séries US;False;7
+70155579;Johnny Test;Pour enfants,Dessins animés;False;1
+70155589;Community;Sitcoms,Séries comiques,Séries US;False;1
+70155618;Gilmore Girls;Séries pour ados,Séries comiques,Séries comiques romantiques,Séries US;False;4
+70158329;Star Trek : la nouvelle génération;Séries SF,Séries d'action et d'aventure,Séries US;False;1
+70158331;Star Trek: Voyager;Séries pour la famille à voir ensemble,Séries SF,Séries d'action et d'aventure,Séries US;False;4
+70167068;Crazy, Stupid, Love.;Comédies romantiques,Drames,Comédies,Films romantiques;False;1
+70171942;Archer;Sitcoms,Séries comiques,Séries d'action et d'aventure,Séries US;False;4
+70171946;Heartland;Séries dramatiques,Séries pour la famille à voir ensemble,Canadien,Séries inspirées de livres;False;1
+70177033;Winx Club;Pour enfants,Italien,Dessins animés;False;2
+70177034;Yu-Gi-Oh!;Pour enfants,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;6
+70177057;The Walking Dead;Séries d'action et d'aventure,Séries US,Séries d'épouvante,Séries inspirées de B.D.;False;5
+70178621;Voyage au centre de la Terre 2 : l'île mystérieuse;Films pour la famille,Aventures en famille,Films inspirés de livres,Films d'action;False;1
+70180051;H2O;Pour enfants,Séries pour la famille à voir ensemble,Australien;False;5
+70180088;Garfield & Cie;Pour enfants,Séries comiques,Dessins animés,Séries inspirées de B.D.;False;1
+70187741;RuPaul's Drag Race;Téléréalité avec concours,Téléréalité,Séries US;True;1
+70195800;Suits : avocats sur mesure;Séries judiciaires,Séries comiques,Séries US;False;3
+70205012;Naruto;Anime SF et fantastique,Anime d'action,Séries pour la famille à voir ensemble,Japonais,Séries d'animation japonaise;False;4
+70205014;Ouran Host Club : Le lycée de la séduction;Japonais,Anime romantique,Séries pour ados,Séries d'animation japonaise,Animes sur l'école;False;1
+70205672;La reine du sud;Mexicain,Séries inspirées de livres,Thrillers TV;True;1
+70208599;The Amazing Spider-Man;Films SF,Films d'action;False;1
+70211391;Les aventures de Tintin;Pour enfants,Séries pour la famille à voir ensemble,Dessins animés,Séries inspirées de B.D.;False;4
+70213130;Boys Over Flowers;Séries dramatiques romantiques,Séries dramatiques,Coréen,Séries pour ados,Séries inspirées de mangas;False;5
+70213223;Downton Abbey;Séries dramatiques,Britannique,Films d'époque,Séries dramatiques sociales;False;4
+70213238;Monty Python's Flying Circus;Britannique,Séries comiques;False;2
+70216227;Arrietty, le petit monde des chapardeurs;Films pour la famille,Films jeunesse et famille,Japonais,Animation japonaise inspirée de livres,Aventures en famille;False;1
+70217910;Men in Black 3;Films SF,Comédies,Films d'action;False;1
+70217931;Les Real Housewives de Beverly Hills;Téléréalité,Séries US;False;2
+70220028;Hôtel Transylvanie;Films pour la famille,Films jeunesse et famille,Comédies,Films d'animation;False;1
+70230640;Django Unchained;Drames,Westerns,Drames sociaux,Drames primés;False;2
+70234488;Yakari;Pour enfants,Belge,Séries inspirées de livres,Dessins animés,Séries inspirées de B.D.;False;2
+70234499;Trotro;Pour enfants,Éducatif jeunesse,Dessins animés;False;3
+70242311;Orange Is the New Black;Séries inspirées de livres,Séries comiques,Séries US,Séries inspirées de faits réels;True;2
+70243449;Les cinq légendes;Films pour la famille,Films jeunesse et famille,Films inspirés de livres,Films d'animation;False;1
+70244166;Pitch Perfect;Comédies,Films inspirés de livres,Comédies musicales;False;2
+70244568;Code Lyoko;Pour enfants,Dessins animés;False;1
+70245012;Full House;Coréen,Séries comiques,Séries comiques romantiques,Séries inspirées de B.D.;False;1
+70250213;Les 12 travaux d'Astérix;Films jeunesse et famille,Comédies,Films d'animation;False;1
+70252973;LEGO Ninjago : Les maîtres du Spinjitzu;Pour enfants,Danois,Dessins animés,Séries scandinaves;False;1
+70259782;DreamWorks: Histoires courtes;Pour enfants,Séries pour la famille à voir ensemble,Séries comiques,Dessins animés;False;1
+70259784;DreamWorks: Joyeux Noël de Madagascar;Pour enfants,Séries pour la famille à voir ensemble,Séries comiques,Dessins animés;False;1
+70263864;Very Bad Trip 3;Films comiques;False;1
+70264888;Black Mirror;Britannique,Séries SF,Thrillers TV;True;6
+70266998;Fairy Tail;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;2
+70267728;Turbo;Films pour la famille,Films jeunesse et famille,Comédies,Films d'animation;False;1
+70270408;Les Miller, une famille en herbe;Comédies;False;1
+70272726;The Fall;Britannique,Séries policières,Thrillers TV;False;2
+70276515;Yeh Jawaani Hai Deewani;Indien,Films en hindi,Films de Bollywood,Comédies romantiques,Drames;False;1
+70281312;Blacklist;Séries policières,Séries US,Thrillers TV;False;6
+70281562;Brooklyn Nine-Nine;Sitcoms,Séries comiques,Séries policières,Séries US;False;5
+70282170;Le Cheval de Klara;Films pour la famille,Films jeunesse et famille,Suédois,Drames pour la famille,Drames;False;1
+70283264;Les 100;Séries politiques,Séries SF,Séries inspirées de livres,Séries d'action et d'aventure,Séries US;False;7
+70285581;Outlander;Séries politiques,Séries inspirées de livres,Séries d'action et d'aventure,Séries US,Séries fantastiques;True;6
+70285606;My Stolen Revolution;Suédois,Films documentaires,Documentaires politiques,Docus société et culture;False;2
+70286901;Masha et Michka;Pour enfants,Russe,Dessins animés;False;3
+70287700;Sam le pompier;Pour enfants,Britannique,Éducatif jeunesse,Dessins animés;False;2
+70288408;Les nouvelles aventures de Lucky Luke;Pour enfants,Séries comiques,Dessins animés,Séries inspirées de B.D.;False;2
+70293702;The Amazing Spider-Man : Le Destin d'un héros;Films SF,Films d'action;False;1
+70295080;LOL (Laughing Out Loud) ®;Français,Comédies romantiques,Comédies,Films romantiques;False;2
+70298991;Dragons 2;Films pour la famille,Films jeunesse et famille,Aventures en famille,Films inspirés de livres,Films d'animation;False;1
+70299043;L'Attaque des Titans;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;4
+70300472;Hunter X Hunter (2011);Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;1
+70300800;BoJack Horseman;Sitcoms,Séries comiques,Séries US;True;2
+70301870;Vikings;Séries politiques,Canadien,Séries d'action et d'aventure,Films d'époque;False;4
+70302482;Borgen, une femme au pouvoir;Séries politiques,Séries dramatiques,Danois,Séries scandinaves,Séries dramatiques sociales;False;2
+70305892;Equalizer;Films d'action;False;1
+70305899;Dracula Untold;Films inspirés de livres,Films d'action;False;1
+70305903;Interstellar;Films SF;False;6
+70305907;Fury;Films sur l'armée,Films d'action;False;3
+80000603;Naruto Shippuden;Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;3
+80000770;Making a Murderer;Séries policières,Séries documentaires,Docus société et culture,Séries US,Documentaires inspirés de crimes réels;True;3
+80001803;Ratz;Pour enfants,Séries comiques,Dessins animés;False;5
+80001804;Les Zinzins de l'espace;Pour enfants,Séries comiques,Dessins animés;False;2
+80002479;Peaky Blinders;Séries dramatiques,Britannique,Films d'époque;True;8
+80002924;Sur la piste du Marsupilami;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies;False;5
+80003196;Wakfu;Pour enfants,Dessins animés;False;3
+80005772;Les lapins crétins : Invasion;Pour enfants,Séries comiques,Dessins animés;False;3
+80007757;Inazuma Eleven;Pour enfants,Japonais,Anime inspiré d'un jeu vidéo,Séries d'animation japonaise,Anime sportifs;False;5
+80007912;Dinosaur King;Pour enfants,Anime d'action,Japonais,Anime inspiré d'un jeu vidéo,Séries d'animation japonaise;False;3
+80007971;Stockholm Express;Suédois,Drames,Films romantiques;False;1
+80011206;Zoo;Séries SF,Séries inspirées de livres,Séries US,Thrillers TV;False;3
+80011358;Le garçon d'à côté;Japonais,Anime romantique,Séries pour ados,Séries d'animation japonaise,Animes sur l'école;False;1
+80013871;American Sniper;Films sur l'armée,Films inspirés de livres,Films inspirés de faits réels,Films d'action;False;1
+80014749;Rick et Morty;Sitcoms,Séries SF,Séries comiques,Séries d'action et d'aventure,Séries US;False;8
+80017167;La French;Français,Films inspirés de faits réels,Films d'action;False;1
+80017529;Au cœur de l'océan;Films inspirés de livres,Films d'époque,Films inspirés de faits réels,Films d'action;False;2
+80017537;Grace et Frankie;Sitcoms,Séries comiques,Séries US;True;1
+80020935;Les Octonauts;Pour enfants,Britannique,Séries inspirées de livres,Éducatif jeunesse,Dessins animés;False;2
+80021955;Better Call Saul;Séries dramatiques,Séries US;True;5
+80023687;Tokyo Ghoul;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Anime d'horreur;False;1
+80024057;Murder;Séries judiciaires,Séries d'intrigue,Séries policières,Séries US,Thrillers TV;False;4
+80025172;Narcos;Séries d'action et d'aventure,Séries US,Thrillers TV,Séries inspirées de faits réels;True;6
+80025494;Peppa Pig;Pour enfants,Britannique,Dessins animés;False;2
+80025678;The Crown;Séries politiques,Séries dramatiques,Britannique,Séries inspirées de faits réels;True;3
+80025744;Sense8;Séries SF,Séries US,Thrillers TV;True;3
+80025920;Pitch Perfect 2;Comédies,Films inspirés de livres,Comédies musicales;False;1
+80026226;PAW Patrol : La Pat'Patrouille;Pour enfants,Dessins animés;False;3
+80026692;Totally Spies!;Pour enfants,Dessins animés;False;3
+80027042;Flash;Séries SF,Séries d'action et d'aventure,Séries US,Séries inspirées de B.D.;False;7
+80027158;Jane the Virgin;Séries comiques,Séries comiques romantiques,Séries US;False;1
+80027159;iZombie;Séries d'intrigue,Séries comiques,Séries US,Séries d'épouvante,Séries inspirées de B.D.;False;1
+80027564;Sam & Cat;Pour enfants,Sitcoms,Séries comiques;False;1
+80028732;F is for Family;Sitcoms,Séries comiques,Séries US;True;2
+80029196;Jurassic World;Films SF,Films d'action;False;3
+80031790;The Moon That Embraces The Sun;Séries dramatiques romantiques,Séries dramatiques,Coréen,Films d'époque;False;3
+80035684;Pablo Escobar, le patron du mal;Séries dramatiques,Colombien,Séries inspirées de livres,Séries inspirées de faits réels;False;1
+80036407;Le cœur a ses raisons;Séries dramatiques,Séries pour la famille à voir ensemble,Séries inspirées de livres,Films d'époque,Séries US;False;1
+80036416;Un soupçon de magie;Séries pour la famille à voir ensemble,Séries US,Séries fantastiques;False;2
+80037476;Pixels;Films SF,Comédies,Films d'action;False;3
+80044545;Beasts of No Nation;Films sur l'armée,Drames,Films indépendants,Films inspirés de livres,Drames primés;True;1
+80044950;The OA;Séries SF,Séries d'intrigue,Séries US,Thrillers TV;True;3
+80045948;Assassination Classroom;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Animes sur l'école;False;3
+80049832;Notre planète;Séries pour la famille à voir ensemble,Britannique,Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature;True;3
+80049939;Chair de Poule - le film;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies,Films inspirés de livres;False;2
+80050008;Les désastreuses aventures des orphelins Baudelaire;Pour enfants,Séries pour la famille à voir ensemble,Séries inspirées de livres,Séries comiques;True;3
+80050063;The Seven Deadly Sins;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;True;3
+80051137;La fête à la maison : 20 ans après;Sitcoms,Séries pour la famille à voir ensemble,Séries comiques,Séries US;True;3
+80053476;Titeuf;Pour enfants,Dessins animés,Séries inspirées de B.D.;False;4
+80057281;Stranger Things;Séries SF,Séries pour ados,Séries US,Séries d'épouvante;True;11
+80057918;Lucifer;Séries policières,Séries US,Séries fantastiques,Séries inspirées de B.D.;True;6
+80057968;Glitter Force;Pour enfants,Séries d'animation japonaise,Dessins animés;True;1
+80058397;CREED : L'HÉRITAGE DE ROCKY BALBOA;Drames,Drames primés;False;2
+80058426;La Tête haute;Français,Drames,Drames primés;False;1
+80058880;Mon roi;Français,Drames,Films romantiques,Drames primés;False;1
+80060413;Heidi;Pour enfants,Séries inspirées de livres,Dessins animés;False;3
+80065386;Supergirl;Séries SF,Séries d'action et d'aventure,Séries US,Séries inspirées de B.D.;False;6
+80066080;DC's Legends of Tomorrow;Séries SF,Séries d'action et d'aventure,Séries US,Séries inspirées de B.D.;False;3
+80067930;13 Hours;Films sur l'armée,Films inspirés de livres,Films inspirés de faits réels,Films d'action;False;1
+80067942;Terrace House: Boys & Girls in the City;Japonais,Téléréalité romance et mariage,Téléréalité;True;1
+80070050;Poldark;Séries dramatiques romantiques,Séries dramatiques,Britannique,Séries inspirées de livres,Films d'époque;False;4
+80071348;Kung Fu Panda 3;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies,Films sur les arts martiaux;False;2
+80073160;Babysitting;Français,Comédies;False;2
+80074220;3 %;Séries politiques,Brésilien,Séries SF;True;1
+80074249;The Last Kingdom;Britannique,Séries inspirées de livres,Séries d'action et d'aventure,Films d'époque;True;5
+80074781;Les Chaussures magiques;Films pour la famille,Films jeunesse et famille,Drames pour la famille,Drames;False;2
+80075312;Bikes vs Cars;Suédois,Films documentaires,Docus société et culture;False;1
+80075820;Chasseurs de Trolls : Les Contes d'Arcadia;Pour enfants,Séries pour la famille à voir ensemble,Séries inspirées de livres,Dessins animés,Séries fantastiques;True;1
+80077417;Colony;Séries politiques,Séries SF,Séries d'action et d'aventure,Séries US;False;1
+80081151;Miracles du ciel;Films pour la famille,Drames pour la famille,Drames,Films inspirés de livres,Films inspirés de faits réels;False;2
+80084447;Shadowhunters: The Mortal Instruments;Séries SF,Séries inspirées de livres,Séries pour ados,Séries US,Séries d'épouvante;True;1
+80090370;Détective Conan;Anime d'action,Japonais,Animation d'intrigue et thriller,Séries d'animation japonaise,Séries policières;False;5
+80091595;Suicide Squad;Films d'action;False;1
+80091742;Last Chance U;Séries documentaires,Docus société et culture,Séries US;True;1
+80093133;Warcraft : Le Commencement;Films SF,Films d'action;False;2
+80093324;The Empress Ki;Séries politiques,Coréen,Séries d'action et d'aventure,Films d'époque;False;5
+80094318;Agents Presque Secrets;Films comiques,Films d'espionnage,Films d'action;False;3
+80094728;Marcella;Britannique,Séries policières,Thrillers TV;True;1
+80095241;Castlevania;Anime d'action,Anime inspiré d'un jeu vidéo,Séries d'animation japonaise,Anime d'horreur,Séries US;True;1
+80095299;Ultimate Beastmaster;Séries pour la famille à voir ensemble,Téléréalité avec concours,Téléréalité,Séries US;True;1
+80095532;Au fil des jours;Sitcoms,Séries pour la famille à voir ensemble,Séries comiques,Séries US;True;1
+80095697;Désenchantée;Séries comiques,Séries d'action et d'aventure,Séries US,Séries fantastiques;True;2
+80095900;Haters Back Off;Séries pour la famille à voir ensemble,Séries pour ados,Séries comiques,Séries US;True;1
+80096545;Roman Empire;Séries dramatiques,Documentaires historiques,Séries documentaires,Docus société et culture,Séries US;True;1
+80096984;Amateur;Drames,Films indépendants,Films pour ados;True;1
+80097140;Altered Carbon;Séries SF,Séries inspirées de livres,Séries d'action et d'aventure,Séries policières,Séries US;True;2
+80098202;Jason Bourne;Films inspirés de livres,Films d'action;False;4
+80100172;Dark;Allemand,Séries SF,Séries d'intrigue,Séries policières,Thrillers TV;True;6
+80100929;Les Demoiselles du téléphone;Séries dramatiques romantiques,Séries dramatiques,Espagnol,Films d'époque;True;5
+80101899;Le Fondateur;Drames,Films inspirés de faits réels;False;2
+80103408;Teen Titans Go!;Pour enfants,Séries comiques,Dessins animés,Séries inspirées de B.D.;False;3
+80104198;Perdus dans l'espace;Séries pour la famille à voir ensemble,Séries d'action et d'aventure,Séries US;True;3
+80105699;Les voyageurs du temps;Canadien,Séries SF,Thrillers TV;True;2
+80106136;Yo-Kai Watch;Pour enfants,Japonais,Anime inspiré d'un jeu vidéo,Séries d'animation japonaise;False;2
+80106337;Le Vieux qui ne voulait pas payer l'addition;Suédois,Satires,Comédies,Films d'espionnage;True;1
+80107369;Reine du Sud;Séries inspirées de livres,Séries d'action et d'aventure,Séries US;False;1
+80113612;Fauda;Israélien,Séries d'action et d'aventure,Thrillers TV;True;1
+80113647;Designated Survivor;Séries politiques,Séries US,Thrillers TV;True;3
+80113701;The Good Place;Sitcoms,Séries comiques,Séries US;True;1
+80114855;MINDHUNTER;Séries inspirées de livres,Séries d'intrigue,Séries policières,Séries US,Thrillers TV;True;2
+80115031;Divines;Français,Drames,Drames primés;False;1
+80116922;Inside the World’s Toughest Prisons;Britannique,Séries documentaires;True;2
+80117038;Big Mouth;Sitcoms,Séries comiques,Séries US;True;1
+80117445;Assassin's Creed;Films SF,Films d'action;False;3
+80117470;13 Reasons Why;Séries dramatiques,Séries inspirées de livres,Séries pour ados,Séries d'intrigue,Séries US;True;3
+80117540;Atypical;Séries pour ados,Séries comiques,Séries US;True;1
+80117552;Ozark;Séries US,Thrillers TV;True;3
+80117555;Seven Seconds;Séries dramatiques,Séries policières,Séries US,Séries dramatiques sociales;True;2
+80117694;Disjointed;Sitcoms,Séries comiques,Séries US;True;1
+80117799;Premier contact;Films SF,Films inspirés de livres;False;1
+80117803;Comment élever un super-héros;Pour enfants,Séries pour la famille à voir ensemble,Séries inspirées de B.D.;True;2
+80117809;On My Block;Séries pour ados,Séries comiques,Séries comiques romantiques,Séries US;True;1
+80119234;Bright;Films policiers,Policiers d'action,Films d'action;True;1
+80119426;Dirk Gently, détective holistique;Séries SF,Séries inspirées de livres,Séries d'intrigue,Séries comiques,Séries d'action et d'aventure;True;1
+80121192;Barry Seal : American Traffic;Films comiques,Films inspirés de faits réels,Films d'action;False;3
+80121349;Van Helsing;Canadien,Séries d'action et d'aventure,Séries d'épouvante,Séries fantastiques,Séries inspirées de B.D.;True;3
+80121387;Elisa et Marcela;Espagnol,Films LGBTQ+,Drames,Films romantiques,Films d'époque;True;1
+80121840;Le Monde secret des Emojis;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies,Films d'animation;False;1
+80123798;Descendants of the Sun;Séries dramatiques romantiques,Séries dramatiques,Coréen;False;4
+80124680;Gad Elmaleh Part en Live;Français,Stand-up;True;1
+80126646;Carnivore;Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature,Séries documentaires,Séries US;True;1
+80130521;Amandine Malabul, sorcière maladroite;Pour enfants,Britannique,Séries inspirées de livres;True;2
+80131479;Terrace House: Aloha State;Japonais,Téléréalité romance et mariage,Téléréalité;True;1
+80133042;El Chapo;Séries d'action et d'aventure,Séries US,Thrillers TV;True;2
+80133311;Riverdale;Séries dramatiques,Séries pour ados,Séries d'intrigue,Séries US,Séries inspirées de B.D.;True;5
+80133335;Dix pour cent;Français,Séries comiques;False;1
+80133543;La Grande Muraille;Films d'action;False;2
+80134695;Zoe et Raven;Pour enfants,Séries pour la famille à voir ensemble,Britannique;True;3
+80135414;The Mist;Séries SF,Séries inspirées de livres,Séries US,Séries d'épouvante;True;1
+80136311;Anne with an E;Séries dramatiques,Séries pour la famille à voir ensemble,Canadien,Séries inspirées de livres,Séries pour ados;True;2
+80138915;Hitler et le cercle du mal;Britannique,Documentaires historiques,Séries documentaires;False;1
+80141172;The Guardians of Justice;Séries SF,Séries d'intrigue,Séries comiques,Séries d'action et d'aventure,Séries US;True;2
+80141270;Notre grande famille;Séries dramatiques,Suédois,Séries scandinaves;True;1
+80142090;Baby Driver;Britannique,Comédies,Films d'action;False;2
+80142550;La Trêve;Belge,Séries d'intrigue,Séries policières,Thrillers TV;False;2
+80143556;The Kissing Booth;Comédies romantiques,Comédies,Films romantiques,Films inspirés de livres,Films pour ados;True;1
+80146601;Les tribulations culinaires de Phil;Émissions de cuisine et voyages,Téléréalité,Documentaires voyages et aventure,Séries documentaires,Docus société et culture;True;1
+80148535;Dark Crystal : Le temps de la résistance;Séries politiques,Séries pour la famille à voir ensemble,Séries d'action et d'aventure,Séries US,Séries fantastiques;True;1
+80149594;Kordugum;Séries dramatiques romantiques,Séries dramatiques,Turc;False;1
+80152538;Naruto - Le Film : Road to Ninja;Anime d'action,Japonais,Films d'animation,Films d'animation japonaise,Films d'action;False;1
+80153467;Unbelievable;Séries dramatiques,Séries policières,Séries US,Séries inspirées de faits réels;True;4
+80154610;The Rain;Danois,Séries SF,Séries pour ados,Séries scandinaves,Thrillers TV;True;1
+80157091;Wonder Woman;Films d'action;False;1
+80158583;Baywatch: Alerte à Malibu;Films comiques,Films d'action;False;3
+80160037;Queer Eye;Téléréalité,Séries US,Style de vie;True;3
+80161352;La Momie;Films d'action;False;1
+80161497;The Toys That Made Us;Téléréalité,Séries documentaires,Séries US,Style de vie;True;1
+80164216;Miraculous: Tales of Ladybug & Cat Noir;Pour enfants,Dessins animés;False;4
+80165247;72 animaux dangereux en Amérique latine;Australien,Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature,Séries documentaires;True;2
+80165437;72 animaux dangereux en Asie;Australien,Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature,Séries documentaires;True;1
+80166369;Spider-Man: Homecoming;Films SF,Films d'action;False;2
+80168068;Love Alarm;Séries dramatiques romantiques,Séries dramatiques,Coréen,Séries pour ados,Dramas coréens inspirés de webtoons;True;2
+80170280;Valérian et la Cité des Mille Planètes;Français,Films SF,Films d'action;False;2
+80171099;Salvation;Séries SF,Séries US,Thrillers TV;False;2
+80172283;Heidi;Films pour la famille,Films jeunesse et famille,Aventures en famille,Films inspirés de livres;False;1
+80174285;Alexa et Katie;Pour enfants,Sitcoms,Séries pour la famille à voir ensemble,Séries comiques;True;1
+80174479;Final Space;Séries SF,Séries comiques,Séries d'action et d'aventure,Séries US;False;2
+80174608;Love, Death & Robots;Séries SF,Séries d'action et d'aventure,Séries US,Thrillers TV,Séries d'épouvante;True;5
+80175798;The Irishman;Drames,Films inspirés de livres,Drames primés;True;1
+80175802;The Sinner;Séries inspirées de livres,Séries d'intrigue,Séries policières,Séries US,Thrillers TV;False;3
+80176234;Kara Para Ask;Séries dramatiques,Turc,Séries policières;False;3
+80176893;Good Doctor;Séries médicales,Séries dramatiques,Séries US,Séries dramatiques sociales;False;5
+80177342;Good Girls;Séries comiques,Séries US;True;1
+80177346;Happy!;Séries comiques,Séries d'action et d'aventure,Séries US,Séries inspirées de B.D.;True;1
+80177416;Unsolved;Musique,Séries dramatiques,Séries inspirées de livres,Culture Hip-hop,Séries policières;True;2
+80177458;Snowpiercer;Séries politiques,Séries SF,Séries d'action et d'aventure,Séries US,Thrillers TV;True;2
+80178687;Black Lightning;Séries SF,Séries d'action et d'aventure,Séries US,Séries inspirées de B.D.;True;3
+80178726;Dope;Séries documentaires,Séries US,Documentaires inspirés de crimes réels;True;1
+80179138;C'est du gâteau ! USA;Séries pour la famille à voir ensemble,Émissions de cuisine et voyages,Téléréalité avec concours,Téléréalité,Séries US;True;1
+80179190;Mes premières fois;Séries pour ados,Séries comiques,Séries US;True;5
+80179394;Dynastie;Séries dramatiques,Séries US,Séries dramatiques sociales;True;2
+80179762;She-Ra et les princesses au pouvoir;Pour enfants,Séries pour la famille à voir ensemble,Dessins animés,Séries fantastiques;True;1
+80179831;JoJo's Bizarre Adventure;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;True;1
+80180171;Kingdom;Séries politiques,Coréen,Séries d'action et d'aventure,Films d'époque,Dramas coréens inspirés de webtoons;True;4
+80182016;Le Roi;Films sur l'armée,Drames,Films d'époque,Films inspirés de faits réels,Drames primés;True;1
+80182123;Violet Evergarden;Anime SF et fantastique,Japonais,Animes inspirés de light novels,Anime romantique,Séries d'animation japonaise;True;1
+80186863;Umbrella Academy;Séries SF,Séries d'action et d'aventure,Séries US,Séries inspirées de B.D.;True;4
+80187362;Justice League;Films d'action;False;1
+80188348;Who Are You: School 2015;Séries dramatiques romantiques,Séries dramatiques,Coréen,Séries pour ados,Séries d'intrigue;False;1
+80189586;Si j'étais un animal;Pour enfants,Documentaires nature et écologie,Émissions sciences et nature,Éducatif jeunesse,Docus sciences et nature;False;1
+80189631;America : Le film;Satires,Films comiques,Films d'animation,Films d'action;True;2
+80189648;Hyperdrive;Téléréalité avec concours,Téléréalité,Séries US;True;1
+80189685;The Witcher;Séries inspirées de livres,Séries d'action et d'aventure,Séries US,Séries fantastiques;True;5
+80189829;The Protector;Turc,Séries inspirées de livres,Séries d'action et d'aventure,Thrillers TV,Séries fantastiques;True;3
+80189853;Beyond Skyline;Films SF,Films d'action;False;1
+80190097;13 Novembre : Fluctuat Nec Mergitur;Séries documentaires,Docus société et culture,Séries US,Documentaires inspirés de crimes réels;True;4
+80190510;Magic for Humans;Téléréalité,Séries comiques,Séries US;True;3
+80190859;Outlaw King : Le roi hors-la-loi;Films sur l'armée,Films d'époque,Films inspirés de faits réels,Films d'action;True;1
+80191522;Paradise Police;Séries comiques,Séries US;True;2
+80192098;La casa de papel;Espagnol,Séries policières,Thrillers TV;True;9
+80192837;Pitch Perfect 3;Comédies,Films inspirés de livres,Comédies musicales;False;1
+80194671;L'ascension;Français,Comédies romantiques,Drames,Films comiques,Films romantiques;False;2
+80194704;Car Masters : De la rouille à l'or;Téléréalité,Séries US;True;1
+80194956;La disparition de Maddie McCann;Séries policières,Séries documentaires,Séries US,Documentaires inspirés de crimes réels;True;2
+80195357;Cannon Busters;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de B.D.;True;1
+80196789;Bird Box;Films SF,Thrillers,Films inspirés de livres;True;1
+80196931;Hwarang;Séries politiques,Coréen,Séries comiques,Séries d'action et d'aventure,Films d'époque;False;1
+80197526;Sex Education;Britannique,Séries pour ados,Séries comiques;True;3
+80198137;Tuca & Bertie;Séries comiques,Séries US;True;2
+80198505;Aggretsuko;Japonais,Séries d'animation japonaise;True;1
+80198859;Mon frère;Français,Drames,Films indépendants,Drames sociaux;False;1
+80199393;Cursed : La rebelle;Britannique,Séries inspirées de livres,Séries pour ados,Séries d'action et d'aventure,Séries fantastiques;True;2
+80200047;Le garçon qui dompta le vent;Films pour la famille,Drames pour la famille,Drames,Films indépendants,Films inspirés de livres;True;2
+80200487;Le Voyage du Dr Dolittle;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies,Films inspirés de livres;False;3
+80200571;The Highwaymen;Films policiers,Drames,Films d'époque,Films inspirés de faits réels;True;1
+80200575;Alice in Borderland;Japonais,Séries SF,Séries d'action et d'aventure,Thrillers TV,Séries inspirées de mangas;True;8
+80200942;Élite;Espagnol,Séries pour ados,Séries d'intrigue,Thrillers TV;True;3
+80200989;Seraph of the End;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;1
+80201492;Battle Kitty;Pour enfants,Séries pour la famille à voir ensemble,Dessins animés,Séries fantastiques;True;1
+80202234;Ultimate Beastmaster France;Séries pour la famille à voir ensemble,Téléréalité avec concours,Téléréalité,Séries US;True;1
+80202283;I AM A KILLER;Britannique,Séries documentaires,Documentaires inspirés de crimes réels;True;2
+80202918;Effets désirables;Suédois,Drames,Comédies,Films inspirés de livres;False;1
+80203144;The Last Dance;Séries documentaires,Docus société et culture,Séries US;True;5
+80203147;À tous les garçons que j'ai aimés;Comédies romantiques,Comédies,Films romantiques,Films inspirés de livres,Films pour ados;True;1
+80203254;Les mécanos de Rust Valley;Canadien,Téléréalité;True;1
+80204451;BAKI;Anime d'action,Japonais,Séries d'animation japonaise,Anime sportifs,Séries inspirées de mangas;True;2
+80204890;Formula 1 : Pilotes de leur destin;Britannique,Séries documentaires;True;3
+80206326;Il était une fois... la Vie;Pour enfants,Éducatif jeunesse,Dessins animés;False;1
+80207046;Sunderland : Envers et contre tous;Britannique,Téléréalité avec concours,Téléréalité,Séries documentaires,Docus société et culture;True;1
+80207506;La Voie de la justice;Drames,Films inspirés de livres,Films inspirés de faits réels,Drames sociaux,Drames primés;False;3
+80209013;Mr. Iglesias;Sitcoms,Séries pour ados,Séries comiques,Séries US;True;1
+80209229;Le Cabinet de curiosités de Guillermo del Toro;Séries inspirées de livres,Séries US,Séries d'épouvante;True;1
+80210920;The Mother;Films d'action;True;2
+80211634;Baby;Séries dramatiques,Italien,Séries pour ados;True;1
+80211703;Quicksand - Rien de plus grand;Séries dramatiques,Séries judiciaires,Suédois,Séries inspirées de livres,Séries pour ados;True;1
+80211991;You;Séries inspirées de livres,Séries US,Thrillers TV;True;3
+80212245;Le Prince des dragons;Pour enfants,Séries pour la famille à voir ensemble,Dessins animés,Séries fantastiques;True;2
+80212301;Terrace House: Opening New Doors;Japonais,Téléréalité romance et mariage,Téléréalité;True;1
+80212934;La Promesse De L'aube;Français,Drames,Films romantiques,Films inspirés de livres,Films inspirés de faits réels;False;2
+80212986;Valeria;Espagnol,Séries inspirées de livres,Séries comiques,Séries comiques romantiques;True;2
+80213020;Le Bazar de la Charité;Français,Séries dramatiques,Films d'époque,Séries dramatiques sociales;False;1
+80213024;Dany de Boon : Des Hauts De France;Français,Stand-up;True;1
+80214405;A Korean Odyssey;Coréen,Séries inspirées de livres,Séries fantastiques;True;2
+80214792;Les Chroniques de la peur;Pour enfants,Britannique;True;2
+80214886;Paranormal;Séries du Moyen-Orient,Égyptien,Séries inspirées de livres,Séries d'épouvante,Séries fantastiques;True;1
+80216172;Criminal : Royaume-Uni;Britannique,Séries d'intrigue,Séries policières,Thrillers TV;True;1
+80216309;Rampage - Hors de contrôle;Films SF,Films d'action;False;2
+80216756;Taulardes;Téléréalité,Séries documentaires,Séries US;True;1
+80217315;Sintonia;Musique,Séries dramatiques,Brésilien,Séries pour ados;True;2
+80217517;La Cité invisible;Brésilien,Séries fantastiques;True;3
+80217669;Top Boy;Séries dramatiques,Britannique;True;3
+80217689;Fary Is the New Black;Français,Stand-up;True;1
+80217818;Disparitions : La course contre la montre;Séries policières,Séries documentaires,Séries US,Documentaires inspirés de crimes réels;True;3
+80218200;Titans;Séries SF,Séries d'action et d'aventure,Séries US,Séries inspirées de B.D.;True;4
+80218455;Pinocchio par Guillermo del Toro;Films pour la famille,Aventures en famille,Films inspirés de livres,Films d'animation;True;1
+80218885;L'École du Bien et du Mal;Films pour la famille,Films pour ados;True;3
+80220207;L'affaire Gabriel Fernandez;Séries documentaires,Docus société et culture,Séries US,Documentaires inspirés de crimes réels;True;1
+80220426;Black Crab;Suédois,Films sur l'armée,Films inspirés de livres,Films d'action;True;1
+80220679;Destin : La saga Winx;Britannique,Séries pour ados,Séries fantastiques;True;1
+80221210;Frères de crime;Brésilien,Séries policières,Thrillers TV;True;1
+80221908;A Star Is Born;Musique,Drames,Films romantiques,Drames primés;False;1
+80222157;Grégory;Français,Séries documentaires,Documentaires inspirés de crimes réels;True;2
+80222934;L'Écuyer du Roi;Séries pour la famille à voir ensemble,Séries inspirées de livres,Séries d'action et d'aventure,Séries fantastiques;True;2
+80223108;Selling Sunset;Téléréalité,Séries US,Style de vie;True;4
+80223989;Les nouvelles aventures de Sabrina;Séries pour ados,Séries US,Séries d'épouvante,Séries fantastiques,Séries inspirées de B.D.;True;2
+80225085;Fast & Furious : Les espions dans la course;Pour enfants,Dessins animés;True;1
+80225312;Undercover;Belge,Séries policières,Thrillers TV;True;1
+80228012;Les Monstres du foot;Films jeunesse et famille,Comédies,Films d'animation;True;1
+80228274;Karakai Jouzu no Takagi-san;Japonais,Anime romantique,Séries pour ados,Séries d'animation japonaise,Animes sur l'école;True;1
+80230399;Tyler Rake;Films inspirés de livres,Films d'action;True;4
+80230601;Les pieds sur Terre avec Zac Efron;Séries pour la famille à voir ensemble,Émissions de cuisine et voyages,Documentaires nature et écologie,Émissions sciences et nature,Téléréalité;True;2
+80231373;ULTRAMAN;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;True;1
+80231468;Un safari pour Noël;Films pour la famille,Drames pour la famille,Drames,Films romantiques;True;1
+80231523;Les Minijusticiers;Pour enfants,Séries comiques,Dessins animés,Séries inspirées de B.D.;False;3
+80232398;La Chronique des Bridgerton;Séries dramatiques romantiques,Séries dramatiques,Séries inspirées de livres,Films d'époque,Séries US;True;6
+80232926;Ragnarök;Norvégien,Séries pour ados,Séries d'intrigue,Séries scandinaves,Séries fantastiques;True;1
+80233441;Soupçons;Français,Séries d'intrigue,Séries policières,Séries documentaires,Docus société et culture;True;1
+80233925;Hôtel Transylvanie 3 : des vacances monstrueuses;Films pour la famille,Films jeunesse et famille,Comédies,Films d'animation;False;1
+80234304;Le jeu de la dame;Séries dramatiques,Séries inspirées de livres,Séries US,Séries dramatiques sociales;True;4
+80234451;Bienvenue chez Mamilia;Pour enfants,Sitcoms,Séries pour la famille à voir ensemble,Séries comiques;True;1
+80234491;Flavors of Youth: International Version;Japonais,Anime romantique,Films romantiques,Films d'animation,Anime dramatique;True;1
+80234520;L'Éléphante du magicien;Films pour la famille,Films jeunesse et famille,Aventures en famille,Films inspirés de livres,Films d'animation;True;2
+80235932;Trailer Park Boys: The Animated Series;Séries comiques,Séries US;True;2
+80236118;V Wars;Séries politiques,Séries SF,Séries d'action et d'aventure,Séries US,Thrillers TV;True;2
+80236236;Another Life;Séries SF,Séries d'action et d'aventure,Séries US,Thrillers TV;True;1
+80236253;Sawako;Séries pour la famille à voir ensemble,Japonais,Anime romantique,Séries pour ados,Séries d'animation japonaise;False;1
+80236314;Mission: Impossible - Fallout;Films d'espionnage,Films d'action;False;1
+80236318;Outer Banks;Séries dramatiques,Séries pour ados,Séries d'action et d'aventure,Séries US;True;8
+80236319;Shadow and Bone : La saga Grisha;Séries inspirées de livres,Séries pour ados,Séries d'action et d'aventure,Séries US,Séries fantastiques;True;6
+80236390;Equalizer 2;Films d'action;False;1
+80237937;En eaux troubles;Films inspirés de livres,Films d'action;False;3
+80239866;À l'ombre des magnolias;Séries dramatiques romantiques,Séries dramatiques,Séries inspirées de livres,Séries US;True;1
+80240005;Kalifat;Séries dramatiques,Suédois,Séries scandinaves;True;2
+80240027;Virgin River;Séries médicales,Séries dramatiques romantiques,Séries dramatiques,Séries inspirées de livres,Séries US;True;2
+80240585;Agent Elvis;Séries comiques,Séries d'action et d'aventure,Séries US;True;1
+80240691;La Forêt;Français,Séries d'intrigue,Séries policières,Thrillers TV;False;2
+80241001;Permis de vivre;Espagnol,Séries inspirées de livres,Séries policières,Thrillers TV;True;3
+80241027;Séduction haute tension;Téléréalité avec concours,Téléréalité,Séries US;True;3
+80241071;VS.;Britannique,Drames;False;1
+80241181;New Amsterdam;Séries médicales,Séries dramatiques,Séries inspirées de livres,Séries US,Séries dramatiques sociales;False;5
+80241239;Locke & Key;Séries pour ados,Séries d'action et d'aventure,Séries US,Séries fantastiques;True;3
+80241318;Manifest;Séries SF,Séries d'intrigue,Séries US;True;7
+80241472;Alma;Espagnol,Séries pour ados,Séries d'épouvante;True;1
+80241499;Close Enough;Séries comiques,Séries US;False;2
+80241539;Mortel;Français,Séries pour ados,Séries fantastiques;True;1
+80242342;Le Haut du panier;Drames,Comédies;True;2
+80242619;Murder Mystery;Films comiques,Intrigues,Films d'action;True;3
+80242724;Warrior Nun;Séries pour ados,Séries d'action et d'aventure,Séries US,Séries fantastiques,Séries inspirées de B.D.;True;5
+80242926;La Princesse de Chicago;Films pour la famille,Films jeunesse et famille,Drames pour la famille,Drames,Films romantiques;True;1
+80243728;Deadwind;Finlandais,Séries d'intrigue,Séries policières,Séries scandinaves,Thrillers TV;False;2
+80243876;ベルセルク;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;1
+80244283;Maya, princesse guerrière;Pour enfants,Séries pour la famille à voir ensemble,Dessins animés,Séries fantastiques;True;1
+80244479;Colin en noir et blanc;Séries dramatiques,Séries pour ados,Séries US,Docu-fictions;True;1
+80244565;Indian Matchmaking;Téléréalité romance et mariage,Téléréalité,Séries US;True;2
+80986854;I Think You Should Leave with Tim Robinson;Séries comiques,Séries US;True;1
+80986896;Love in the Moonlight;Séries politiques,Coréen,Séries comiques,Films d'époque,Séries comiques romantiques;False;1
+80987064;Resident Evil: Infinite Darkness;Anime d'action,Anime inspiré d'un jeu vidéo,Séries d'animation japonaise,Anime d'horreur,Séries US;True;1
+80987903;The Midnight Gospel;Séries comiques,Séries US;True;1
+80988262;Des pom-pom girls en or;Films pour la famille,Films jeunesse et famille,Australien,Drames pour la famille,Drames;False;1
+80989772;Le Parcours des tyrans;Séries politiques,Documentaires politiques,Documentaires sur l'armée,Séries documentaires,Séries US;True;1
+80989924;Les grandes dates de la Seconde Guerre mondiale en couleur;Séries politiques,Britannique,Documentaires historiques,Documentaires politiques,Documentaires sur l'armée;False;2
+80990771;L'essor de l'Empire ottoman;Turc,Documentaires historiques,Séries d'action et d'aventure,Documentaires sur l'armée,Séries documentaires;True;2
+80991107;Mr. Sunshine;Séries dramatiques romantiques,Séries politiques,Séries dramatiques,Coréen,Films d'époque;True;2
+80991848;Sex/Life;Séries dramatiques romantiques,Séries dramatiques,Séries inspirées de livres,Séries US;True;3
+80992263;Chupa;Films pour la famille,Films jeunesse et famille,Aventures en famille;True;1
+80993016;Matilda : La comédie musicale;Films pour la famille,Films jeunesse et famille,Films inspirés d'une pièce de théâtre,Grandir en musique,Films inspirés de livres;True;1
+80993105;Mowgli : la légende de la jungle;Films pour la famille,Britannique,Drames pour la famille,Aventures en famille,Films inspirés de livres;True;2
+80993280;Babysitting 2;Français,Comédies;False;2
+80993613;The Rise of Phoenixes;Séries dramatiques romantiques,Séries dramatiques,Séries inspirées de livres,Séries d'action et d'aventure,Films d'époque;True;1
+80994082;Lupin;Français,Séries inspirées de livres,Séries d'intrigue,Séries d'action et d'aventure,Séries policières;True;2
+80994340;Toujours là pour toi;Séries dramatiques romantiques,Séries dramatiques,Séries inspirées de livres,Séries US;True;8
+80994666;C'est nous les héros;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies;True;3
+80995578;Ippo le challenger;Japonais,Séries d'animation japonaise,Anime dramatique,Anime sportifs,Séries inspirées de mangas;False;1
+80995819;Inside Job;Séries comiques,Séries US;True;2
+80996532;Resident Evil;Séries SF,Séries d'action et d'aventure,Séries US,Séries d'épouvante;True;4
+80996601;Love Is Blind;Téléréalité avec concours,Téléréalité romance et mariage,Téléréalité,Séries US;True;3
+80997085;Narcos: Mexico;Séries d'action et d'aventure,Séries US,Thrillers TV,Séries inspirées de faits réels;True;2
+80997338;High Score Girl;Japonais,Anime romantique,Séries d'animation japonaise,Séries inspirées de mangas;True;1
+80997343;Money Heist: Korea;Coréen,Thrillers TV;True;1
+80998853;Survivre à la mort;Séries inspirées de livres,Téléréalité,Séries documentaires,Séries US;True;1
+80998941;Dr. Romantic;Séries médicales,Séries dramatiques,Coréen;False;4
+80998959;Doctor Crush;Séries médicales,Séries dramatiques romantiques,Séries dramatiques,Coréen;False;1
+80999009;Creed II;Drames;False;1
+81002003;Pacific Rim: The Black;Anime SF et fantastique,Anime d'action,Séries d'animation japonaise,Séries US;True;4
+81002370;Cobra Kai;Séries comiques,Séries d'action et d'aventure,Séries US;True;4
+81002813;Retour au bercail;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies,Films d'animation;True;2
+81004278;Aquaman;Films d'action;False;3
+81004280;Memories of the Alhambra;Coréen,Séries SF,Thrillers TV;True;1
+81004936;Trois mètres au-dessus du ciel;Séries dramatiques romantiques,Séries dramatiques,Italien,Séries inspirées de livres,Séries pour ados;True;1
+81005126;Neymar : Le chaos parfait;Documentaires biographiques,Séries documentaires,Docus société et culture,Séries US;True;1
+81005504;Le jardin des météores;Séries dramatiques romantiques,Séries dramatiques,Séries pour ados,Séries chinoises,Séries inspirées de mangas;True;1
+81006858;Floor Is Lava;Séries pour la famille à voir ensemble,Téléréalité avec concours,Téléréalité,Séries US;True;2
+81006960;Pierre Lapin;Pour enfants,Britannique,Séries inspirées de livres,Dessins animés;False;2
+81008021;My Holo Love;Coréen,Séries SF;True;2
+81008138;Hoops;Sitcoms,Séries comiques,Séries US;True;2
+81008221;Into the Night;Belge,Séries SF,Séries inspirées de livres,Thrillers TV;True;1
+81008305;Inventing Anna;Séries dramatiques,Séries US,Séries inspirées de faits réels;True;1
+81008536;Aggretsuko : Joyeux Noël et bon metal !;Japonais,Séries d'animation japonaise;True;2
+81009646;Jurassic World : La Colo du Crétacé;Pour enfants,Séries pour la famille à voir ensemble,Séries inspirées de livres,Dessins animés;True;4
+81009946;Gabby et la maison magique;Pour enfants,Grandir en musique,Éducatif jeunesse,Dessins animés;True;4
+81010818;Family Business;Français,Séries comiques;True;1
+81011059;Booba;Pour enfants,Britannique,Séries comiques,Dessins animés;False;2
+81011098;Le jeune Wallander;Séries inspirées de livres,Séries d'intrigue,Séries policières,Séries scandinaves,Thrillers TV;True;3
+81011211;My Name;Coréen,Séries d'action et d'aventure,Séries policières,Thrillers TV;True;3
+81011712;Yes Day;Films pour la famille,Films jeunesse et famille,Comédies,Films inspirés de livres;True;3
+81012366;The Babysitter: Killer Queen;Comédies,Films d'horreur,Films pour ados;True;1
+81012637;Sky Rojo;Espagnol,Séries d'action et d'aventure;True;1
+81014532;Les Enquêtes sauvages;Pour enfants,Éducatif jeunesse,Dessins animés;True;3
+81017316;Cauchemars et canulars;Téléréalité,Séries comiques,Séries US,Séries d'épouvante;True;1
+81018383;Apprentis parents;Comédies;False;1
+81018682;Le Monstre des mers;Films pour la famille,Films jeunesse et famille,Aventures en famille,Films d'animation;True;1
+81019775;The Liberator;Séries inspirées de livres,Séries d'action et d'aventure,Séries US,Séries inspirées de faits réels;True;2
+81019909;The Real World;Téléréalité,Séries US;False;1
+81021245;Control Z;Séries dramatiques,Mexicain,Séries pour ados;True;3
+81022683;La reina del flow;Musique,Séries dramatiques,Colombien,Séries policières;True;6
+81023618;‘Ohana ou le trésor caché;Films pour la famille,Films jeunesse et famille,Aventures en famille,Comédies;True;2
+81025403;Le détenu;Mexicain,Séries policières,Thrillers TV;True;3
+81025696;Ginny & Georgia;Séries pour ados,Séries comiques,Séries comiques romantiques,Séries US;True;2
+81026055;Les Enquêtes extraordinaires;Séries policières,Séries documentaires,Séries US,Documentaires inspirés de crimes réels;True;3
+81026251;Taylor Swift reputation Stadium Tour;Musique,Concerts;True;1
+81026300;Next in Fashion;Téléréalité avec concours,Téléréalité,Séries US;True;2
+81026605;Le Parc des merveilles;Films pour la famille,Films jeunesse et famille,Aventures en famille,Films d'animation;False;1
+81026700;My First First Love;Séries dramatiques romantiques,Séries dramatiques,Coréen;True;2
+81026767;Radiant;Pour enfants,Japonais,Séries d'animation japonaise,Séries inspirées de B.D.;False;3
+81026915;Better Than Us;Séries politiques,Russe,Séries SF;True;1
+81027195;Unité 42;Séries dramatiques,Belge,Séries policières;False;3
+81028895;Arthdal Chronicles;Coréen,Séries d'action et d'aventure,Films d'époque,Séries fantastiques;False;1
+81028990;Cibles mouvantes;Suédois,Thrillers;True;1
+81029926;Welcome to Waikiki;Sitcoms,Coréen,Séries comiques;False;1
+81030026;My ID is Gangnam Beauty;Séries dramatiques romantiques,Séries dramatiques,Coréen,Dramas coréens inspirés de webtoons;False;2
+81030627;Shazam!;Films pour la famille,Films comiques,Films d'action;False;4
+81030789;Lionheart;Nollywood,Drames,Films comiques,Films indépendants,Films africains;True;1
+81031373;Don't F**k With Cats : Un tueur trop viral;Séries policières,Séries documentaires,Séries US,Documentaires inspirés de crimes réels;True;1
+81033650;Inheritors;Séries dramatiques romantiques,Séries dramatiques,Coréen;False;2
+81034661;AlRawabi School for Girls;Séries dramatiques,Séries du Moyen-Orient,Jordanien,Séries pour ados,Séries dramatiques sociales;True;3
+81035568;Papa est un chasseur d'aliens;Pour enfants,Séries pour la famille à voir ensemble,Séries comiques,Dessins animés;True;1
+81036559;La Vie en couleurs avec David Attenborough;Séries pour la famille à voir ensemble,Britannique,Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature;True;1
+81036622;Toy Boy;Espagnol,Séries policières,Thrillers TV;True;2
+81037371;Emily in Paris;Séries comiques,Séries comiques romantiques,Séries US;True;1
+81039388;Octobre;Danois,Séries inspirées de livres,Séries d'intrigue,Séries policières,Séries scandinaves;True;2
+81039393;Cheer;Séries pour ados,Téléréalité avec concours,Téléréalité,Séries documentaires,Séries US;True;2
+81039557;Queer Force;Séries comiques,Séries d'action et d'aventure,Séries US;True;1
+81040344;Squid Game;Coréen,Thrillers TV;True;9
+81043571;Sky-High Survival;Anime SF et fantastique,Anime d'action,Japonais,Animation d'intrigue et thriller,Séries d'animation japonaise;True;1
+81043665;Nos cœurs meurtris;Musique,Drames,Films romantiques;True;2
+81043833;Les Meurtres de Valhalla;Séries d'intrigue,Séries policières,Séries scandinaves,Thrillers TV;True;1
+81044417;Godzilla II : Roi des monstres;Films SF,Films d'action;False;2
+81044547;Blood & Water;Séries dramatiques,Sud-africain,Séries pour ados,Séries d'intrigue;True;2
+81044551;The Circle Game : États-Unis;Téléréalité avec concours,Téléréalité,Séries US;True;1
+81044719;The Circle Game;Français,Téléréalité avec concours,Téléréalité;True;1
+81045007;La Sagesse de la pieuvre;Films jeunesse et famille,Sud-africain,Films documentaires,Documentaires nature et écologie,Docus sciences et nature;True;1
+81046613;Last Chance U: Basketball;Séries documentaires,Docus société et culture,Séries US;True;1
+81050106;Terra Willy : Planète inconnue;Films jeunesse et famille,Films d'animation;False;1
+81054619;La Jeune Fille et la Mer;Films pour la famille,Films jeunesse et famille,Australien,Drames pour la famille,Aventures en famille;True;3
+81054853;Cyberpunk: Edgerunners;Anime SF et fantastique,Anime d'action,Japonais,Anime inspiré d'un jeu vidéo,Séries d'animation japonaise;True;1
+81056195;Mode Avion;Brésilien,Comédies romantiques,Comédies,Films romantiques;True;1
+81057361;Men in Black: International;Films SF,Comédies,Films d'action;False;1
+81057855;Barbecue Showdown : Le grand défi;Émissions de cuisine et voyages,Téléréalité avec concours,Téléréalité,Séries US;True;2
+81059939;Heartstopper;Séries dramatiques romantiques,Séries dramatiques,Séries pour la famille à voir ensemble,Britannique,Séries pour ados;True;3
+81061734;Sweet Home;Coréen,Dramas coréens inspirés de webtoons,Thrillers TV,Séries d'épouvante;True;3
+81067223;Chicago Party Aunt;Séries comiques,Séries US;True;1
+81069541;Love & Anarchy;Suédois,Séries comiques,Séries comiques romantiques,Séries scandinaves;True;2
+81073022;Fast & Furious : Hobbs & Shaw;Films d'action;False;4
+81073507;L'autre côté;Espagnol,Séries SF,Thrillers TV;True;1
+81075536;Glow Up;Britannique,Téléréalité avec concours,Téléréalité;True;1
+81076756;Delhi Crime;Indien,Séries policières,Thrillers TV,Séries en hindi;True;1
+81076952;Contes grinçants et grimaçants;Pour enfants,Séries pour la famille à voir ensemble,Séries inspirées de livres,Séries comiques,Dessins animés;True;1
+81079046;Zone Blanche;Français,Séries d'intrigue,Séries policières,Thrillers TV;False;2
+81080523;Boruto : Naruto Next Generations;Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;2
+81080959;Adventure Beast;Séries comiques,Séries d'action et d'aventure,Séries US;True;1
+81082225;Drôle de planète;Séries pour la famille à voir ensemble,Documentaires nature et écologie,Émissions sciences et nature,Séries comiques,Docus sciences et nature;True;1
+81086133;Parcs nationaux : Ces merveilles du monde;Séries pour la famille à voir ensemble,Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature,Séries documentaires;True;1
+81090319;Sombre désir;Mexicain,Séries d'intrigue,Séries policières,Thrillers TV;True;1
+81091393;Demon Slayer: Kimetsu no Yaiba;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;4
+81092221;Joker;Thrillers,Drames sociaux;False;1
+81092697;Les Rois de l’arnaque;Français,Films documentaires;True;1
+81092963;Human Resources;Sitcoms,Séries comiques,Séries US;True;3
+81093101;Caïd;Français,Séries d'action et d'aventure,Thrillers TV;True;1
+81093162;Are You Human?;Coréen,Séries SF;False;1
+81093222;Queen for Seven Days;Séries dramatiques romantiques,Séries politiques,Séries dramatiques,Coréen,Films d'époque;False;1
+81098012;The Silent Sea;Coréen,Séries SF,Séries d'intrigue,Thrillers TV;True;1
+81098497;El Dragón : Le retour d'un guerrier;Mexicain,Séries d'action et d'aventure;True;2
+81106901;Blackpink: Light Up the Sky;Musique,Films documentaires,Documentaires biographiques,Docus société et culture;True;2
+81107362;Une amie au poil;Films pour la famille,Films jeunesse et famille,Drames pour la famille,Films inspirés de livres,Films inspirés de faits réels;True;2
+81108281;The Legend of White Snake;Séries chinoises,Séries fantastiques;False;1
+81112336;The Midnight Club;Séries inspirées de livres,Séries pour ados,Séries d'intrigue,Séries US,Séries d'épouvante;True;1
+81113742;Clark;Suédois,Séries inspirées de livres,Séries comiques,Séries scandinaves,Thrillers TV;True;3
+81115160;Perdus dans l'Arctique;Danois,Drames,Films inspirés de livres,Films d'époque,Films inspirés de faits réels;True;2
+81116060;Lockwood & Co.;Britannique,Séries inspirées de livres,Séries pour ados,Séries d'intrigue,Séries fantastiques;True;2
+81116487;Rookie Historian Goo Hae-Ryung;Séries dramatiques romantiques,Séries dramatiques,Coréen,Films d'époque;True;1
+81117191;Emanuela Orlandi, la disparue du Vatican;Britannique,Documentaires historiques,Séries policières,Séries documentaires,Documentaires inspirés de crimes réels;True;1
+81120982;J'ai perdu mon corps;Français,Drames,Films romantiques,Films inspirés de livres,Films d'animation;False;1
+81127080;Hot Skull;Séries politiques,Turc,Séries SF,Séries inspirées de livres;True;1
+81128450;Snabba cash;Suédois,Séries inspirées de livres,Séries d'action et d'aventure,Séries scandinaves,Thrillers TV;True;4
+81135138;Les Misérables;Français,Drames,Drames sociaux,Drames primés;False;1
+81139212;Le Monde qui nous habite;Séries médicales,Émissions sciences et nature,Docus sciences et nature,Séries documentaires,Docus société et culture;True;1
+81140931;1917;Britannique,Films sur l'armée,Drames,Films d'époque,Drames primés;False;3
+81140933;Les Filles du docteur March;Films pour la famille,Films jeunesse et famille,Drames pour la famille,Drames,Films inspirés de livres;False;4
+81144910;Sanctuary;Séries dramatiques,Japonais;True;1
+81145024;Le Règne animal;Séries pour la famille à voir ensemble,Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature,Séries documentaires;True;1
+81149450;Vikings: Valhalla;Séries d'action et d'aventure,Films d'époque,Séries US;True;1
+81150303;Sandman;Séries US,Séries fantastiques;True;1
+81152992;Bad Boys for Life;Films policiers,Films comiques,Policiers d'action,Films d'action;False;5
+81153133;Tour de France : Au cœur du peloton;Séries documentaires;True;6
+81155175;Chien perdu;Films pour la famille,Films jeunesse et famille,Drames pour la famille,Drames,Films inspirés de livres;True;2
+81156880;Scissor Seven;Séries comiques,Séries d'action et d'aventure,Séries chinoises;True;1
+81159258;Crash Landing on You;Coréen,Séries comiques,Séries comiques romantiques;True;3
+81160697;The Gray Man;Films inspirés de livres,Films d'action;True;3
+81161487;My Country: The New Age;Séries politiques,Coréen,Séries d'action et d'aventure,Films d'époque;True;1
+81161626;Red Notice;Films comiques,Films d'action;True;4
+81161789;Jumanji : Next Level;Films pour la famille,Aventures en famille,Films comiques,Films inspirés de livres,Films d'action;False;7
+81165134;Birds of Prey et la Fantabuleuse Histoire de Harley Quinn;Films comiques,Films d'action;False;5
+81166770;Maid;Séries dramatiques,Séries inspirées de livres,Séries US,Séries inspirées de faits réels,Séries dramatiques sociales;True;2
+81167887;The Dig;Britannique,Drames,Films inspirés de livres,Films d'époque,Films inspirés de faits réels;True;1
+81170676;Wild Babies : Petits et sauvages;Séries pour la famille à voir ensemble,Britannique,Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature;True;1
+81172267;Sonic X;Pour enfants,Anime d'action,Japonais,Anime inspiré d'un jeu vidéo,Séries d'animation japonaise;False;1
+81172568;Beyblade Burst Turbo;Pour enfants,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;3
+81173345;Jeffrey Dahmer : Autoportrait d'un tueur;Séries judiciaires,Documentaires biographiques,Séries documentaires,Séries US,Documentaires inspirés de crimes réels;True;1
+81175433;Braqueurs : La série;Français,Séries d'action et d'aventure,Thrillers TV;True;2
+81178338;La Maison;Satires,Drames,Films comiques,Films d'animation,Drames primés;True;1
+81183494;She;Indien,Séries policières,Thrillers TV,Séries en hindi;True;1
+81185548;Army of Thieves;Allemand,Comédies,Thrillers,Films comiques allemands;True;1
+81186296;The Playlist;Musique,Séries dramatiques,Suédois,Séries inspirées de livres,Séries scandinaves;True;3
+81186615;Les Thunderman;Pour enfants,Sitcoms,Séries comiques;False;1
+81186971;Bienvenue chez les Loud;Pour enfants,Séries comiques,Dessins animés;False;3
+81190041;Tyler Henry à l'écoute de l'au-delà;Téléréalité,Séries documentaires,Séries US;True;1
+81191429;La vie scolaire;Français,Drames,Films comiques,Films pour ados,Drames sociaux;False;7
+81193140;La série : Pokémon, les voyages;Pour enfants,Séries pour la famille à voir ensemble,Japonais,Anime inspiré d'un jeu vidéo,Séries d'animation japonaise;False;4
+81193309;Itaewon Class;Séries dramatiques,Coréen,Dramas coréens inspirés de webtoons,Séries dramatiques sociales;True;1
+81194505;You People;Comédies romantiques,Comédies,Films romantiques;True;1
+81195027;Black Knight;Coréen,Séries SF,Séries d'action et d'aventure,Dramas coréens inspirés de webtoons;True;10
+81196690;Tex Mex Motors;Téléréalité,Séries US;True;3
+81203371;Johnny par Johnny;Musique,Français,Documentaires biographiques,Séries documentaires;True;1
+81205849;Hotel Del Luna;Coréen,Séries comiques,Séries comiques romantiques,Séries fantastiques;False;1
+81210762;Young Royals;Séries dramatiques romantiques,Séries dramatiques,Suédois,Séries pour ados,Séries scandinaves;True;3
+81211003;À l'aube de notre histoire;Séries documentaires,Docus société et culture,Séries US;True;2
+81211303;Flower Crew: Joseon Marriage Agency;Coréen,Séries inspirées de livres,Séries comiques,Films d'époque,Séries comiques romantiques;False;1
+81211710;Bienvenidos a Edén;Espagnol,Séries SF;True;2
+81213803;Les 7 vies de Léa;Français,Séries pour ados,Séries d'intrigue,Séries policières,Thrillers TV;True;1
+81214194;Mulligan;Séries politiques,Séries comiques,Séries US;True;1
+81214609;Complètement à cran;Séries dramatiques,Suédois,Séries inspirées de livres,Séries d'intrigue,Séries policières;True;1
+81218438;La Brigade des délices;Séries pour la famille à voir ensemble,Émissions de cuisine et voyages,Téléréalité avec concours,Téléréalité,Séries US;True;1
+81219804;Kings of Jo'Burg;Sud-africain,Thrillers TV,Séries fantastiques;True;1
+81220825;La Petite Nemo et le Monde des rêves;Films pour la famille,Films jeunesse et famille,Aventures en famille;True;1
+81220971;Architecte du désir;Téléréalité,Téléréalité maison et jardin,Séries US,Style de vie;True;1
+81221302;Il processo;Séries dramatiques,Séries judiciaires,Italien,Séries policières;True;2
+81221380;Sweet Tooth;Séries d'action et d'aventure,Séries US,Séries fantastiques,Séries inspirées de B.D.;True;6
+81222923;L'Impératrice;Séries dramatiques romantiques,Séries politiques,Séries dramatiques,Allemand,Films d'époque;True;4
+81226469;Les Liaisons dangereuses;Français,Drames,Films romantiques,Films inspirés de livres,Films pour ados;True;1
+81228573;Komi cherche ses mots;Japonais,Séries d'animation japonaise,Animes sur l'école,Séries inspirées de mangas;True;2
+81230204;La Reine Cléopâtre;Séries dramatiques,Documentaires historiques,Séries documentaires,Docus société et culture,Docu-fictions;True;2
+81231181;McGregor Forever;Séries documentaires,Séries US;True;2
+81231974;Mercredi;Séries pour ados,Séries d'intrigue,Séries comiques,Séries US,Séries fantastiques;True;9
+81235000;Fary : Hexagone;Français,Séries comiques,Stand-up;True;1
+81236338;Baki Hanma;Anime d'action,Japonais,Séries d'animation japonaise,Anime sportifs,Séries inspirées de mangas;True;1
+81237994;All of Us Are Dead;Coréen,Séries pour ados,Dramas coréens inspirés de webtoons,Séries d'épouvante;True;7
+81239779;7. Koğuştaki Mucize;Turc,Drames,Drames sociaux;False;2
+81243961;Notre univers;Séries pour la famille à voir ensemble,Britannique,Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature;True;1
+81245455;Troll;Norvégien,Films d'action;True;2
+81245457;Bee et PuppyCat;Anime SF et fantastique,Séries pour ados,Séries d'animation japonaise,Séries US;True;1
+81248121;Vinterviken;Suédois,Drames,Films romantiques,Films inspirés de livres,Films pour ados;True;2
+81249833;Vinland Saga;Anime d'action,Japonais,Séries d'animation japonaise,Anime dramatique,Séries inspirées de mangas;False;1
+81252530;Zozo;Suédois,Films sur l'armée,Drames;False;1
+81252707;The Imperfects;Canadien,Séries SF,Séries d'action et d'aventure;True;1
+81254340;L'Arnaqueur de Tinder;Britannique,Films documentaires,Documentaires inspirés de crimes réels;True;1
+81256675;Hellbound;Coréen,Séries d'intrigue,Dramas coréens inspirés de webtoons,Thrillers TV,Séries d'épouvante;True;1
+81259476;Farzar;Séries SF,Séries comiques,Séries US;True;1
+81260280;À l'ouest rien de nouveau;Allemand,Drames allemands,Films sur l'armée,Drames,Films inspirés de livres;True;3
+81260283;The King: Eternal Monarch;Coréen,Séries fantastiques;True;2
+81261170;En un battement;Colombien,Séries d'intrigue,Thrillers TV;True;5
+81264650;Catching Killers;Séries policières,Séries documentaires,Séries US,Documentaires inspirés de crimes réels;True;2
+81265493;Histoires d'amour et d'autisme : Australie;Australien,Téléréalité romance et mariage,Téléréalité,Séries documentaires;True;1
+81267200;Les Artisans du fun;Séries pour la famille à voir ensemble,Téléréalité,Séries US,Style de vie;True;1
+81267722;100 Days My Prince;Séries dramatiques romantiques,Séries dramatiques,Coréen,Films d'époque;False;1
+81270678;H;Français,Sitcoms,Séries médicales,Séries comiques;False;4
+81270767;Black Rose;Nollywood,Drames,Drames sociaux,Films africains;False;1
+81271335;Chapardeur !;Satires,Films comiques,Films d'animation;True;1
+81273085;Les chansons de Cocomelon;Pour enfants,Grandir en musique,Éducatif jeunesse,Dessins animés;True;5
+81273360;Les municipaux, ces héros;Français,Satires,Comédies;False;1
+81274937;Tony Parker: The Final Shot;Films documentaires,Documentaires biographiques;True;1
+81275653;Un gars, une fille;Français,Sitcoms,Séries comiques;False;3
+81275686;Nouvelle École;Musique,Français,Téléréalité avec concours,Culture Hip-hop,Téléréalité;True;4
+81277347;Mental;Français,Séries pour ados,Séries comiques;False;2
+81277430;Love and Monsters;Films pour la famille,Films SF,Aventures en famille,Comédies,Films pour ados;True;1
+81277858;Capitani;Séries dramatiques,Luxembourgeois,Séries policières;True;1
+81277950;Enola Holmes;Films pour la famille,Drames pour la famille,Aventures en famille,Drames,Intrigues;True;3
+81279312;The Witcher : L'héritage du sang;Séries inspirées de livres,Séries d'action et d'aventure,Séries US,Séries fantastiques;True;2
+81279324;Sniper: Assassin's End;Films d'action;False;1
+81280035;Luther : Soleil déchu;Films policiers,Intrigues,Policiers d'action,Films d'action;True;3
+81280926;Le guide Headspace de la méditation;Émissions sciences et nature,Thématique,Docus sciences et nature,Séries documentaires,Séries US;True;1
+81281579;Valkyrie Apocalypse;Anime SF et fantastique,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;True;1
+81281872;Loin de moi, près de toi;Anime SF et fantastique,Films pour la famille,Films jeunesse et famille,Japonais,Drames pour la famille;True;2
+81282868;Borgen : Le pouvoir et la gloire;Séries politiques,Séries dramatiques,Danois,Séries scandinaves,Séries dramatiques sociales;True;1
+81283585;Skater Girl;Films pour la famille,Films jeunesse et famille,Indien,Drames pour la famille,Drames;True;1
+81284981;Love Is Blind : Brésil;Brésilien,Téléréalité avec concours,Téléréalité romance et mariage,Téléréalité;True;2
+81285390;Bigflo & Oli : Presque Trop;Musique,Français,Films documentaires,Culture Hip-hop,Documentaires biographiques;True;1
+81287562;DAHMER;Séries US,Séries d'épouvante,Séries inspirées de faits réels;True;2
+81288561;Victimes/Suspectes;Films documentaires,Documentaires inspirés de crimes réels;True;1
+81290742;Five;Français,Drames,Films comiques;False;3
+81292203;Ultimatum : USA;Téléréalité,Séries US;True;1
+81294142;8 Rue de l’Humanité;Français,Comédies;True;1
+81294811;Sonic Prime;Pour enfants,Séries comiques,Dessins animés;True;3
+81295011;Maniac par Junji Ito : Anthologie macabre;Japonais,Séries d'animation japonaise,Anime d'horreur,Séries d'épouvante,Séries inspirées de mangas;True;1
+81297404;Bad Exorcist;Polonais,Séries comiques;True;1
+81298682;Blue Miracle;Films pour la famille,Films jeunesse et famille,Drames pour la famille,Drames,Films inspirés de faits réels;True;1
+81303831;La Défense Lincoln;Séries judiciaires,Séries inspirées de livres,Séries d'intrigue,Séries policières,Séries US;True;1
+81304528;À découper suivant les pointillés;Italien,Séries comiques,Séries inspirées de B.D.;True;1
+81304948;Faux profil;Colombien,Thrillers TV;True;5
+81307163;MH370 : L'avion disparu;Britannique,Séries documentaires;True;2
+81309354;Adam à travers le temps;Films pour la famille,Films SF,Aventures en famille,Films comiques,Films d'action;True;4
+81310218;Young, Famous & African;Sud-africain,Téléréalité;True;2
+81311604;Princesse Sarah;Pour enfants,Japonais,Séries inspirées de livres,Animation japonaise inspirée de livres,Séries d'animation japonaise;False;3
+81311783;L'Empire des chimpanzés;Séries pour la famille à voir ensemble,Britannique,Documentaires nature et écologie,Émissions sciences et nature,Docus sciences et nature;True;1
+81312536;Jusqu'ici tout va bien;Français,Thrillers TV;True;1
+81312802;Juvenile Justice;Séries dramatiques,Séries judiciaires,Coréen;True;1
+81312828;ATHENA;Français,Drames sociaux,Films d'action;True;1
+81313519;L'Affaire Fourniret : Dans la tête de Monique Olivier;Français,Séries documentaires,Documentaires inspirés de crimes réels;True;2
+81313522;Angèle;Musique,Français,Films documentaires,Films LGBTQ+,Documentaires biographiques;True;1
+81317562;Hasta el cielo : La série;Espagnol,Séries d'action et d'aventure,Thrillers TV;True;1
+81317673;Arnold;Séries politiques,Documentaires politiques,Documentaires biographiques,Séries documentaires,Séries US;True;3
+81318514;Danse avec les queens;Suédois,Films LGBTQ+,Drames,Comédies;True;1
+81318888;Romantic Killer;Japonais,Anime romantique,Séries pour ados,Séries d'animation japonaise,Anime dramatique;True;2
+81318943;Dans la peau de nos animaux;Séries pour la famille à voir ensemble,Britannique,Émissions sciences et nature,Docus sciences et nature,Séries documentaires;True;2
+81319110;Les Semaines miracle;Néerlandais,Drames,Comédies,Films inspirés de livres;True;3
+81323551;Demon Catchers;Coréen,Séries d'action et d'aventure,Dramas coréens inspirés de webtoons,Thrillers TV,Séries fantastiques;True;4
+81324724;XO, Kitty;Séries inspirées de livres,Séries pour ados,Séries comiques,Séries comiques romantiques,Séries US;True;4
+81330077;L'Improbable Assassin d'Olof Palme;Séries dramatiques,Suédois,Séries inspirées de livres,Séries policières,Séries scandinaves;True;1
+81333845;On en mangerait… ou pas;Séries pour la famille à voir ensemble,Émissions de cuisine et voyages,Téléréalité avec concours,Téléréalité,Séries US;True;1
+81343555;Ricky Zoom;Pour enfants,Britannique,Dessins animés;False;2
+81343748;Narco-Saints;Coréen,Séries d'action et d'aventure,Thrillers TV;True;2
+81346063;Les Tactiques de l'amour;Turc,Comédies romantiques,Comédies,Films romantiques;True;1
+81346818;The Devil Punisher;Taïwanais,Séries d'intrigue,Séries chinoises,Séries fantastiques;True;1
+81349306;Quoi qu'il arrive, je vous aime;Drames,Films d'animation,Drames sociaux,Drames primés;True;1
+81349324;Pauvre toutou !;Films pour la famille,Films jeunesse et famille,Grandir en musique,Aventures en famille,Comédies;True;1
+81349493;Envoyez du bois !;Canadien,Téléréalité;True;1
+81350804;New York : Au cœur de l'urgence;Séries médicales,Émissions sciences et nature,Téléréalité,Docus sciences et nature,Séries documentaires;True;1
+81353947;Survivre au paradis : Une histoire de famille;Britannique,Films documentaires,Documentaires nature et écologie,Docus sciences et nature;True;1
+81354529;La Cuisinière de Castamar;Séries dramatiques romantiques,Séries politiques,Séries dramatiques,Espagnol,Séries inspirées de livres;True;2
+81354739;A Love So Beautiful (Korean);Coréen,Séries inspirées de livres,Séries pour ados,Séries comiques,Séries comiques romantiques;True;2
+81354934;Shahmeran;Turc,Séries fantastiques;True;1
+81365087;Vincenzo;Coréen,Séries comiques;True;2
+81380540;Celle que vous croyez connaître : Anna Nicole Smith;Films documentaires,Documentaires biographiques;True;1
+81382060;1939;Suédois,Drames;False;2
+81382130;Graine de star;Musique,Films pour la famille,Films jeunesse et famille,Suédois,Drames pour la famille;False;1
+81382159;Misa et les loups;Films pour la famille,Films jeunesse et famille,Suédois,Drames pour la famille,Drames;False;1
+81382193;Les Gens du Värmland;Suédois,Films inspirés d'une pièce de théâtre,Drames,Films romantiques,Films d'époque;False;1
+81382254;Tu Jhoothi Main Makkaar;Indien,Films en hindi,Films de Bollywood,Comédies romantiques,Films comiques;False;1
+81392197;Aníkúlápó;Nollywood,Drames,Films d'époque,Films africains;True;1
+81394495;She Would Never Know;Séries dramatiques romantiques,Séries dramatiques,Coréen;False;1
+81397077;FUBAR;Séries comiques,Séries d'action et d'aventure,Séries US;True;4
+81397422;Sous la braise;Mexicain,Séries d'action et d'aventure;True;1
+81397558;Sisyphus;Coréen,Séries SF,Séries d'action et d'aventure,Thrillers TV;True;1
+81397887;28 jours de terreur;Téléréalité,Séries US,Séries d'épouvante;True;1
+81399614;Les Mitchell contre les machines;Films pour la famille,Films jeunesse et famille,Comédies,Films d'animation;True;1
+81406219;Enola Holmes 2;Films pour la famille,Drames pour la famille,Aventures en famille,Drames,Intrigues;True;3
+81408600;Le Dernier Wagon;Films pour la famille,Films jeunesse et famille,Mexicain,Drames pour la famille,Drames;True;1
+81409017;La Malédiction de l'or vert;Suédois,Films documentaires,Documentaires politiques,Docus société et culture;False;1
+81410436;L'Art d'être riche;Séries inspirées de livres,Séries documentaires,Séries US;True;1
+81410558;Haroun;Français,Stand-up;True;1
+81410564;Ta mère l'incruste;Sitcoms,Brésilien,Séries comiques;True;1
+81410649;Persuasion;Comédies romantiques,Drames,Comédies,Films romantiques,Films inspirés de livres;True;1
+81414644;Lidia fait sa loi;Séries dramatiques,Italien,Séries d'intrigue,Films d'époque,Séries policières;True;3
+81417684;L'Agence : L'immobilier de luxe en famille;Français,Téléréalité,Téléréalité maison et jardin,Style de vie;False;3
+81418302;New Gods: Nezha Reborn;Anime SF et fantastique,Anime d'action,Animation japonaise inspirée de livres,Films inspirés de livres,Films d'animation;True;1
+81422314;Mr. Queen;Coréen,Séries comiques,Films d'époque,Séries comiques romantiques;False;3
+81423622;Moi, Georgina;Espagnol,Téléréalité,Style de vie;True;5
+81423793;Jewish Matchmaking;Téléréalité romance et mariage,Téléréalité,Séries US;True;1
+81424426;Chi mon chaton;Pour enfants,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;3
+81430282;The King's Affection;Séries dramatiques romantiques,Séries dramatiques,Coréen,Films d'époque,Séries inspirées de B.D.;True;5
+81435227;Un papa hors pair;Drames,Films inspirés de livres,Films inspirés de faits réels;True;2
+81435370;Le jour où j'ai décidé de me prendre en main;Suédois,Drames,Films comiques;False;4
+81435649;Nevertheless,;Séries dramatiques romantiques,Séries dramatiques,Coréen,Dramas coréens inspirés de webtoons;True;1
+81435684;Arcane;Séries d'action et d'aventure,Séries US,Séries fantastiques;True;4
+81435805;Deux cœurs;Drames,Films romantiques,Films inspirés de faits réels;False;1
+81436209;Sauve qui pécho !;Coréen,Téléréalité avec concours,Téléréalité;True;2
+81438813;Masameer County;Séries du Moyen-Orient,Saoudien,Séries comiques;True;2
+81439256;Harry & Meghan;Documentaires biographiques,Séries documentaires,Docus société et culture,Séries US;True;2
+81439780;Sirènes de métier;Séries documentaires,Séries US;True;1
+81442115;Remarriage & Desires;Séries dramatiques,Coréen;True;1
+81443471;My Little Pony : Marquons les esprits !;Pour enfants,Dessins animés;True;4
+81444051;La Traque dans le sang;Coréen,Séries d'action et d'aventure,Dramas coréens inspirés de webtoons,Thrillers TV;True;8
+81444818;The Pale Blue Eye;Films policiers,Thrillers,Intrigues,Films inspirés de livres,Thrillers policiers;True;1
+81446626;Eh Pepsi ! Il est où mon avion ?;Séries judiciaires,Documentaires historiques,Séries documentaires,Séries US;True;1
+81447086;Notre langue aux chats;Films jeunesse et famille,Films documentaires;True;3
+81450005;Adam by Eve: A Live in Animation;Musique,Japonais,Films d'animation,Anime dramatique,Films d'animation japonaise;True;1
+81450827;The Night Agent;Séries politiques,Séries inspirées de livres,Séries d'intrigue,Séries d'action et d'aventure,Séries US;True;8
+81458416;Glass Onion : Une histoire à couteaux tirés;Comédies,Intrigues;True;2
+81459086;Mordu d'aventures;Australien,Émissions sciences et nature,Téléréalité;True;2
+81459349;Sex, Love & goop;Téléréalité,Séries US,Style de vie;True;1
+81459931;Qui ment ?;Séries dramatiques,Séries inspirées de livres,Séries pour ados,Séries d'intrigue,Séries US;True;1
+81460361;The Last Kingdom : Sept rois doivent mourir;Britannique,Films inspirés de livres,Films d'époque,Films d'action;True;2
+81462121;Dubai Bling;Séries du Moyen-Orient,Émirati,Téléréalité,Style de vie;True;1
+81463556;Love to Hate You;Coréen,Séries comiques,Séries comiques romantiques;True;1
+81466159;Madoff : Le monstre de la finance;Séries inspirées de livres,Séries documentaires,Séries US,Documentaires inspirés de crimes réels;True;1
+81467328;Kev Adams : Le vrai moi;Français,Stand-up;True;1
+81470327;BattleBots;Séries pour la famille à voir ensemble,Téléréalité avec concours,Émissions sciences et nature,Téléréalité,Séries US;False;3
+81470399;Panayotis Pascot : Presque;Français,Stand-up;True;1
+81470527;Emma;Suédois,Films documentaires;False;1
+81471052;Trädgårdsgatan;Suédois,Drames,Films indépendants,Films romantiques;False;1
+81471055;Academia de gladiadores la película;Pour enfants,Films pour la famille,Séries pour la famille à voir ensemble,Films jeunesse et famille,Espagnol;False;1
+81471059;Gone;Suédois,Thrillers;False;1
+81471153;Prostitution bag sløret;Suédois,Films documentaires;False;1
+81471280;Operation Ragnarok;Suédois,Films d'horreur,Films d'action;False;1
+81471403;Min Mamma Är En Persisk Prinsessa;Suédois,Films documentaires;False;1
+81471856;Braves;Taïwanais,Séries comiques,Séries d'action et d'aventure,Séries chinoises,Séries inspirées de mangas;False;1
+81473355;The Nurse;Séries médicales,Danois,Séries inspirées de livres,Séries policières,Séries scandinaves;True;2
+81475311;Tous en scène 2;Films pour la famille,Films jeunesse et famille,Grandir en musique,Comédies,Films d'animation;False;3
+81476183;La Reine Charlotte : Un chapitre Bridgerton;Séries dramatiques romantiques,Séries dramatiques,Films d'époque,Séries US;True;7
+81476441;L'Amant de Lady Chatterley;Drames,Films romantiques,Films inspirés de livres,Films d'époque,Drames sociaux;True;1
+81478080;Entrevías;Séries dramatiques,Espagnol;True;1
+81478629;Glamour Girls;Nollywood,Drames,Films africains;False;1
+81478985;Kill Bok-soon;Coréen,Films d'action;True;1
+81480322;Outlast : Au bout de nous-mêmes;Téléréalité avec concours,Téléréalité,Séries US;True;1
+81481477;Barracuda Queens;Séries dramatiques,Suédois,Séries scandinaves;True;2
+81482476;The Crowned Clown;Séries dramatiques romantiques,Séries dramatiques,Coréen,Films d'époque;False;1
+81483306;Tin & Tina;Espagnol,Films d'horreur,Thrillers;True;1
+81483353;Full Swing;Séries documentaires,Séries US;True;1
+81487753;Johanna Nordström: Ring Polisen;Suédois,Stand-up;True;1
+81488464;39-45 en couleur : Vers la victoire;Séries politiques,Britannique,Documentaires historiques,Documentaires politiques,Documentaires sur l'armée;True;1
+81495803;El silencio;Espagnol,Séries d'intrigue,Thrillers TV;True;2
+81497817;Perfect Match;Téléréalité avec concours,Téléréalité,Séries US;True;3
+81503026;Queenmaker;Séries politiques,Séries dramatiques,Coréen;True;3
+81503460;Tomorrow;Coréen,Dramas coréens inspirés de webtoons,Séries fantastiques;True;1
+81504698;Green Snake;Films d'animation,Films chinois,Films d'action;True;1
+81505384;Collector : Et Goldin touche le pactole;Téléréalité,Séries US;True;1
+81508378;Mrs. Chatterjee vs Norway;Indien,Films en hindi,Films de Bollywood,Drames;False;1
+81509440;Business Proposal;Coréen,Séries comiques,Séries comiques romantiques;True;3
+81517168;Twenty Five Twenty One;Séries dramatiques romantiques,Séries dramatiques,Coréen;True;3
+81517188;Alchemy of Souls;Coréen,Séries comiques,Films d'époque,Séries comiques romantiques,Séries fantastiques;True;3
+81518991;Extraordinary Attorney Woo;Séries dramatiques,Séries judiciaires,Coréen,Séries dramatiques sociales;True;4
+81519223;The Glory;Séries dramatiques,Coréen;True;9
+81521365;Love Village;Japonais,Téléréalité romance et mariage,Téléréalité;True;1
+81552562;The Penthouse: War in Life;Coréen,Séries d'intrigue,Thrillers TV;False;2
+81552615;Taxi Driver;Coréen,Séries d'action et d'aventure,Dramas coréens inspirés de webtoons,Thrillers TV;False;2
+81555635;One More Time;Suédois,Comédies romantiques,Drames,Comédies,Films romantiques;True;2
+81556894;Missing: The Other Side;Coréen,Séries d'intrigue,Thrillers TV,Séries fantastiques;False;2
+81562501;La Belle de Jérusalem;Séries politiques,Séries dramatiques,Israélien,Séries inspirées de livres,Séries dramatiques sociales;True;1
+81564749;Les Combattantes;Français,Séries dramatiques,Films d'époque,Séries dramatiques sociales;False;3
+81567663;Beyblade Burst Surge;Pour enfants,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;3
+81569920;Break Point;Séries documentaires,Séries US;True;4
+81576597;AKA;Français,Films policiers,Policiers d'action,Films d'action;True;3
+81577050;À sa façon;Turc,Comédies romantiques,Drames,Films comiques,Films romantiques;True;4
+81580024;Ils ne pensent vraiment qu'à ça;Allemand,Films comiques,Films pour ados,Films comiques allemands;True;2
+81580045;A Beautiful Life;Musique,Danois,Drames,Films romantiques;True;1
+81580584;Sortie de piste;Suédois,Drames,Comédies;True;1
+81580822;Attentat de Boston : Le marathon et la traque;Documentaires historiques,Séries policières,Séries documentaires,Séries US,Documentaires inspirés de crimes réels;True;2
+81581068;Mixed by Erry;Italien,Drames,Comédies,Films inspirés de faits réels;True;1
+81582615;Medieval;Tchèque,Films sur l'armée,Films d'époque,Films inspirés de faits réels,Films d'action;False;3
+81585959;Fleur d'Alep;Films du Moyen-Orient,Drames,Drames sociaux,Films africains;False;1
+81587446;100 % physique !;Coréen,Téléréalité avec concours,Téléréalité;True;2
+81589565;Minions et compagnie : La compil' nº 2;Films pour la famille,Films jeunesse et famille,Comédies,Films d'animation;False;1
+81590491;Le Tailleur;Séries dramatiques,Turc;True;3
+81591290;Diorama;Suédois,Drames,Films romantiques;True;1
+81598495;Ultimatum : Queer Love;Téléréalité,Séries US;True;4
+81605060;Pokémon : Les chroniques d'Arceus;Films jeunesse et famille,Japonais,Anime inspiré d'un jeu vidéo,Films d'animation,Films d'animation japonaise;True;1
+81607651;Barbie Mermaid Power;Films jeunesse et famille,Films d'animation;False;1
+81608298;Laëtitia;Français,Séries dramatiques,Séries inspirées de livres,Séries d'intrigue,Séries policières;False;1
+81608308;L'Absente;Français,Séries dramatiques,Séries d'intrigue,Séries policières;False;4
+81608340;Maman a tort;Français,Séries inspirées de livres,Séries d'intrigue,Séries policières,Thrillers TV;False;1
+81609154;Young Lady and Gentleman;Coréen,Séries comiques,Séries comiques romantiques;False;1
+81610240;Le Tueur au jeu de cartes;Espagnol,Séries policières,Séries documentaires,Documentaires inspirés de crimes réels;True;2
+81610893;Under the Queen's Umbrella;Séries dramatiques,Coréen,Films d'époque;True;1
+81612863;Vortex;Français,Séries SF,Séries policières,Thrillers TV;False;7
+81616116;Les Sisters;Pour enfants,Séries pour la famille à voir ensemble,Séries comiques,Dessins animés,Séries inspirées de B.D.;False;5
+81623351;Tout pour être heureux;Français,Drames,Comédies,Films inspirés de livres;False;2
+81623358;Tamara;Français,Comédies romantiques,Comédies,Films romantiques,Films pour ados;False;1
+81623713;Ghodwa;Films du Moyen-Orient,Drames,Films indépendants,Drames sociaux,Films africains;False;1
+81625058;Pep's;Français,Sitcoms,Séries comiques;False;1
+81631016;Sirène : L'île aux survivantes;Coréen,Téléréalité avec concours,Téléréalité;True;2
+81637392;Le Monde de Little Angel;Pour enfants,Grandir en musique,Éducatif jeunesse,Dessins animés;False;3
+81642952;Ikebukuro West Gate Park;Japonais,Séries inspirées de livres,Séries d'intrigue,Séries d'action et d'aventure;False;1
+81642967;Tiger and Dragon;Japonais,Séries comiques;False;1
+81648185;No Doubt in Us;Anime SF et fantastique,Anime romantique,Séries d'animation japonaise,Séries chinoises;False;1
+81649877;L'Amour au rattrapage;Coréen,Séries comiques,Séries comiques romantiques;True;1
+81654760;Nora Hamzawi;Français,Stand-up;False;1
+81662953;Ce monde ne m'aura pas;Séries politiques,Italien,Séries comiques,Séries inspirées de B.D.;True;1
+81663276;Faut pas lui dire;Français,Comédies romantiques,Comédies,Films romantiques;False;2
+81663277;Mission Pays Basque;Français,Comédies romantiques,Comédies,Films romantiques;False;3
+81669775;Une mauvaise mère ?;Coréen,Séries comiques;True;4
+81670673;Beyblade Burst QuadDrive;Pour enfants,Anime d'action,Japonais,Séries d'animation japonaise,Séries inspirées de mangas;False;3
+81672245;Agency;Séries dramatiques,Coréen,Séries dramatiques sociales;False;1
+81682438;Doctor Cha;Séries médicales,Séries dramatiques,Coréen;True;4
