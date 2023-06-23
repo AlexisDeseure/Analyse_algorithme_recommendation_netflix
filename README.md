@@ -1,4 +1,4 @@
-# Projet_IC05_Analyse_algorithme_recommendation_netflix
+# Projet IC05 : Analyse de l'algorithme de recommendation de netflix
 
 Ce dépôt contient les fichiers de scripts et de résultats obtenus dans le cadre d'un projet réalisé pour l'UV IC05 intitulée "Analyse critique des données
 numériques" à l'UTC.
