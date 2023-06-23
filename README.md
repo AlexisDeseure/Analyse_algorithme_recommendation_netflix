@@ -13,7 +13,7 @@ Vous trouverez dans ce dépôt trois dossier dont le détail de leur contenu est
 ## Analyse et représentations
 
 Ce dossier contient :
-* un rapport détaillé de notre projet : notre méthode utilisée, nos résultats obtenus et leur interprétation
+* un rapport détaillé de notre projet : notre méthode utilisée, les résultats obtenus et leur interprétation
 * le fichier source de la représentation des données sur Gephi (en .gephi)
 * les exportations des différents graphes obtenus que nous avons exploités dans l'analyse
 
