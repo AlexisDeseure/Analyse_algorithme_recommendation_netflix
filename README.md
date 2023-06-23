@@ -24,8 +24,8 @@ Vous trouverez, pour chacun des trois profils de notre expérience, les bases de
 ## Sources
 
 Ce dossier contient :
-* le scripts python permettant de lancer le scrapping en 2 étapes d'un profil type
-* le script python permettant de convertir le fichier du scrapping obtenu en 2 fichiers csv exploitables sur Gephi
+1. le scripts python permettant de lancer le scrapping en 2 étapes d'un profil type
+2. le script python permettant de convertir le fichier du scrapping obtenu, en 2 fichiers .csv exploitables sur Gephi
 
 Pour le programme destiné au scrapping, notez qu'il vous faudra au préalable :
 * un compte premium Netflix fonctionnel
