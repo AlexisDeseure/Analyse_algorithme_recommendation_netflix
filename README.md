@@ -32,9 +32,9 @@ Pour le programme destiné au scrapping, notez qu'il vous faudra au préalable :
 * cloner le dépôt github sur votre machine en utilisant le lien associé
 * créer un fichier "variables_de_connexion.env" dans le répertoire courant du script python, dans lequel il faudra écrire précisément (en remplaçant par les bonnes valeurs) :
 
-MOT_DE_PASSE=votre_mot_de_passe_netflix
-IDENTIFIANT=votre_identifiant_netflix
-TOKEN=le_token_associée_au_profil_test
+MOT_DE_PASSE=votre_mot_de_passe_netflix<br>
+IDENTIFIANT=votre_identifiant_netflix<br>
+TOKEN=le_token_associée_au_profil_test<br>
 
 Pour exemple, on trouve le token comme sur la photo ci-dessous : 
 
@@ -44,12 +44,12 @@ Pour exemple, on trouve le token comme sur la photo ci-dessous :
 
 Pour ce point, il vous faudra python installé sur votre machine et il suffira de copier coller et d'exécuter le script ci-dessous dans votre terminal pour installer les modules :
 
-pip install selenium
-pip install BeautifulSoup4
-pip install pandas
-pip install python-dotenv
-pip install opencv-python
-pip install numpy
+pip install selenium<br>
+pip install BeautifulSoup4<br>
+pip install pandas<br>
+pip install python-dotenv<br>
+pip install opencv-python<br>
+pip install numpy<br>
 pip install requests
 
 * changer la valeur du paramètre "objectif" de l'appel de la fonction "parcourt_titres_informations" dans la foncion "main" du fichier "netflix_scrapping.py" pour switcher entre les actions du profil témoin/"fan"/"hostile"
