@@ -1,4 +1,4 @@
-## Projet_IC05_Analyse_algorithme_recommendation_netflix
+# Projet_IC05_Analyse_algorithme_recommendation_netflix
 
 Ce dépôt contient les fichiers de scripts et de résultats obtenus dans le cadre d'un projet réalisé pour l'UV IC05 intitulée "Analyse critique des données
 numériques" à l'UTC.
@@ -10,18 +10,18 @@ Notre étude s'est articulée autour de l'algorithme de recommendations de Netfl
 
 Vous trouverez dans ce dépôt trois dossier dont le détail de leur contenu est décrit ci-dessous.
 
-# Analyse et représentations
+## Analyse et représentations
 
 Ce dossier contient :
 * un rapport détaillé de notre projet : notre méthode utilisée, nos résultats obtenus et leur interprétation
 * le fichier source de la représentation des données sur Gephi (en .gephi)
 * les exportations des différents graphes obtenus que nous avons exploités dans l'analyse
 
-# Bases_csv_finales
+## Bases_csv_finales
 
 Vous trouverez, pour chacun des trois profils de notre expérience, les bases de données dans le format csv obtenues après le scrappping ainsi que celles adaptées pour une exploitation sur le logiciel Gephi.
 
-# Sources
+## Sources
 
 Ce dossier contient :
 * le scripts python permettant de lancer le scrapping en 2 étapes d'un profil type
