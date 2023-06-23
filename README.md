@@ -50,6 +50,6 @@ pip install pandas<br>
 pip install python-dotenv<br>
 pip install opencv-python<br>
 pip install numpy<br>
-pip install requests
+pip install requests<br>
 
 * changer la valeur du paramètre "objectif" de l'appel de la fonction "parcourt_titres_informations" dans la foncion "main" du fichier "netflix_scrapping.py" pour switcher entre les actions du profil témoin/"fan"/"hostile"
