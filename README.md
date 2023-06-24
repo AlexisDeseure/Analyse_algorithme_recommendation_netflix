@@ -30,7 +30,7 @@ Ce dossier contient :
 Pour le programme destiné au scrapping, notez qu'il vous faudra au préalable :
 * un compte premium Netflix fonctionnel
 * cloner le dépôt Github sur votre machine en utilisant le lien associé
-* créer un fichier "variables_de_connexion.env" dans le répertoire courant du script python, dans lequel il faudra écrire précisément (en remplaçant par les bonnes valeurs) :
+* créer un fichier "variables_de_connexion.env" dans le répertoire courant du script python ou à la racine de votre projet, dans lequel il faudra écrire précisément (en remplaçant par les bonnes valeurs) :
 
 MOT_DE_PASSE=votre_mot_de_passe_netflix<br>
 IDENTIFIANT=votre_identifiant_netflix<br>
