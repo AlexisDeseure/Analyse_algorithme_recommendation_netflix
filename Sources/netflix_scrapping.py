@@ -411,10 +411,10 @@ def main():
         driver = authentification_netflix()
         print("Authentification réussie\n")
         print("Récupération des catégories en cours...")
-        # recuperer_liste_ligne(driver)
+        recuperer_liste_ligne(driver)
         print("Catégories récupérées\n")
         print("Récupération des titres en cours...")
-        # recuperer_tous_titres(driver)
+        recuperer_tous_titres(driver)
         print("Titres récupérés\n")
         print("Récupération des informations en cours...")
         driver = parcourt_titres_informations(driver, objectif = None) # None pour témoin sinon changer par "like" ou "dislike"
