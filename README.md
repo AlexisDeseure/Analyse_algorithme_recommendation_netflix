@@ -1,3 +1,5 @@
+Alexis Deseure, Abdallah Tafraoui, Célian Martin
+
 # Projet IC05 : Analyse de l'algorithme de recommandation de Netflix
 
 Ce dépôt contient les fichiers de scripts et de résultats obtenus dans le cadre d'un projet réalisé pour l'UV IC05 intitulée "Analyse critique des données
