@@ -1,0 +1,7 @@
+selenium
+BeautifulSoup4
+pandas
+python-dotenv
+opencv-python
+numpy
+requests
