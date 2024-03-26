@@ -46,12 +46,6 @@ Pour exemple, on trouve le token comme sur la photo ci-dessous :
 
 Pour ce point, il vous faudra python installé sur votre machine et il suffira de copier coller et d'exécuter le script ci-dessous dans votre terminal pour installer les modules :
 
-pip install selenium<br>
-pip install BeautifulSoup4<br>
-pip install pandas<br>
-pip install python-dotenv<br>
-pip install opencv-python<br>
-pip install numpy<br>
-pip install requests<br>
+pip install -r requirements.txt
 
 * changer la valeur du paramètre "objectif" de l'appel de la fonction "parcourt_titres_informations" dans la fonction "main" du fichier "netflix_scrapping.py" pour intervertir les actions et correspondre au profil témoin/"fan"/"hostile"
